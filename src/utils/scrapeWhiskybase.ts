@@ -7,18 +7,19 @@ export type ScrapedBottle = {
   metaValue: string;
 };
 
-const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+const WORKER_URL = 'https://tharsis.me-b56.workers.dev';
 
 export const scrapeWhiskybase = async (url: string): Promise<ScrapedBottle> => {
-  const res = await fetch(`${CORS_PROXY}${encodeURIComponent(url)}`);
+  const res = await fetch(`${WORKER_URL}?url=${encodeURIComponent(url)}`);
   if (!res.ok) throw new Error('Failed to fetch whiskybase page');
 
   const html = await res.text();
   const doc = new DOMParser().parseFromString(html, 'text/html');
 
-  const brand = doc.querySelector('h1 span[itemprop="name"]')?.textContent?.trim()
-    ?? doc.querySelector('h1')?.textContent?.trim()
-    ?? '';
+  const brand =
+    doc.querySelector('h1 span[itemprop="name"]')?.textContent?.trim() ??
+    doc.querySelector('h1')?.textContent?.trim() ??
+    '';
 
   const title = doc.querySelector('title')?.textContent?.trim() ?? '';
 
@@ -50,15 +51,15 @@ export const scrapeWhiskybase = async (url: string): Promise<ScrapedBottle> => {
     }
   });
 
-  const abv = details['strength'] ?? details['abv'] ?? details['alcohol']
-    ?? extractAbv(html) ?? '';
+  const abv = details['strength'] ?? details['abv'] ?? details['alcohol'] ?? extractAbv(html) ?? '';
 
   const ageStr = details['age'] ?? details['stated age'] ?? '';
   const metaValue = ageStr.replace(/[^\d.]/g, '') || 'NAS';
 
-  const description = doc.querySelector('meta[name="description"]')?.getAttribute('content')
-    ?? doc.querySelector('meta[property="og:description"]')?.getAttribute('content')
-    ?? '';
+  const description =
+    doc.querySelector('meta[name="description"]')?.getAttribute('content') ??
+    doc.querySelector('meta[property="og:description"]')?.getAttribute('content') ??
+    '';
 
   return {
     brand,
@@ -71,7 +72,8 @@ export const scrapeWhiskybase = async (url: string): Promise<ScrapedBottle> => {
 };
 
 const extractAbv = (html: string): string | null => {
-  const match = html.match(/(\d{2,3}\.?\d*)\s*%\s*(?:vol|abv)/i)
-    ?? html.match(/(?:strength|abv)[^>]*>\s*(\d{2,3}\.?\d*)\s*%/i);
+  const match =
+    html.match(/(\d{2,3}\.?\d*)\s*%\s*(?:vol|abv)/i) ??
+    html.match(/(?:strength|abv)[^>]*>\s*(\d{2,3}\.?\d*)\s*%/i);
   return match?.[1] ?? null;
 };

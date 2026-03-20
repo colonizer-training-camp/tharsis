@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { LABEL_BASE_H, LABEL_BASE_W } from "../constants/label";
-import type { BottleData } from "../routes/print/bottle/-types";
-import { BLACK } from "../styles/colors";
-import BottleLabelCard from "./BottleLabelCard";
+import styled from '@emotion/styled';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { LABEL_BASE_H, LABEL_BASE_W } from '../constants/label';
+import type { BottleData } from '../routes/print/bottle/-types';
+import { BLACK } from '../styles/colors';
+import BottleLabelCard from './BottleLabelCard';
 
 const SCALE = 1.5;
 const CARD_W = LABEL_BASE_W * SCALE;
@@ -13,7 +13,7 @@ const GAP = 16;
 const SLOT = CARD_W + GAP;
 const REPS = 20;
 
-export type CarouselMode = "arrows" | "reroll";
+export type CarouselMode = 'arrows' | 'reroll';
 
 type BottleCarouselProps = {
   bottles: BottleData[];
@@ -25,7 +25,7 @@ type BottleCarouselProps = {
 const BottleCarousel = ({
   bottles,
   labeledAt,
-  mode = "arrows",
+  mode = 'arrows',
   initialRandom = false,
 }: BottleCarouselProps) => {
   const getInitialPos = useCallback(
@@ -37,7 +37,7 @@ const BottleCarousel = ({
   );
 
   const [posIdx, setPosIdx] = useState(() => getInitialPos(bottles.length));
-  const [transition, setTransition] = useState("none");
+  const [transition, setTransition] = useState('none');
 
   const prevLenRef = useRef(bottles.length);
   useEffect(() => {
@@ -47,10 +47,10 @@ const BottleCarousel = ({
     prevLenRef.current = bottles.length;
   }, [bottles.length, getInitialPos]);
 
-  const isAnimating = transition !== "none";
+  const isAnimating = transition !== 'none';
 
   const handleTransitionEnd = useCallback(() => {
-    setTransition("none");
+    setTransition('none');
     setPosIdx((prev) => {
       if (bottles.length === 0) return prev;
       const middleBase = bottles.length * Math.floor(REPS / 2);
@@ -61,7 +61,7 @@ const BottleCarousel = ({
   const move = useCallback(
     (direction: -1 | 1) => {
       if (bottles.length === 0 || isAnimating) return;
-      setTransition("transform 0.4s ease");
+      setTransition('transform 0.4s ease');
       setPosIdx((prev) => prev + direction);
     },
     [bottles.length, isAnimating],
@@ -75,7 +75,7 @@ const BottleCarousel = ({
     if (distance < 0) distance += bottles.length;
     if (distance < Math.floor(bottles.length / 2)) distance += bottles.length;
     const advance = bottles.length * 3 + distance;
-    setTransition("transform 4s cubic-bezier(0.05, 0.5, 0.0, 1)");
+    setTransition('transform 4s cubic-bezier(0.05, 0.5, 0.0, 1)');
     setPosIdx((prev) => prev + advance);
   }, [bottles, posIdx, isAnimating]);
 
@@ -88,12 +88,12 @@ const BottleCarousel = ({
   return (
     <Wrapper>
       <CarouselRow>
-        {mode === "arrows" && (
+        {mode === 'arrows' && (
           <ArrowButton onClick={() => move(-1)} disabled={isAnimating}>
             <IconChevronLeft size={24} />
           </ArrowButton>
         )}
-        <CarouselViewport $hasArrows={mode === "arrows"}>
+        <CarouselViewport $hasArrows={mode === 'arrows'}>
           <Track
             style={{
               transform: `translateX(${translateX}px)`,
@@ -102,27 +102,30 @@ const BottleCarousel = ({
             onTransitionEnd={handleTransitionEnd}
           >
             {extended.map((bottle, i) => (
-              <CardWrapper key={i} $dimmed={mode === "reroll" ? !isAnimating && i !== posIdx : i !== posIdx}>
+              <CardWrapper
+                key={i}
+                $dimmed={mode === 'reroll' ? !isAnimating && i !== posIdx : i !== posIdx}
+              >
                 <BottleLabelCard bottle={{ ...bottle, labeledAt }} />
               </CardWrapper>
             ))}
           </Track>
         </CarouselViewport>
-        {mode === "arrows" && (
+        {mode === 'arrows' && (
           <ArrowButton onClick={() => move(1)} disabled={isAnimating}>
             <IconChevronRight size={24} />
           </ArrowButton>
         )}
       </CarouselRow>
-      {mode === "arrows" && bottles.length > 0 && (
+      {mode === 'arrows' && bottles.length > 0 && (
         <Counter>
           {(posIdx % bottles.length) + 1} / {bottles.length}
         </Counter>
       )}
-      {mode === "reroll" && (
+      {mode === 'reroll' && (
         <Center>
           <RerollButton onClick={reroll} disabled={isAnimating}>
-            {"> RE-ROLL"}
+            {'> RE-ROLL'}
           </RerollButton>
         </Center>
       )}
@@ -159,7 +162,7 @@ const ArrowButton = styled.button`
 const CarouselViewport = styled.div<{ $hasArrows: boolean }>`
   position: relative;
   overflow: hidden;
-  ${({ $hasArrows }) => ($hasArrows ? "flex: 1;" : "width: 100%;")}
+  ${({ $hasArrows }) => ($hasArrows ? 'flex: 1;' : 'width: 100%;')}
   height: ${CARD_H + 20}px;
 `;
 
@@ -174,7 +177,6 @@ const Track = styled.div`
 const CardWrapper = styled.div<{ $dimmed: boolean }>`
   flex-shrink: 0;
   opacity: ${({ $dimmed }) => ($dimmed ? 0.3 : 1)};
-  transition: opacity 0.3s ease;
 `;
 
 const Counter = styled.div`

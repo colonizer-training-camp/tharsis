@@ -5,6 +5,7 @@ export type BottleData = {
   abv: string;
   meta: string;
   metaValue: string;
+  whiskybase?: string;
 };
 
 export type Bottle = BottleData & {

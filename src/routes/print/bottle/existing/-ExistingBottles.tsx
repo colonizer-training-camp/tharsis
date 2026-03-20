@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { useMemo, useState } from 'react';
+import { BlobProvider } from '@react-pdf/renderer';
+import { useCallback, useMemo, useState } from 'react';
 
+import BottleLabelCard from '@/components/BottleLabelCard';
 import LayoutPanel from '@/components/LayoutPanel';
 import { useBottles } from '@/hooks/useBottles';
 import {
@@ -10,7 +12,7 @@ import {
   SearchbarContainer,
   TextInput,
 } from '@/routes/print/-styledComponents';
-import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
+import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
 import { BLACK } from '@/styles/colors';
 import { getToday } from '@/utils/date';
 
@@ -63,6 +65,22 @@ const Divider = styled.div`
   background-color: ${BLACK};
 `;
 
+const PreviewColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+`;
+
+const PrintButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 0;
+`;
+
 const ExistingBottles = () => {
   const bottles = useBottles();
   const [search, setSearch] = useState('');
@@ -70,6 +88,7 @@ const ExistingBottles = () => {
   const [labeledAt, setLabeledAt] = useState(getToday);
 
   const selected = bottles.length > 0 ? bottles[selectedIdx] : null;
+  const bottle = selected ? { ...selected, labeledAt } : null;
 
   const filtered = useMemo(() => {
     if (!search) return bottles;
@@ -81,6 +100,14 @@ const ExistingBottles = () => {
         b.description?.toLowerCase().includes(q),
     );
   }, [bottles, search]);
+
+  const handlePrint = useCallback((url: string | null) => {
+    if (!url) return;
+    const w = window.open(url, '_blank');
+    if (w) {
+      w.addEventListener('load', () => w.print());
+    }
+  }, []);
 
   return (
     <LayoutPanel>
@@ -97,14 +124,14 @@ const ExistingBottles = () => {
           </Field>
           <Divider />
           <BottleList>
-            {filtered.map((bottle) => (
+            {filtered.map((b) => (
               <BottleItem
-                key={`${bottle.brand}_${bottle.name}`}
-                $active={selected === bottle}
-                onClick={() => setSelectedIdx(bottles.indexOf(bottle))}
+                key={`${b.brand}_${b.name}`}
+                $active={selected === b}
+                onClick={() => setSelectedIdx(bottles.indexOf(b))}
               >
-                <BottleBrand>{bottle.brand}</BottleBrand>
-                <BottleName>{bottle.name}</BottleName>
+                <BottleBrand>{b.brand}</BottleBrand>
+                <BottleName>{b.name}</BottleName>
               </BottleItem>
             ))}
             {filtered.length === 0 && <EmptyText>NO RESULTS</EmptyText>}
@@ -121,7 +148,16 @@ const ExistingBottles = () => {
           </Field>
         </ListContainer>
         <PreviewContainer>
-          {selected && <BottleLabelPreview bottle={{ ...selected, labeledAt }} />}
+          {bottle && (
+            <PreviewColumn>
+              <BottleLabelCard bottle={bottle} />
+              <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
+                {({ url }) => (
+                  <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
+                )}
+              </BlobProvider>
+            </PreviewColumn>
+          )}
         </PreviewContainer>
       </FieldWithPreviewConatiner>
     </LayoutPanel>

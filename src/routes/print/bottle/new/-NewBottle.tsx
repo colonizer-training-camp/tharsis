@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import styled from '@emotion/styled';
+import { BlobProvider } from '@react-pdf/renderer';
+import { useCallback, useState } from 'react';
 
+import BottleLabelCard from '@/components/BottleLabelCard';
 import LayoutPanel from '@/components/LayoutPanel';
-import { getToday } from '@/utils/date';
 import {
   Field,
   FieldConatiner,
@@ -10,7 +12,8 @@ import {
   TextFieldInput,
   TextInput,
 } from '@/routes/print/-styledComponents';
-import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
+import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
+import { getToday } from '@/utils/date';
 
 const NewBottle = () => {
   const now = getToday();
@@ -22,6 +25,16 @@ const NewBottle = () => {
   const [abv, setAbv] = useState('');
   const [meta, setMeta] = useState('YRS');
   const [metaValue, setMetaValue] = useState('');
+
+  const bottle = { brand, name, description, labeledAt, abv, meta, metaValue };
+
+  const handlePrint = useCallback((url: string | null) => {
+    if (!url) return;
+    const w = window.open(url, '_blank');
+    if (w) {
+      w.addEventListener('load', () => w.print());
+    }
+  }, []);
 
   return (
     <LayoutPanel>
@@ -91,9 +104,16 @@ const NewBottle = () => {
           </Field>
         </FieldConatiner>
         <PreviewContainer>
-          <BottleLabelPreview
-            bottle={{ brand, name, description, labeledAt, abv, meta, metaValue }}
-          />
+          <PreviewColumn>
+            <BottleLabelCard bottle={bottle} />
+            <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
+              {({ url }) => (
+                <PrintButton onClick={() => handlePrint(url)}>
+                  {'> PRINT LABEL'}
+                </PrintButton>
+              )}
+            </BlobProvider>
+          </PreviewColumn>
         </PreviewContainer>
       </FieldWithPreviewConatiner>
     </LayoutPanel>
@@ -101,3 +121,19 @@ const NewBottle = () => {
 };
 
 export default NewBottle;
+
+const PreviewColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+`;
+
+const PrintButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 0;
+`;

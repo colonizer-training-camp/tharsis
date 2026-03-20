@@ -78,6 +78,7 @@ const Face = styled.div`
   flex-direction: column;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
+  line-height: 1.15;
 `;
 
 const Front = styled(Face)`
@@ -118,7 +119,6 @@ const Brand = styled.div`
 const Name = styled.div`
   font-size: ${10 * SCALE}px;
   margin-top: ${4 * SCALE}px;
-  ${Ellipsis}
 `;
 
 const Description = styled.div`
@@ -171,6 +171,7 @@ const BottomLabel = styled.div`
 
 const BottomValue = styled.div`
   font-size: ${10 * SCALE}px;
+  line-height: 1;
 `;
 
 const WhiskybaseLink = styled.a`

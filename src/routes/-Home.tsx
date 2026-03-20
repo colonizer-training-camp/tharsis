@@ -1,6 +1,6 @@
-import { Fragment } from 'react/jsx-runtime';
 import styled from '@emotion/styled';
 import { Link } from '@tanstack/react-router';
+import { Fragment } from 'react/jsx-runtime';
 
 import BottleCarousel from '@/components/BottleCarousel';
 import LayoutPanel from '@/components/LayoutPanel';
@@ -22,11 +22,19 @@ const MenuLink = styled(Link)<{ $depth: number }>`
   text-decoration: none;
   cursor: pointer;
   margin-left: ${(props) => (props.$depth - 1) * 24}px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
 `;
 
 const MenuText = styled.div<{ $depth: number }>`
   color: ${BLACK};
   margin-left: ${(props) => (props.$depth - 1) * 24}px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
 `;
 
 const MenuDottedLine = styled.div`

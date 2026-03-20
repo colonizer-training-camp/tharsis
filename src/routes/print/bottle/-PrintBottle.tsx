@@ -18,30 +18,78 @@ import {
 import LayoutPanel from "../../../components/LayoutPanel";
 
 const pdfStyles = StyleSheet.create({
+  page: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+  },
   container: {
-    padding: 8,
+    width: 96,
+    height: 132,
     display: "flex",
     flexDirection: "column",
+    fontFamily: "Helvetica-Bold",
+  },
+  header: {
+    backgroundColor: "#000000",
+    color: "#ffffff",
+    fontSize: 5,
+    padding: "2 4",
+  },
+  body: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    flex: 1,
+    padding: 2,
   },
   brand: {
     fontSize: 8,
-    textTransform: "uppercase",
+    marginTop: 6,
   },
   name: {
-    fontSize: 14,
-    fontWeight: "bold",
-  },
-  description: {
-    fontSize: 7,
-    marginTop: 2,
-  },
-  row: {
-    display: "flex",
-    flexDirection: "row",
+    fontSize: 10,
     marginTop: 4,
   },
-  detail: {
-    fontSize: 8,
+  description: {
+    fontSize: 6,
+    marginTop: 4,
+  },
+  labeledSection: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
+    marginTop: "2",
+  },
+  labeledLabel: {
+    fontSize: 5,
+  },
+  labeledDate: {
+    fontSize: 6,
+    backgroundColor: "#000000",
+    color: "#ffffff",
+    padding: "1 3",
+    marginTop: 1,
+  },
+  separator: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#000000",
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  bottomSection: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  bottomColumn: {
+    flex: 1,
+  },
+  bottomLabel: {
+    fontSize: 5,
+  },
+  bottomValue: {
+    fontSize: 10,
   },
 });
 
@@ -127,18 +175,31 @@ const PrintBottle = () => {
           <PDFViewer style={{ width: "320px", height: "280px" }}>
             <Document title={`${brand}_${name}_${labeledAt}`}>
               <DefaultLabelPdfPage>
-                <View style={pdfStyles.container}>
-                  <Text style={pdfStyles.brand}>{brand}</Text>
-                  <Text style={pdfStyles.name}>{name}</Text>
-                  <Text style={pdfStyles.description}>{description}</Text>
-                  <View style={pdfStyles.row}>
-                    <Text style={pdfStyles.detail}>{labeledAt}</Text>
-                    <Text style={pdfStyles.detail}>
-                      {abv ? `${abv}%` : ""}
+                <View style={pdfStyles.page}>
+                  <View style={pdfStyles.container}>
+                    <Text style={pdfStyles.header}>
+                      COLONIZER TRAINING CAMP
                     </Text>
-                    <Text style={pdfStyles.detail}>
-                      {metaValue ? `${metaValue} ${meta}` : ""}
-                    </Text>
+                    <View style={pdfStyles.body}>
+                      <Text style={pdfStyles.brand}>{brand}</Text>
+                      <Text style={pdfStyles.name}>{name}</Text>
+                      <Text style={pdfStyles.description}>{description}</Text>
+                      <View style={pdfStyles.labeledSection}>
+                        <Text style={pdfStyles.labeledLabel}>LABELED</Text>
+                        <Text style={pdfStyles.labeledDate}>{labeledAt}</Text>
+                      </View>
+                      <View style={pdfStyles.separator} />
+                      <View style={pdfStyles.bottomSection}>
+                        <View style={pdfStyles.bottomColumn}>
+                          <Text style={pdfStyles.bottomLabel}>%VOL</Text>
+                          <Text style={pdfStyles.bottomValue}>{abv}</Text>
+                        </View>
+                        <View style={pdfStyles.bottomColumn}>
+                          <Text style={pdfStyles.bottomLabel}>{meta}</Text>
+                          <Text style={pdfStyles.bottomValue}>{metaValue}</Text>
+                        </View>
+                      </View>
+                    </View>
                   </View>
                 </View>
               </DefaultLabelPdfPage>

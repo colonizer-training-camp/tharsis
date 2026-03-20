@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
-import emotionReset from "emotion-reset";
+import { css } from '@emotion/react';
+import emotionReset from 'emotion-reset';
 
 const gloablStyle = css`
   ${emotionReset}
@@ -22,7 +22,7 @@ const gloablStyle = css`
     box-sizing: border-box;
   }
   body {
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-weight: 700;
   }
   button {

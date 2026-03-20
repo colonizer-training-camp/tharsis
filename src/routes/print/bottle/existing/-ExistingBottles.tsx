@@ -1,16 +1,17 @@
-import styled from "@emotion/styled";
-import { useEffect, useMemo, useState } from "react";
-import BottleLabelPreview from "../-BottleLabelPreview";
-import type { BottleData } from "../-types";
+import { useEffect, useMemo, useState } from 'react';
+import styled from '@emotion/styled';
+
+import LayoutPanel from '@/components/LayoutPanel';
 import {
   Field,
   FieldWithPreviewConatiner,
   PreviewContainer,
   SearchbarContainer,
   TextInput,
-} from "../../-styledComponents";
-import LayoutPanel from "../../../../components/LayoutPanel";
-import { BLACK } from "../../../../styles/colors";
+} from '@/routes/print/-styledComponents';
+import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
+import type { BottleData } from '@/routes/print/bottle/-types';
+import { BLACK } from '@/styles/colors';
 
 const ListContainer = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ const BottleList = styled.div`
 
 const BottleItem = styled.div<{ $active: boolean }>`
   padding: 8px 12px;
-  border: 2px solid ${({ $active }) => ($active ? BLACK : "transparent")};
+  border: 2px solid ${({ $active }) => ($active ? BLACK : 'transparent')};
   cursor: pointer;
   font-size: 14px;
 
@@ -65,7 +66,7 @@ const ExistingBottles = () => {
   const now = new Date().toISOString().slice(2, 10);
 
   const [bottles, setBottles] = useState<BottleData[]>([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [selected, setSelected] = useState<BottleData | null>(null);
   const [labeledAt, setLabeledAt] = useState(now);
 
@@ -128,9 +129,7 @@ const ExistingBottles = () => {
           </Field>
         </ListContainer>
         <PreviewContainer>
-          {selected && (
-            <BottleLabelPreview bottle={{ ...selected, labeledAt }} />
-          )}
+          {selected && <BottleLabelPreview bottle={{ ...selected, labeledAt }} />}
         </PreviewContainer>
       </FieldWithPreviewConatiner>
     </LayoutPanel>

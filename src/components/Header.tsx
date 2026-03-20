@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
-import { Link } from "@tanstack/react-router";
-import { BLACK, WHITE } from "../styles/colors";
+import styled from '@emotion/styled';
+import { Link } from '@tanstack/react-router';
+
+import { BLACK, WHITE } from '@/styles/colors';
 
 const HeaderConatiner = styled.div`
   width: 100%;
@@ -25,7 +26,7 @@ const HomeText = styled(Link)`
   background-color: ${BLACK};
   color: ${WHITE};
   text-decoration: none;
-  font-family: "Helvetica Neue";
+  font-family: 'Helvetica Neue';
   font-weight: 700;
   font-size: 14px;
   padding: 8px 32px 8px 12px;

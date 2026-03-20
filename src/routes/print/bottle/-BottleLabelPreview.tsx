@@ -1,37 +1,33 @@
-import {
-  Document,
-  PDFViewer,
-  StyleSheet,
-  Text,
-  View,
-} from "@react-pdf/renderer";
-import DefaultLabelPdfPage from "../-DefaultLabelPdfPage";
-import type { Bottle } from "./-types";
+import { Document, PDFViewer, StyleSheet, Text, View } from '@react-pdf/renderer';
+
+import DefaultLabelPdfPage from '@/routes/print/-DefaultLabelPdfPage';
+
+import type { Bottle } from './-types';
 
 const pdfStyles = StyleSheet.create({
   page: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
   },
   container: {
     width: 96,
     height: 132,
-    display: "flex",
-    flexDirection: "column",
-    fontFamily: "Helvetica-Bold",
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: 'Helvetica-Bold',
   },
   header: {
-    backgroundColor: "#000000",
-    color: "#ffffff",
+    backgroundColor: '#000000',
+    color: '#ffffff',
     fontSize: 5,
-    padding: "2 4",
+    padding: '2 4',
   },
   body: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
     flex: 1,
     padding: 2,
   },
@@ -48,30 +44,30 @@ const pdfStyles = StyleSheet.create({
     marginTop: 4,
   },
   labeledSection: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-end",
-    marginTop: "2",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    marginTop: '2',
   },
   labeledLabel: {
     fontSize: 5,
   },
   labeledDate: {
     fontSize: 6,
-    backgroundColor: "#000000",
-    color: "#ffffff",
-    padding: "1 3",
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    padding: '1 3',
     marginTop: 1,
   },
   separator: {
     borderBottomWidth: 1,
-    borderBottomColor: "#000000",
+    borderBottomColor: '#000000',
     marginTop: 4,
     marginBottom: 4,
   },
   bottomSection: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
   },
   bottomColumn: {
     flex: 1,
@@ -88,7 +84,7 @@ const BottleLabelPreview = ({ bottle }: { bottle: Bottle }) => {
   const { brand, name, description, labeledAt, abv, meta, metaValue } = bottle;
 
   return (
-    <PDFViewer style={{ width: "320px", height: "280px" }}>
+    <PDFViewer style={{ width: '320px', height: '280px' }}>
       <Document title={`${brand}_${name}_${labeledAt}`}>
         <DefaultLabelPdfPage>
           <View style={pdfStyles.page}>

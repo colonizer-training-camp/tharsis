@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
-import { BLACK } from "../../styles/colors";
+import styled from '@emotion/styled';
+
+import { BLACK } from '@/styles/colors';
 
 export const FieldWithPreviewConatiner = styled.div`
   width: 100%;

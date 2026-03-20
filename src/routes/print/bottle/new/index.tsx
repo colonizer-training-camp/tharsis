@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import NewBottle from "./-NewBottle";
+import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute("/print/bottle/new/")({
+import NewBottle from './-NewBottle';
+
+export const Route = createFileRoute('/print/bottle/new/')({
   component: RouteComponent,
 });
 

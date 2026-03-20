@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
+
+import LayoutPanel from '@/components/LayoutPanel';
 import {
   Field,
   FieldConatiner,
@@ -6,20 +8,19 @@ import {
   PreviewContainer,
   TextFieldInput,
   TextInput,
-} from "../../-styledComponents";
-import LayoutPanel from "../../../../components/LayoutPanel";
-import BottleLabelPreview from "../-BottleLabelPreview";
+} from '@/routes/print/-styledComponents';
+import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
 
 const NewBottle = () => {
   const now = new Date().toISOString().slice(2, 10);
 
-  const [brand, setBrand] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [labeledAt, setLabeledAt] = useState(now);
-  const [abv, setAbv] = useState("");
-  const [meta, setMeta] = useState("YRS");
-  const [metaValue, setMetaValue] = useState("");
+  const [abv, setAbv] = useState('');
+  const [meta, setMeta] = useState('YRS');
+  const [metaValue, setMetaValue] = useState('');
 
   return (
     <LayoutPanel>

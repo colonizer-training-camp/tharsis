@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
-import { type PropsWithChildren } from "react";
-import { BLACK, WHITE } from "../styles/colors";
+import { type PropsWithChildren } from 'react';
+import styled from '@emotion/styled';
+
+import { BLACK, WHITE } from '@/styles/colors';
 
 const LayoutContainer = styled.div`
   position: relative;

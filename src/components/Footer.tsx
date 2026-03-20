@@ -1,9 +1,11 @@
-import styled from "@emotion/styled";
-import { IconBrandGithub } from "@tabler/icons-react";
-import { BLACK, WHITE } from "../styles/colors";
-import LayoutPanel from "./LayoutPanel";
-import Space from "./Space";
-import { BoldDivider } from "./styledComponents";
+import styled from '@emotion/styled';
+import { IconBrandGithub } from '@tabler/icons-react';
+
+import { BLACK, WHITE } from '@/styles/colors';
+
+import LayoutPanel from './LayoutPanel';
+import Space from './Space';
+import { BoldDivider } from './styledComponents';
 
 const Container = styled.div`
   width: 100%;
@@ -71,9 +73,8 @@ const Footer = () => {
         </ContactWrapper>
         <Space h={32} />
         <p>
-          본 프로젝트는 Colonizer Traning Camp 소유의 위스키 및 스피릿을
-          관리하기 위해 만들어진 프로젝트입니다. 사이트 내에 기재된 정보는 실제
-          정보와 다를 수 있음에 유의해주세요.
+          본 프로젝트는 Colonizer Traning Camp 소유의 위스키 및 스피릿을 관리하기 위해 만들어진
+          프로젝트입니다. 사이트 내에 기재된 정보는 실제 정보와 다를 수 있음에 유의해주세요.
         </p>
       </LayoutPanel>
     </Container>

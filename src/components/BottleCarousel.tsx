@@ -114,6 +114,11 @@ const BottleCarousel = ({
           </ArrowButton>
         )}
       </CarouselRow>
+      {mode === "arrows" && bottles.length > 0 && (
+        <Counter>
+          {(posIdx % bottles.length) + 1} / {bottles.length}
+        </Counter>
+      )}
       {mode === "reroll" && (
         <Center>
           <RerollButton onClick={reroll} disabled={isAnimating}>
@@ -170,6 +175,12 @@ const CardWrapper = styled.div<{ $dimmed: boolean }>`
   flex-shrink: 0;
   opacity: ${({ $dimmed }) => ($dimmed ? 0.3 : 1)};
   transition: opacity 0.3s ease;
+`;
+
+const Counter = styled.div`
+  text-align: center;
+  font-size: 12px;
+  margin-top: 8px;
 `;
 
 const Center = styled.div`

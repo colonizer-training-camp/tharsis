@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import LayoutPanel from '@/components/LayoutPanel';
+import { getToday } from '@/utils/date';
 import {
   Field,
   FieldConatiner,
@@ -12,7 +13,7 @@ import {
 import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
 
 const NewBottle = () => {
-  const now = new Date().toISOString().slice(2, 10);
+  const now = getToday();
 
   const [brand, setBrand] = useState('');
   const [name, setName] = useState('');

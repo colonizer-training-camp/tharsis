@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 
 import LayoutPanel from '@/components/LayoutPanel';
+import { useBottles } from '@/hooks/useBottles';
+import { getToday } from '@/utils/date';
 import {
   Field,
   FieldWithPreviewConatiner,
@@ -10,7 +12,6 @@ import {
   TextInput,
 } from '@/routes/print/-styledComponents';
 import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
-import type { BottleData } from '@/routes/print/bottle/-types';
 import { BLACK } from '@/styles/colors';
 
 const ListContainer = styled.div`
@@ -63,21 +64,12 @@ const Divider = styled.div`
 `;
 
 const ExistingBottles = () => {
-  const now = new Date().toISOString().slice(2, 10);
-
-  const [bottles, setBottles] = useState<BottleData[]>([]);
+  const bottles = useBottles();
   const [search, setSearch] = useState('');
-  const [selected, setSelected] = useState<BottleData | null>(null);
-  const [labeledAt, setLabeledAt] = useState(now);
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [labeledAt, setLabeledAt] = useState(getToday);
 
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}bottles.json`)
-      .then((res) => res.json())
-      .then((data: BottleData[]) => {
-        setBottles(data);
-        if (data.length > 0) setSelected(data[0]);
-      });
-  }, []);
+  const selected = bottles.length > 0 ? bottles[selectedIdx] : null;
 
   const filtered = useMemo(() => {
     if (!search) return bottles;
@@ -109,7 +101,7 @@ const ExistingBottles = () => {
               <BottleItem
                 key={`${bottle.brand}_${bottle.name}`}
                 $active={selected === bottle}
-                onClick={() => setSelected(bottle)}
+                onClick={() => setSelectedIdx(bottles.indexOf(bottle))}
               >
                 <BottleBrand>{bottle.brand}</BottleBrand>
                 <BottleName>{bottle.name}</BottleName>

@@ -1,5 +1,6 @@
 import { Document, PDFViewer, StyleSheet, Text, View } from '@react-pdf/renderer';
 
+import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from '@/constants/label';
 import DefaultLabelPdfPage from '@/routes/print/-DefaultLabelPdfPage';
 
 import type { Bottle } from './-types';
@@ -12,8 +13,8 @@ const pdfStyles = StyleSheet.create({
     height: '100%',
   },
   container: {
-    width: 96,
-    height: 132,
+    width: LABEL_BASE_W,
+    height: LABEL_BASE_H,
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'Helvetica-Bold',
@@ -89,7 +90,7 @@ const BottleLabelPreview = ({ bottle }: { bottle: Bottle }) => {
         <DefaultLabelPdfPage>
           <View style={pdfStyles.page}>
             <View style={pdfStyles.container}>
-              <Text style={pdfStyles.header}>COLONIZER TRAINING CAMP</Text>
+              <Text style={pdfStyles.header}>{LABEL_HEADER}</Text>
               <View style={pdfStyles.body}>
                 <Text style={pdfStyles.brand}>{brand}</Text>
                 <Text style={pdfStyles.name}>{name}</Text>

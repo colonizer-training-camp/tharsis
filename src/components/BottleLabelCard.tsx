@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import { BLACK, WHITE } from "../../styles/colors";
-import type { Bottle } from "../print/bottle/-types";
+import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from "../constants/label";
+import type { Bottle } from "../routes/print/bottle/-types";
+import { BLACK, WHITE } from "../styles/colors";
 
 const SCALE = 1.5;
 
@@ -9,7 +10,7 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
 
   return (
     <Container>
-      <Header>COLONIZER TRAINING CAMP</Header>
+      <Header>{LABEL_HEADER}</Header>
       <Body>
         <Brand>{brand}</Brand>
         <Name>{name}</Name>
@@ -37,8 +38,8 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
 export default BottleLabelCard;
 
 const Container = styled.div`
-  width: ${96 * SCALE}px;
-  height: ${132 * SCALE}px;
+  width: ${LABEL_BASE_W * SCALE}px;
+  height: ${LABEL_BASE_H * SCALE}px;
   display: flex;
   flex-direction: column;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

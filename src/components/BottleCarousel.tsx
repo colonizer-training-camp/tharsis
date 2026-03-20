@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useCallback, useMemo, useState } from "react";
-import { BLACK } from "../styles/colors";
-import type { BottleData } from "../routes/print/bottle/-types";
 import BottleLabelCard from "../routes/bottle-of-the-day/-BottleLabelCard";
+import type { BottleData } from "../routes/print/bottle/-types";
+import { BLACK } from "../styles/colors";
 
 const SCALE = 1.5;
 const CARD_W = 96 * SCALE;

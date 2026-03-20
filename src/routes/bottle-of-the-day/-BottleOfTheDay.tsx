@@ -51,7 +51,7 @@ const BottleOfTheDay = () => {
     if (distance < 0) distance += bottles.length;
     if (distance < Math.floor(bottles.length / 2)) distance += bottles.length;
     const advance = bottles.length * 3 + distance;
-    setTransition("transform 12s cubic-bezier(0.05, 0.5, 0.0, 1)");
+    setTransition("transform 4s cubic-bezier(0.05, 0.5, 0.0, 1)");
     setPosIdx((prev) => prev + advance);
   }, [bottles, posIdx, isAnimating]);
 
@@ -110,7 +110,6 @@ const Track = styled.div`
 const CardWrapper = styled.div<{ $dimmed: boolean }>`
   flex-shrink: 0;
   opacity: ${({ $dimmed }) => ($dimmed ? 0.3 : 1)};
-  transition: opacity 1s ease;
 `;
 
 const Center = styled.div`

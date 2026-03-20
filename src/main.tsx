@@ -5,7 +5,11 @@ import { Global } from "@emotion/react";
 import { routeTree } from "./routeTree.gen";
 import gloablStyle from "./styles/reset";
 
-const router = createRouter({ routeTree, scrollRestoration: true });
+const router = createRouter({
+  routeTree,
+  scrollRestoration: true,
+  basepath: import.meta.env.BASE_URL,
+});
 
 declare module "@tanstack/react-router" {
   interface Register {

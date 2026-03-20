@@ -22,6 +22,11 @@ const BottleList = styled.div`
   gap: 8px;
   max-height: 400px;
   overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const BottleItem = styled.div<{ $active: boolean }>`

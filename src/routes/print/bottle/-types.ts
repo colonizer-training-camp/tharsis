@@ -1,7 +1,7 @@
 export type BottleData = {
   brand: string;
   name: string;
-  description: string;
+  description: string | null;
   abv: string;
   meta: string;
   metaValue: string;

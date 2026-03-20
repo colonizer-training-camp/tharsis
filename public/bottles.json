@@ -7,8 +7,8 @@
     "abv": "48.3",
     "meta": "YRS",
     "metaValue": "30",
-    "notes": "Single Cask, Cask Strength, Limited Edition",
-    "description": "The Taster series, full cask strength experience",
+    "notes": "The Taster series, full cask strength experience",
+    "description": "30 years old",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/256580/glendronach-ode-to-the-valley"
   },
   {
@@ -19,8 +19,8 @@
     "abv": "40.0",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "Premium blended Scotch whisky",
-    "description": "Rare old malts and grain whiskies blended for smoothness",
+    "notes": "Rare old malts and grain whiskies blended for smoothness",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/51152/johnnie-walker-blue-label"
   },
   {
@@ -31,8 +31,8 @@
     "abv": "40.0",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "2023 Xordinaire series blend",
-    "description": "French XO Cognac cask influence suggested, no official age",
+    "notes": "French XO Cognac cask influence suggested, no official age",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/238848/johnnie-walker-blue-label"
   },
   {
@@ -43,8 +43,8 @@
     "abv": "43.0",
     "meta": "YRS",
     "metaValue": "18",
-    "notes": "Balanced peat smoke and sherried sweetness",
-    "description": "Matured in bourbon & sherry casks, standard Bowmore 18‑year",
+    "notes": "Matured in bourbon & sherry casks, standard Bowmore 18‑year",
+    "description": "Bourbon & sherry casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/102207/bowmore-18-year-old"
   },
   {
@@ -55,8 +55,8 @@
     "abv": "43.0",
     "meta": "YRS",
     "metaValue": "18",
-    "notes": "Sherry and peat character balanced",
-    "description": "Oloroso & Pedro Ximénez sherry cask matured Islay malt",
+    "notes": "Oloroso & Pedro Ximénez sherry cask matured Islay malt",
+    "description": "Oloroso & Pedro Ximénez sherry casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/94218/bowmore-18-year-old"
   },
   {
@@ -67,8 +67,8 @@
     "abv": "53.5",
     "meta": "YRS",
     "metaValue": "14",
-    "notes": "Trail & Tale series, ex-Laphroaig barrique",
-    "description": "Single cask, natural colour, non-chill filtered bottling",
+    "notes": "Single cask, natural colour, non-chill filtered bottling",
+    "description": "Trail & Tale series",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/277314/benriach-2010-whna"
   },
   {
@@ -79,8 +79,8 @@
     "abv": "47.0",
     "meta": "YRS",
     "metaValue": "25",
-    "notes": "Triple distilled, three cask matured",
-    "description": "Bourbon, oloroso sherry & virgin oak casks; travel retail exclusive",
+    "notes": "Bourbon, oloroso sherry & virgin oak casks; travel retail exclusive",
+    "description": "Triple distilled",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/252158/benriach-25-year-old"
   },
   {
@@ -91,8 +91,8 @@
     "abv": "48.9",
     "meta": "YRS",
     "metaValue": "8",
-    "notes": "Floor-malted barley series",
-    "description": "Matured in first-fill bourbon barrels; barley variety Concerto",
+    "notes": "Matured in first-fill bourbon barrels; barley variety Concerto",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/217155/benriach-malting-season"
   },
   {
@@ -103,8 +103,8 @@
     "abv": "45.8",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "Travel retail exclusive single malt",
-    "description": "Ex-bourbon casks, maritime smoke and spice character",
+    "notes": "Ex-bourbon casks, maritime smoke and spice character",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/215093/talisker-surge"
   },
   {
@@ -115,8 +115,8 @@
     "abv": "45.8",
     "meta": "YRS",
     "metaValue": "25",
-    "notes": "Rich maritime smoke, peat and sea salt",
-    "description": "Classic Talisker 25-year-old from Skye, matured 25 years",
+    "notes": "Classic Talisker 25-year-old from Skye, matured 25 years",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/68996/talisker-25-year-old"
   },
   {
@@ -127,8 +127,8 @@
     "abv": "46.8",
     "meta": "YRS",
     "metaValue": "21",
-    "notes": "Limited edition Seann Chreag series",
-    "description": "Matured 21 years in Oloroso sherry & bourbon casks",
+    "notes": "Matured 21 years in Oloroso sherry & bourbon casks",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261258/ardbeg-21-year-old"
   },
   {
@@ -139,8 +139,8 @@
     "abv": "46.0",
     "meta": "YRS",
     "metaValue": "15",
-    "notes": "Ardbeg Anthology – The Beithir’s Tale",
-    "description": "Matured 15 years in special designer charred bourbon casks",
+    "notes": "Matured 15 years in special designer charred bourbon casks",
+    "description": null,
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261111/ardbeg-15-year-old"
   },
   {
@@ -151,8 +151,8 @@
     "abv": "46.2",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "Sweet floral and ripe berry",
-    "description": "Ruby port & Spanish sherry casks, Master's Anthology series",
+    "notes": "Ruby port & Spanish sherry casks, Master's Anthology series",
+    "description": "Ruby port & Spanish sherry casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265629/glendronach-ode-to-the-valley"
   },
   {
@@ -163,8 +163,8 @@
     "abv": "48.4",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "Lightly peated and smoky",
-    "description": "Oloroso & Pedro Ximénez sherry casks, interwoven rich sherried character",
+    "notes": "Oloroso & Pedro Ximénez sherry casks, interwoven rich sherried character",
+    "description": "Oloroso & Pedro Ximénez sherry casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265628/glendronach-ode-to-the-embers"
   },
   {
@@ -175,8 +175,8 @@
     "abv": "50.8",
     "meta": "YRS",
     "metaValue": "NAS",
-    "notes": "Rich dark fruit and chocolate",
-    "description": "Pedro Ximénez sherry casks, rich dark fruit, chocolate, mocha, caramel",
+    "notes": "Pedro Ximénez sherry casks, rich dark fruit, chocolate, mocha, caramel",
+    "description": "Pedro Ximénez sherry casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265630/glendronach-ode-to-the-dark"
   }
 ]

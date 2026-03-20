@@ -217,7 +217,7 @@
   },
   {
     "brand": "Octomore",
-    "name": "Edition 16.1",
+    "name": "16.1",
     "region": "Islay",
     "type": "Single Malt",
     "abv": "59.3",
@@ -229,7 +229,7 @@
   },
   {
     "brand": "Octomore",
-    "name": "Edition 16.2",
+    "name": "16.2",
     "region": "Islay",
     "type": "Single Malt",
     "abv": "58.1",
@@ -241,7 +241,7 @@
   },
   {
     "brand": "Octomore",
-    "name": "Edition 16.3",
+    "name": "16.3",
     "region": "Islay",
     "type": "Single Malt",
     "abv": "61.6",
@@ -250,5 +250,41 @@
     "notes": "Bourbon, Sauternes & Pedro Ximénez casks, 05 Years Old",
     "description": "Bourbon, Sauternes and Pedro Ximénez Casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261415/octomore-edition-163-1895-ppm"
+  },
+  {
+    "brand": "Bowmore",
+    "name": "16‑year‑old",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "43.0",
+    "meta": "YRS",
+    "metaValue": "16",
+    "notes": "Bourbon & Sherry casks with Ruby Port finish",
+    "description": "Ex‑bourbon & Ex‑sherry Casks, Ruby Port Casks Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/266342/bowmore-16-year-old"
+  },
+  {
+    "brand": "Bowmore",
+    "name": "19‑year‑old",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "43.0",
+    "meta": "YRS",
+    "metaValue": "19",
+    "notes": "Ex‑Bourbon casks finished in Pinot Noir wine barriques, Travel Retail Exclusive",
+    "description": "Ex‑bourbon Cask, Pinot Noir Wine Barrique Cask Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/264965/bowmore-19-year-old"
+  },
+  {
+    "brand": "Bowmore",
+    "name": "22‑year‑old",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "48.0",
+    "meta": "YRS",
+    "metaValue": "22",
+    "notes": "Sauternes cask finish, Travel Exclusive",
+    "description": "Sauternes Cask Finish,",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/268053/bowmore-22-year-old"
   }
 ]

@@ -22,7 +22,7 @@ export const FieldConatiner = styled.div`
 export const Field = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   font-size: 14px;
 `;
 

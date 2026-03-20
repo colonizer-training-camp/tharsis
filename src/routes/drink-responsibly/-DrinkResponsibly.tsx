@@ -57,7 +57,7 @@ const DrinkResponsibly = () => {
       <Table>
         <thead>
           <Tr>
-            <Th $flex={3}>BOTTLE</Th>
+            <Th $flex={3} $hideOnMobile={true}>BOTTLE</Th>
             <Th $flex={1}>ABV %</Th>
             <Th $flex={1}>ML</Th>
             <Th $flex={1}>ALCOHOL (ML)</Th>
@@ -67,7 +67,7 @@ const DrinkResponsibly = () => {
         <tbody>
           {entries.map((entry) => (
             <Tr key={entry.id}>
-              <Td $flex={3}>
+              <Td $flex={3} $hideOnMobile>
                 <Input
                   type="text"
                   placeholder="Bottle name"
@@ -114,7 +114,7 @@ const DrinkResponsibly = () => {
             </td>
           </DividerTr>
           <Tr>
-            <Th $flex={3}>TOTAL</Th>
+            <Th $flex={3} $hideOnMobile>TOTAL</Th>
             <Th $flex={1}></Th>
             <Th $flex={1}>{totalDrinkMl.toFixed(0)} ml</Th>
             <Th $flex={1}>{totalAlcoholMl.toFixed(1)} ml</Th>
@@ -166,17 +166,30 @@ const colWidth: Record<number, string> = {
   0: '32px',
 };
 
-const Th = styled.th<{ $flex: number }>`
+const mobileColWidth: Record<number, string> = {
+  1: '30%',
+  0: '32px',
+};
+
+const Th = styled.th<{ $flex: number; $hideOnMobile?: boolean }>`
   width: ${({ $flex }) => colWidth[$flex]};
   text-align: left;
   font-size: 12px;
   font-weight: bold;
   padding: 8px 4px;
+  @media (max-width: 1200px) {
+    ${({ $hideOnMobile }) => $hideOnMobile && 'display: none;'}
+    ${({ $hideOnMobile, $flex }) => !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
+  }
 `;
 
-const Td = styled.td<{ $flex: number }>`
+const Td = styled.td<{ $flex: number; $hideOnMobile?: boolean }>`
   width: ${({ $flex }) => colWidth[$flex]};
   padding: 4px;
+  @media (max-width: 1200px) {
+    ${({ $hideOnMobile }) => $hideOnMobile && 'display: none;'}
+    ${({ $hideOnMobile, $flex }) => !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
+  }
 `;
 
 const EmptyTd = styled.td`

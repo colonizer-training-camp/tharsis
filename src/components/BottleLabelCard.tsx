@@ -57,9 +57,9 @@ const Header = styled.div`
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   flex: 1;
   padding: ${2 * SCALE}px;
+  overflow: hidden;
 `;
 
 const Brand = styled.div`
@@ -81,7 +81,7 @@ const LabeledSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: ${2 * SCALE}px;
+  margin-top: auto;
 `;
 
 const LabeledLabel = styled.div`

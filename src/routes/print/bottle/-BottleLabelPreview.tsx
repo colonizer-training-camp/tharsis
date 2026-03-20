@@ -28,9 +28,9 @@ const pdfStyles = StyleSheet.create({
   body: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-around',
     flex: 1,
     padding: 2,
+    overflow: 'hidden',
   },
   brand: {
     fontSize: 8,
@@ -48,7 +48,7 @@ const pdfStyles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
-    marginTop: '2',
+    marginTop: 'auto',
   },
   labeledLabel: {
     fontSize: 5,

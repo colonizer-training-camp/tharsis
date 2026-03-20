@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Fragment } from "react/jsx-runtime";
+import BottleCarousel from "../components/BottleCarousel";
 import LayoutPanel from "../components/LayoutPanel";
 import Space from "../components/Space";
 import { BLACK } from "../styles/colors";
+import type { BottleData } from "./print/bottle/-types";
 
 type MenuItem = {
   id: string;
@@ -66,11 +69,24 @@ const renderMenu = (items: MenuItem[], parentPath: string, depth: number) => {
 };
 
 const Home = () => {
+  const now = new Date().toISOString().slice(2, 10);
+  const [bottles, setBottles] = useState<BottleData[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}bottles.json`)
+      .then((res) => res.json())
+      .then((data: BottleData[]) => setBottles(data));
+  }, []);
+
   return (
     <LayoutPanel>
       <Space h={32} />
       <MenuContainer>{renderMenu(MENU_LIST, "", 1)}</MenuContainer>
       <Space h={32} />
+      {bottles.length > 0 && (
+        <BottleCarousel bottles={bottles} labeledAt={now} />
+      )}
+      <Space h={16} />
     </LayoutPanel>
   );
 };

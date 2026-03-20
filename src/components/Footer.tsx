@@ -3,6 +3,7 @@ import { IconBrandGithub } from "@tabler/icons-react";
 import { BLACK, WHITE } from "../styles/colors";
 import LayoutPanel from "./LayoutPanel";
 import Space from "./Space";
+import { BoldDivider } from "./styledComponents";
 
 const Container = styled.div`
   width: 100%;
@@ -50,17 +51,11 @@ const SocialLink = styled.a`
   justify-content: center;
 `;
 
-const Divider = styled.div`
-  width: 100%;
-  height: 12px;
-  background-color: ${BLACK};
-`;
-
 const Footer = () => {
   return (
     <Container>
       <LayoutPanel>
-        <Divider />
+        <BoldDivider />
         <Space h={32} />
         <ContactWrapper>
           <ContactIcon>

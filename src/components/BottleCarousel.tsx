@@ -1,9 +1,11 @@
+import { useCallback, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { LABEL_BASE_H, LABEL_BASE_W } from '../constants/label';
-import type { BottleData } from '../routes/print/bottle/-types';
-import { BLACK } from '../styles/colors';
+
+import { LABEL_BASE_H, LABEL_BASE_W } from '@/constants/label';
+import type { BottleData } from '@/routes/print/bottle/-types';
+import { BLACK } from '@/styles/colors';
+
 import BottleLabelCard from './BottleLabelCard';
 
 const SCALE = 1.5;
@@ -22,7 +24,7 @@ type BottleCarouselProps = {
   initialRandom?: boolean;
 };
 
-const BottleCarousel = ({
+const BottleCarouselContent = ({
   bottles,
   labeledAt,
   mode = 'arrows',
@@ -38,14 +40,6 @@ const BottleCarousel = ({
 
   const [posIdx, setPosIdx] = useState(() => getInitialPos(bottles.length));
   const [transition, setTransition] = useState('none');
-
-  const prevLenRef = useRef(bottles.length);
-  useEffect(() => {
-    if (prevLenRef.current === 0 && bottles.length > 0) {
-      setPosIdx(getInitialPos(bottles.length));
-    }
-    prevLenRef.current = bottles.length;
-  }, [bottles.length, getInitialPos]);
 
   const isAnimating = transition !== 'none';
 
@@ -130,6 +124,31 @@ const BottleCarousel = ({
         </Center>
       )}
     </Wrapper>
+  );
+};
+
+const BottleCarousel = ({
+  bottles,
+  labeledAt,
+  mode = 'arrows',
+  initialRandom = false,
+}: BottleCarouselProps) => {
+  return bottles.length > 0 ? (
+    <BottleCarouselContent
+      key="bottleCarouselContent"
+      bottles={bottles}
+      labeledAt={labeledAt}
+      mode={mode}
+      initialRandom={initialRandom}
+    />
+  ) : (
+    <BottleCarouselContent
+      key="bottleCarouselPlaceholder"
+      bottles={bottles}
+      labeledAt={labeledAt}
+      mode={mode}
+      initialRandom={initialRandom}
+    />
   );
 };
 

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
-import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from '../constants/label';
-import type { Bottle } from '../routes/print/bottle/-types';
-import { BLACK, WHITE } from '../styles/colors';
+
+import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from '@/constants/label';
+import type { Bottle } from '@/routes/print/bottle/-types';
+import { BLACK, WHITE } from '@/styles/colors';
 
 const SCALE = 1.5;
 const CARD_WIDTH = LABEL_BASE_W * SCALE;

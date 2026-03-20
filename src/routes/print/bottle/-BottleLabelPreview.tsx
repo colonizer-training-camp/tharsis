@@ -1,7 +1,7 @@
 import { PDFViewer } from '@react-pdf/renderer';
 
-import type { Bottle } from './-types';
 import BottleLabelDocument from './-BottleLabelDocument';
+import type { Bottle } from './-types';
 
 const BottleLabelPreview = ({ bottle }: { bottle: Bottle }) => {
   return (

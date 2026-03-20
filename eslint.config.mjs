@@ -1,11 +1,13 @@
-import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
-import importPlugin from 'eslint-plugin-import';
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+
+// local plugin import
+import localRules from './eslint-rules/convert-import-path.js';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -18,36 +20,19 @@ export default defineConfig([
       reactRefresh.configs.vite,
     ],
     plugins: {
-      import: importPlugin,
       'simple-import-sort': simpleImportSort,
+      'local-rules': localRules,
     },
     rules: {
-      'no-restricted-imports': [
-        'warn',
-        {
-          patterns: [
-            {
-              group: ['../*'],
-              message: 'Use ./ or alias instead of ../',
-            },
-          ],
-        },
-      ],
+      'local-rules/convert-import-path': 'warn',
       'simple-import-sort/imports': [
         'error',
         {
           groups: [
-            // 1. node builtin
-            ['^node:'],
-
-            // 2. external packages
-            ['^react', '^@?\\w'],
-
-            // 3. internal (@/)
-            ['^@/'],
-
-            // 4. relative imports
-            ['^\\.'],
+            ['^node:'], // Node builtin
+            ['^react', '^@?\\w'], // External Packages
+            ['^@/'], // Absolute paths
+            ['^\\.'], // Relative paths
           ],
         },
       ],

@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import type { BottleData } from "../routes/print/bottle/-types";
+import { useEffect, useState } from 'react';
+
+import type { BottleData } from '@/routes/print/bottle/-types';
 
 export const useBottles = () => {
   const [bottles, setBottles] = useState<BottleData[]>([]);

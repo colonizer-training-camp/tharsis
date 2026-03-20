@@ -35,15 +35,21 @@ const pdfStyles = StyleSheet.create({
   brand: {
     fontSize: 8,
     marginTop: 6,
-  },
+    maxLines: 1,
+    textOverflow: 'ellipsis',
+  } as const,
   name: {
     fontSize: 10,
     marginTop: 4,
-  },
+    maxLines: 1,
+    textOverflow: 'ellipsis',
+  } as const,
   description: {
     fontSize: 6,
     marginTop: 4,
-  },
+    maxLines: 2,
+    textOverflow: 'ellipsis',
+  } as const,
   labeledSection: {
     display: 'flex',
     flexDirection: 'column',

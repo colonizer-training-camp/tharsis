@@ -62,19 +62,32 @@ const Body = styled.div`
   overflow: hidden;
 `;
 
+const Ellipsis = `
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 const Brand = styled.div`
   font-size: ${8 * SCALE}px;
   margin-top: ${6 * SCALE}px;
+  ${Ellipsis}
 `;
 
 const Name = styled.div`
   font-size: ${10 * SCALE}px;
   margin-top: ${4 * SCALE}px;
+  ${Ellipsis}
 `;
 
 const Description = styled.div`
   font-size: ${6 * SCALE}px;
   margin-top: ${4 * SCALE}px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const LabeledSection = styled.div`

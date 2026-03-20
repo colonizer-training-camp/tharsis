@@ -58,9 +58,15 @@ const renderMenu = (items: MenuItem[], parentPath: string, depth: number) => {
         {item.redirect ? (
           <MenuLink $depth={depth} to={path}>
             {`> ${item.name}`}
+            <MenuDottedLine />
+            {"*"}
           </MenuLink>
         ) : (
-          <MenuText $depth={depth}>{`> ${item.name}`}</MenuText>
+          <MenuText $depth={depth}>
+            {`> ${item.name}`}
+            <MenuDottedLine />
+            {"*"}
+          </MenuText>
         )}
         {item.subMenu && renderMenu(item.subMenu, path, depth + 1)}
       </Fragment>
@@ -105,9 +111,26 @@ const MenuLink = styled(Link)<{ $depth: number }>`
   text-decoration: none;
   cursor: pointer;
   margin-left: ${(props) => (props.$depth - 1) * 24}px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
 `;
 
 const MenuText = styled.div<{ $depth: number }>`
   color: ${BLACK};
   margin-left: ${(props) => (props.$depth - 1) * 24}px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+`;
+
+const MenuDottedLine = styled.div`
+  color: ${BLACK};
+  height: 1px;
+  border-bottom: 2px ${BLACK} dotted;
+  flex: 1;
 `;

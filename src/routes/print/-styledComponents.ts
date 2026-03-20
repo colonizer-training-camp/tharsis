@@ -53,3 +53,9 @@ export const PreviewContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const SearchbarContainer = styled.input`
+  width: 280px;
+  border: 2px solid ${BLACK};
+  padding: 8px;
+`;

@@ -3,7 +3,6 @@
     "brand": "BOWMORE",
     "name": "DISTILLED 1997",
     "description": "THE SCOTCH MALT WHISKY SOCIETY NO 3.187",
-    "labeledAt": "25-12-06",
     "abv": "57.2",
     "meta": "YRS",
     "metaValue": "14"
@@ -12,7 +11,6 @@
     "brand": "LAPHROAIG",
     "name": "QUARTER CASK",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-11-15",
     "abv": "48",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -21,7 +19,6 @@
     "brand": "ARDBEG",
     "name": "UIGEADAIL",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-10-20",
     "abv": "54.2",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -30,7 +27,6 @@
     "brand": "GLENFIDDICH",
     "name": "DISTILLED 2006",
     "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-09-01",
     "abv": "40",
     "meta": "YRS",
     "metaValue": "18"
@@ -39,7 +35,6 @@
     "brand": "MACALLAN",
     "name": "SHERRY OAK",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-08-12",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "12"
@@ -48,7 +43,6 @@
     "brand": "TALISKER",
     "name": "DISTILLED 2010",
     "description": "ISLE OF SKYE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-07-30",
     "abv": "45.8",
     "meta": "YRS",
     "metaValue": "10"
@@ -57,7 +51,6 @@
     "brand": "LAGAVULIN",
     "name": "DISTILLED 2008",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-06-18",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "16"
@@ -66,7 +59,6 @@
     "brand": "HIGHLAND PARK",
     "name": "VIKING HONOUR",
     "description": "ISLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-06-10",
     "abv": "40",
     "meta": "YRS",
     "metaValue": "12"
@@ -75,7 +67,6 @@
     "brand": "CAOL ILA",
     "name": "DISTILLED 2012",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-05-22",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "12"
@@ -84,7 +75,6 @@
     "brand": "SPRINGBANK",
     "name": "DISTILLED 2009",
     "description": "CAMPBELTOWN SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-05-14",
     "abv": "46",
     "meta": "YRS",
     "metaValue": "15"
@@ -93,7 +83,6 @@
     "brand": "BRUICHLADDICH",
     "name": "THE CLASSIC LADDIE",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY UNPEATED",
-    "labeledAt": "25-04-30",
     "abv": "50",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -102,7 +91,6 @@
     "brand": "OBAN",
     "name": "DISTILLED 2010",
     "description": "WEST HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-04-18",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "14"
@@ -111,7 +99,6 @@
     "brand": "BUNNAHABHAIN",
     "name": "STIUIREADAIR",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-04-05",
     "abv": "46.3",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -120,7 +107,6 @@
     "brand": "GLENMORANGIE",
     "name": "THE ORIGINAL",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-03-28",
     "abv": "40",
     "meta": "YRS",
     "metaValue": "10"
@@ -129,7 +115,6 @@
     "brand": "DALMORE",
     "name": "DISTILLED 2009",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-03-15",
     "abv": "40",
     "meta": "YRS",
     "metaValue": "15"
@@ -138,7 +123,6 @@
     "brand": "ABERLOUR",
     "name": "A'BUNADH BATCH 72",
     "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-03-01",
     "abv": "60.8",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -147,7 +131,6 @@
     "brand": "KILCHOMAN",
     "name": "MACHIR BAY",
     "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-02-20",
     "abv": "46",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -156,7 +139,6 @@
     "brand": "GLEN SCOTIA",
     "name": "VICTORIANA",
     "description": "CAMPBELTOWN SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-02-10",
     "abv": "54.2",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -165,7 +147,6 @@
     "brand": "BENROMACH",
     "name": "DISTILLED 2014",
     "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-01-25",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "10"
@@ -174,7 +155,6 @@
     "brand": "CLYNELISH",
     "name": "DISTILLED 2010",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "25-01-12",
     "abv": "46",
     "meta": "YRS",
     "metaValue": "14"
@@ -183,7 +163,6 @@
     "brand": "TOBERMORY",
     "name": "DISTILLED 2013",
     "description": "ISLE OF MULL SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "24-12-28",
     "abv": "46.3",
     "meta": "YRS",
     "metaValue": "12"
@@ -192,7 +171,6 @@
     "brand": "EDRADOUR",
     "name": "DISTILLED 2012",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "24-12-15",
     "abv": "46",
     "meta": "YRS",
     "metaValue": "10"
@@ -201,7 +179,6 @@
     "brand": "BALVENIE",
     "name": "DOUBLEWOOD",
     "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "24-11-30",
     "abv": "43",
     "meta": "YRS",
     "metaValue": "12"
@@ -210,7 +187,6 @@
     "brand": "CRAIGELLACHIE",
     "name": "DISTILLED 2011",
     "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "24-11-18",
     "abv": "46",
     "meta": "YRS",
     "metaValue": "13"
@@ -219,7 +195,6 @@
     "brand": "DEANSTON",
     "name": "VIRGIN OAK",
     "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "labeledAt": "24-11-05",
     "abv": "46.3",
     "meta": "YRS",
     "metaValue": "NAS"
@@ -228,7 +203,6 @@
     "brand": "LEDAIG",
     "name": "DISTILLED 2014",
     "description": "ISLE OF MULL SINGLE MALT SCOTCH WHISKY PEATED",
-    "labeledAt": "24-10-22",
     "abv": "46.3",
     "meta": "YRS",
     "metaValue": "10"

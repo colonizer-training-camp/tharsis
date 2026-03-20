@@ -1,9 +1,12 @@
-export type Bottle = {
+export type BottleData = {
   brand: string;
   name: string;
   description: string;
-  labeledAt: string;
   abv: string;
   meta: string;
   metaValue: string;
+};
+
+export type Bottle = BottleData & {
+  labeledAt: string;
 };

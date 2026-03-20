@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 import { useEffect, useMemo, useState } from "react";
 import BottleLabelPreview from "../-BottleLabelPreview";
-import type { Bottle } from "../-types";
+import type { BottleData } from "../-types";
 import {
+  Field,
   FieldWithPreviewConatiner,
   PreviewContainer,
   SearchbarContainer,
+  TextInput,
 } from "../../-styledComponents";
 import LayoutPanel from "../../../../components/LayoutPanel";
 import { BLACK } from "../../../../styles/colors";
@@ -20,7 +22,7 @@ const BottleList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 400px;
+  max-height: 300px;
   overflow-y: auto;
   scrollbar-width: none;
 
@@ -53,15 +55,24 @@ const EmptyText = styled.div`
   padding: 8px 12px;
 `;
 
+const Divider = styled.div`
+  height: 4px;
+  margin: 8px 0;
+  background-color: ${BLACK};
+`;
+
 const ExistingBottles = () => {
-  const [bottles, setBottles] = useState<Bottle[]>([]);
+  const now = new Date().toISOString().slice(2, 10);
+
+  const [bottles, setBottles] = useState<BottleData[]>([]);
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState<Bottle | null>(null);
+  const [selected, setSelected] = useState<BottleData | null>(null);
+  const [labeledAt, setLabeledAt] = useState(now);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}bottles.json`)
       .then((res) => res.json())
-      .then((data: Bottle[]) => {
+      .then((data: BottleData[]) => {
         setBottles(data);
         if (data.length > 0) setSelected(data[0]);
       });
@@ -82,12 +93,16 @@ const ExistingBottles = () => {
     <LayoutPanel>
       <FieldWithPreviewConatiner>
         <ListContainer>
-          <SearchbarContainer
-            type="text"
-            placeholder="SEARCH BOTTLES"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <Field>
+            <label>{`> SEARCH`}</label>
+            <SearchbarContainer
+              type="text"
+              placeholder="SEARCH BOTTLES"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Field>
+          <Divider />
           <BottleList>
             {filtered.map((bottle) => (
               <BottleItem
@@ -101,9 +116,21 @@ const ExistingBottles = () => {
             ))}
             {filtered.length === 0 && <EmptyText>NO RESULTS</EmptyText>}
           </BottleList>
+          <Divider />
+          <Field>
+            <label htmlFor="labeledAt">{`> LABELED AT`}</label>
+            <TextInput
+              type="text"
+              name="labeledAt"
+              value={labeledAt}
+              onChange={(e) => setLabeledAt(e.target.value)}
+            />
+          </Field>
         </ListContainer>
         <PreviewContainer>
-          {selected && <BottleLabelPreview bottle={selected} />}
+          {selected && (
+            <BottleLabelPreview bottle={{ ...selected, labeledAt }} />
+          )}
         </PreviewContainer>
       </FieldWithPreviewConatiner>
     </LayoutPanel>

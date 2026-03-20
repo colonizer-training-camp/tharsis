@@ -5,26 +5,6 @@ import LayoutPanel from "../components/LayoutPanel";
 import Space from "../components/Space";
 import { BLACK } from "../styles/colors";
 
-const MenuContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-size: 14px;
-`;
-
-const MenuLink = styled(Link)<{ $depth: number }>`
-  color: ${BLACK};
-  text-decoration: none;
-  cursor: pointer;
-  margin-left: ${(props) => (props.$depth - 1) * 24}px;
-`;
-
-const MenuText = styled.div<{ $depth: number }>`
-  color: ${BLACK};
-  margin-left: ${(props) => (props.$depth - 1) * 24}px;
-`;
-
 type MenuItem = {
   id: string;
   name: string;
@@ -33,6 +13,11 @@ type MenuItem = {
 };
 
 const MENU_LIST: MenuItem[] = [
+  {
+    id: "/bottle-of-the-day",
+    name: "BOTTLE OF THE DAY",
+    redirect: true,
+  },
   {
     id: "/print",
     name: "PRINT LABELS",
@@ -91,3 +76,22 @@ const Home = () => {
 };
 
 export default Home;
+
+const MenuContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
+`;
+
+const MenuLink = styled(Link)<{ $depth: number }>`
+  color: ${BLACK};
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: ${(props) => (props.$depth - 1) * 24}px;
+`;
+
+const MenuText = styled.div<{ $depth: number }>`
+  color: ${BLACK};
+  margin-left: ${(props) => (props.$depth - 1) * 24}px;
+`;

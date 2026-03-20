@@ -1,9 +1,8 @@
-import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
+import { useMemo, useState } from 'react';
 
 import LayoutPanel from '@/components/LayoutPanel';
 import { useBottles } from '@/hooks/useBottles';
-import { getToday } from '@/utils/date';
 import {
   Field,
   FieldWithPreviewConatiner,
@@ -13,6 +12,7 @@ import {
 } from '@/routes/print/-styledComponents';
 import BottleLabelPreview from '@/routes/print/bottle/-BottleLabelPreview';
 import { BLACK } from '@/styles/colors';
+import { getToday } from '@/utils/date';
 
 const ListContainer = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ const ExistingBottles = () => {
       (b) =>
         b.brand.toLowerCase().includes(q) ||
         b.name.toLowerCase().includes(q) ||
-        b.description.toLowerCase().includes(q),
+        b.description?.toLowerCase().includes(q),
     );
   }, [bottles, search]);
 

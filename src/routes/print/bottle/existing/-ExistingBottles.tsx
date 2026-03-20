@@ -65,11 +65,10 @@ const Divider = styled.div`
   background-color: ${BLACK};
 `;
 
-const PreviewColumn = styled.div`
+const PrintRow = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
+  justify-content: flex-end;
+  margin-top: 16px;
 `;
 
 const PrintButton = styled.button`
@@ -148,18 +147,18 @@ const ExistingBottles = () => {
           </Field>
         </ListContainer>
         <PreviewContainer>
-          {bottle && (
-            <PreviewColumn>
-              <BottleLabelCard bottle={bottle} />
-              <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
-                {({ url }) => (
-                  <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
-                )}
-              </BlobProvider>
-            </PreviewColumn>
-          )}
+          {bottle && <BottleLabelCard bottle={bottle} />}
         </PreviewContainer>
       </FieldWithPreviewConatiner>
+      {bottle && (
+        <PrintRow>
+          <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
+            {({ url }) => (
+              <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
+            )}
+          </BlobProvider>
+        </PrintRow>
+      )}
     </LayoutPanel>
   );
 };

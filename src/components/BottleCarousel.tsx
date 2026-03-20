@@ -1,6 +1,6 @@
+import { useCallback, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
-import { useCallback, useMemo, useState } from 'react';
 
 import { LABEL_BASE_H, LABEL_BASE_W } from '@/constants/label';
 import type { BottleData } from '@/routes/print/bottle/-types';

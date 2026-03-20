@@ -4,6 +4,8 @@ import { useCallback, useState } from 'react';
 
 import BottleLabelCard from '@/components/BottleLabelCard';
 import LayoutPanel from '@/components/LayoutPanel';
+import Space from '@/components/Space';
+import { Divider } from '@/components/styledComponents';
 import {
   Field,
   FieldConatiner,
@@ -14,10 +16,13 @@ import {
 } from '@/routes/print/-styledComponents';
 import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
 import { getToday } from '@/utils/date';
+import { scrapeWhiskybase } from '@/utils/scrapeWhiskybase';
 
 const NewBottle = () => {
   const now = getToday();
 
+  const [whiskybase, setWhiskybase] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
   const [brand, setBrand] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -26,7 +31,34 @@ const NewBottle = () => {
   const [meta, setMeta] = useState('YRS');
   const [metaValue, setMetaValue] = useState('');
 
-  const bottle = { brand, name, description, labeledAt, abv, meta, metaValue };
+  const bottle = {
+    brand,
+    name,
+    description,
+    labeledAt,
+    abv,
+    meta,
+    metaValue,
+    whiskybase: whiskybase || undefined,
+  };
+
+  const handleAutoGenerate = useCallback(async () => {
+    if (!whiskybase) return;
+    setIsGenerating(true);
+    try {
+      const data = await scrapeWhiskybase(whiskybase);
+      setBrand(data.brand);
+      setName(data.name);
+      setDescription(data.description);
+      setAbv(data.abv);
+      setMeta(data.meta);
+      setMetaValue(data.metaValue);
+    } catch {
+      alert('Failed to fetch data from Whiskybase.');
+    } finally {
+      setIsGenerating(false);
+    }
+  }, [whiskybase]);
 
   const handlePrint = useCallback((url: string | null) => {
     if (!url) return;
@@ -38,6 +70,23 @@ const NewBottle = () => {
 
   return (
     <LayoutPanel>
+      <WhiskybaseRow>
+        <Field>
+          <label htmlFor="whiskybase">{`> WHISKYBASE LINK`}</label>
+          <TextInput
+            type="text"
+            name="whiskybase"
+            value={whiskybase}
+            onChange={(e) => setWhiskybase(e.target.value)}
+          />
+        </Field>
+        <AutoGenerateButton onClick={handleAutoGenerate} disabled={!whiskybase || isGenerating}>
+          {isGenerating ? '> LOADING...' : '> AUTO-GENERATE'}
+        </AutoGenerateButton>
+      </WhiskybaseRow>
+      <Space h={32} />
+      <Divider />
+      <Space h={32} />
       <FieldWithPreviewConatiner>
         <FieldConatiner>
           <Field>
@@ -108,9 +157,7 @@ const NewBottle = () => {
             <BottleLabelCard bottle={bottle} />
             <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
               {({ url }) => (
-                <PrintButton onClick={() => handlePrint(url)}>
-                  {'> PRINT LABEL'}
-                </PrintButton>
+                <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
               )}
             </BlobProvider>
           </PreviewColumn>
@@ -127,6 +174,28 @@ const PreviewColumn = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+`;
+
+const WhiskybaseRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 16px;
+`;
+
+const AutoGenerateButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 4px 0;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 `;
 
 const PrintButton = styled.button`

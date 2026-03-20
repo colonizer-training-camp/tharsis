@@ -8,7 +8,7 @@
     "meta": "YRS",
     "metaValue": "30",
     "notes": "The Taster series, full cask strength experience",
-    "description": "30 years old",
+    "description": "30 Years Old",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/256580/glenrothes-1992-scms"
   },
   {
@@ -44,7 +44,7 @@
     "meta": "YRS",
     "metaValue": "18",
     "notes": "Matured in bourbon & sherry casks, standard Bowmore 18‑year",
-    "description": "Bourbon & sherry casks",
+    "description": "Bourbon & Sherry Casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/102207/bowmore-18-year-old"
   },
   {
@@ -56,7 +56,7 @@
     "meta": "YRS",
     "metaValue": "18",
     "notes": "Oloroso & Pedro Ximénez sherry cask matured Islay malt",
-    "description": "Oloroso & Pedro Ximénez sherry casks",
+    "description": "Oloroso & Pedro Ximénez Sherry Casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/94218/bowmore-18-year-old"
   },
   {
@@ -68,7 +68,7 @@
     "meta": "YRS",
     "metaValue": "14",
     "notes": "Single cask, natural colour, non-chill filtered bottling",
-    "description": "Trail & Tale series",
+    "description": "Trail & Tale Series",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/277314/benriach-2010-whna"
   },
   {
@@ -80,7 +80,7 @@
     "meta": "YRS",
     "metaValue": "25",
     "notes": "Bourbon, oloroso sherry & virgin oak casks; travel retail exclusive",
-    "description": "Triple distilled",
+    "description": "Triple Distilled",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/252158/benriach-25-year-old"
   },
   {
@@ -91,8 +91,8 @@
     "abv": "48.9",
     "meta": "YRS",
     "metaValue": "8",
-    "notes": "Matured in first-fill bourbon barrels; barley variety Concerto",
-    "description": null,
+    "notes": "Matured in first-Fill bourbon barrels; barley variety Concerto",
+    "description": "1st-Fill Bourbon Barrel Cask",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/217155/benriach-malting-season"
   },
   {
@@ -152,7 +152,7 @@
     "meta": "YRS",
     "metaValue": "NAS",
     "notes": "Ruby port & Spanish sherry casks, Master's Anthology series",
-    "description": "Ruby port & Spanish sherry casks",
+    "description": "Ruby Port & Spanish Sherry Casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265629/glendronach-ode-to-the-valley"
   },
   {
@@ -164,7 +164,7 @@
     "meta": "YRS",
     "metaValue": "NAS",
     "notes": "Oloroso & Pedro Ximénez sherry casks, interwoven rich sherried character",
-    "description": "Oloroso & Pedro Ximénez sherry casks",
+    "description": "Oloroso & Pedro Ximénez Sherry Casks",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265628/glendronach-ode-to-the-embers"
   },
   {
@@ -176,7 +176,79 @@
     "meta": "YRS",
     "metaValue": "NAS",
     "notes": "Pedro Ximénez sherry casks, rich dark fruit, chocolate, mocha, caramel",
-    "description": "Pedro Ximénez sherry casks",
+    "description": "Pedro Ximénez Sherry Cask",
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265630/glendronach-ode-to-the-dark"
+  },
+  {
+    "brand": "Octomore",
+    "name": "15.1",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "59.1",
+    "meta": "PPM",
+    "metaValue": "108.2",
+    "notes": "First-Fill & Recharred Ex-Bourbon 05 Years Old",
+    "description": "1st-Fill & Recharred Ex-Bourbon Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237367/octomore-151-1082-ppm"
+  },
+  {
+    "brand": "Octomore",
+    "name": "15.2",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "57.9",
+    "meta": "PPM",
+    "metaValue": "108.2",
+    "notes": "2nd‑Fill Wine + Bourbon & 1st‑Fill Cognac Finish, 05 Years Old",
+    "description": "2nd‑Fill Wine + Bourbon Casks & 1st‑Fill Cognac Cask Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237368/octomore-152-1082-ppm"
+  },
+  {
+    "brand": "Octomore",
+    "name": "15.3",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "61.3",
+    "meta": "PPM",
+    "metaValue": "307.2",
+    "notes": "First‑Fill Bourbon & Oloroso, 05 Years Old",
+    "description": "1st‑Fill Bourbon & Oloroso Hogsheads Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237364/octomore-153-3072-ppm"
+  },
+  {
+    "brand": "Octomore",
+    "name": "Edition 16.1",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "59.3",
+    "meta": "PPM",
+    "metaValue": "101.4",
+    "notes": "First‑Fill Bourbon, 05 Years Old",
+    "description": "1st-Fill Bourbon Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261417/octomore-edition-161-1014-ppm"
+  },
+  {
+    "brand": "Octomore",
+    "name": "Edition 16.2",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "58.1",
+    "meta": "PPM",
+    "metaValue": "101.4",
+    "notes": "Oloroso & Bordeaux casks matured then Madeira & Moscatel finish, 05 Years Old",
+    "description": "Oloroso & Bordeaux Wine Casks, Madeira & Moscatel Casks Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261416/octomore-edition-162-1014-ppm"
+  },
+  {
+    "brand": "Octomore",
+    "name": "Edition 16.3",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "61.6",
+    "meta": "PPM",
+    "metaValue": "189.5",
+    "notes": "Bourbon, Sauternes & Pedro Ximénez casks, 05 Years Old",
+    "description": "Bourbon, Sauternes and Pedro Ximénez Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261415/octomore-edition-163-1895-ppm"
   }
 ]

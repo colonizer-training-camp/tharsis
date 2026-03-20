@@ -6,7 +6,7 @@ import {
   View,
 } from "@react-pdf/renderer";
 import { useState } from "react";
-import DefaultLabelPdfPage from "../-DefaultLabelPdfPage";
+import DefaultLabelPdfPage from "../../-DefaultLabelPdfPage";
 import {
   Field,
   FieldConatiner,
@@ -14,8 +14,8 @@ import {
   PreviewContainer,
   TextFieldInput,
   TextInput,
-} from "../-styledComponents";
-import LayoutPanel from "../../../components/LayoutPanel";
+} from "../../-styledComponents";
+import LayoutPanel from "../../../../components/LayoutPanel";
 
 const pdfStyles = StyleSheet.create({
   page: {
@@ -93,7 +93,7 @@ const pdfStyles = StyleSheet.create({
   },
 });
 
-const PrintBottle = () => {
+const NewBottle = () => {
   const now = new Date().toISOString().slice(2, 10);
 
   const [brand, setBrand] = useState("");
@@ -211,4 +211,4 @@ const PrintBottle = () => {
   );
 };
 
-export default PrintBottle;
+export default NewBottle;

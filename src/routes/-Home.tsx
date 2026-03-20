@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "@tanstack/react-router";
+import { Fragment } from "react/jsx-runtime";
 import LayoutPanel from "../components/LayoutPanel";
 import Space from "../components/Space";
 import { BLACK } from "../styles/colors";
@@ -12,18 +13,26 @@ const MenuContainer = styled.div`
   font-size: 14px;
 `;
 
-const Menu = styled.div`
-  color: ${BLACK};
-`;
-
-const SubMenu = styled(Link)`
+const MenuLink = styled(Link)<{ $depth: number }>`
   color: ${BLACK};
   text-decoration: none;
   cursor: pointer;
-  margin-left: 24px;
+  margin-left: ${(props) => (props.$depth - 1) * 24}px;
 `;
 
-const MENU_LIST = [
+const MenuText = styled.div<{ $depth: number }>`
+  color: ${BLACK};
+  margin-left: ${(props) => (props.$depth - 1) * 24}px;
+`;
+
+type MenuItem = {
+  id: string;
+  name: string;
+  redirect?: boolean;
+  subMenu?: MenuItem[];
+};
+
+const MENU_LIST: MenuItem[] = [
   {
     id: "/print",
     name: "PRINT LABELS",
@@ -31,31 +40,51 @@ const MENU_LIST = [
       {
         id: "/bottle",
         name: "BOTTLE",
+        subMenu: [
+          {
+            id: "/new",
+            name: "NEW BOTTLES",
+            redirect: true,
+          },
+          {
+            id: "/existing",
+            name: "EXISTING BOTTLES",
+            redirect: true,
+          },
+        ],
       },
       {
         id: "/box",
         name: "BOX",
+        redirect: true,
       },
     ],
   },
 ];
 
+const renderMenu = (items: MenuItem[], parentPath: string, depth: number) => {
+  return items.map((item) => {
+    const path = parentPath + item.id;
+    return (
+      <Fragment key={item.id}>
+        {item.redirect ? (
+          <MenuLink $depth={depth} to={path}>
+            {`> ${item.name}`}
+          </MenuLink>
+        ) : (
+          <MenuText $depth={depth}>{`> ${item.name}`}</MenuText>
+        )}
+        {item.subMenu && renderMenu(item.subMenu, path, depth + 1)}
+      </Fragment>
+    );
+  });
+};
+
 const Home = () => {
   return (
     <LayoutPanel>
       <Space h={32} />
-      <MenuContainer>
-        {MENU_LIST.map((menu) => (
-          <>
-            <Menu id={menu.id}>{`> ${menu.name}`}</Menu>
-            {menu.subMenu.map((subMenu) => (
-              <SubMenu id={subMenu.id} to={menu.id + subMenu.id}>
-                {`> ${subMenu.name}`}
-              </SubMenu>
-            ))}
-          </>
-        ))}
-      </MenuContainer>
+      <MenuContainer>{renderMenu(MENU_LIST, "", 1)}</MenuContainer>
       <Space h={32} />
     </LayoutPanel>
   );

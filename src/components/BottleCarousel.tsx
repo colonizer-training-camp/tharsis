@@ -91,7 +91,7 @@ const BottleCarousel = ({
             onTransitionEnd={handleTransitionEnd}
           >
             {extended.map((bottle, i) => (
-              <CardWrapper key={i} $dimmed={!isAnimating && i !== posIdx}>
+              <CardWrapper key={i} $dimmed={mode === "reroll" ? !isAnimating && i !== posIdx : i !== posIdx}>
                 <BottleLabelCard bottle={{ ...bottle, labeledAt }} />
               </CardWrapper>
             ))}

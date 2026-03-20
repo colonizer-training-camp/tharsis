@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import type { BottleData } from './print/bottle/-types';
 import Home from './-Home';
+import type { BottleData } from './print/bottle/-types';
 
 export const Route = createFileRoute('/')({
   loader: async () => {
@@ -13,6 +13,5 @@ export const Route = createFileRoute('/')({
 });
 
 function Index() {
-  const { bottles } = Route.useLoaderData();
-  return <Home bottles={bottles} />;
+  return <Home />;
 }

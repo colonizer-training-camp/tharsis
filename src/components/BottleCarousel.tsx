@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { LABEL_BASE_H, LABEL_BASE_W } from "../constants/label";
 import type { BottleData } from "../routes/print/bottle/-types";
 import { BLACK } from "../styles/colors";
@@ -28,13 +28,24 @@ const BottleCarousel = ({
   mode = "arrows",
   initialRandom = false,
 }: BottleCarouselProps) => {
-  const [posIdx, setPosIdx] = useState(() => {
-    const base = bottles.length * Math.floor(REPS / 2);
-    return initialRandom
-      ? base + Math.floor(Math.random() * bottles.length)
-      : base;
-  });
+  const getInitialPos = useCallback(
+    (len: number) => {
+      const base = len * Math.floor(REPS / 2);
+      return initialRandom ? base + Math.floor(Math.random() * len) : base;
+    },
+    [initialRandom],
+  );
+
+  const [posIdx, setPosIdx] = useState(() => getInitialPos(bottles.length));
   const [transition, setTransition] = useState("none");
+
+  const prevLenRef = useRef(bottles.length);
+  useEffect(() => {
+    if (prevLenRef.current === 0 && bottles.length > 0) {
+      setPosIdx(getInitialPos(bottles.length));
+    }
+    prevLenRef.current = bottles.length;
+  }, [bottles.length, getInitialPos]);
 
   const isAnimating = transition !== "none";
 
@@ -75,7 +86,7 @@ const BottleCarousel = ({
   const translateX = -(posIdx * SLOT + CARD_W / 2);
 
   return (
-    <div>
+    <Wrapper>
       <CarouselRow>
         {mode === "arrows" && (
           <ArrowButton onClick={() => move(-1)} disabled={isAnimating}>
@@ -110,11 +121,15 @@ const BottleCarousel = ({
           </RerollButton>
         </Center>
       )}
-    </div>
+    </Wrapper>
   );
 };
 
 export default BottleCarousel;
+
+const Wrapper = styled.div`
+  min-height: ${CARD_H + 20}px;
+`;
 
 const CarouselRow = styled.div`
   display: flex;

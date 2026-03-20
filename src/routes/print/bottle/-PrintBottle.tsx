@@ -1,4 +1,10 @@
-import { Document, PDFViewer, Text, View } from "@react-pdf/renderer";
+import {
+  Document,
+  PDFViewer,
+  StyleSheet,
+  Text,
+  View,
+} from "@react-pdf/renderer";
 import { useState } from "react";
 import DefaultLabelPdfPage from "../-DefaultLabelPdfPage";
 import {
@@ -10,6 +16,34 @@ import {
   TextInput,
 } from "../-styledComponents";
 import LayoutPanel from "../../../components/LayoutPanel";
+
+const pdfStyles = StyleSheet.create({
+  container: {
+    padding: 8,
+    display: "flex",
+    flexDirection: "column",
+  },
+  brand: {
+    fontSize: 8,
+    textTransform: "uppercase",
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  description: {
+    fontSize: 7,
+    marginTop: 2,
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 4,
+  },
+  detail: {
+    fontSize: 8,
+  },
+});
 
 const PrintBottle = () => {
   const now = new Date().toISOString().slice(2, 10);
@@ -93,8 +127,19 @@ const PrintBottle = () => {
           <PDFViewer style={{ width: "320px", height: "280px" }}>
             <Document title={`${brand}_${name}_${labeledAt}`}>
               <DefaultLabelPdfPage>
-                <View>
-                  <Text>asasdfasfsadfdsdf</Text>
+                <View style={pdfStyles.container}>
+                  <Text style={pdfStyles.brand}>{brand}</Text>
+                  <Text style={pdfStyles.name}>{name}</Text>
+                  <Text style={pdfStyles.description}>{description}</Text>
+                  <View style={pdfStyles.row}>
+                    <Text style={pdfStyles.detail}>{labeledAt}</Text>
+                    <Text style={pdfStyles.detail}>
+                      {abv ? `${abv}%` : ""}
+                    </Text>
+                    <Text style={pdfStyles.detail}>
+                      {metaValue ? `${metaValue} ${meta}` : ""}
+                    </Text>
+                  </View>
                 </View>
               </DefaultLabelPdfPage>
             </Document>

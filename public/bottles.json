@@ -1,0 +1,56 @@
+[
+  {
+    "brand": "BOWMORE",
+    "name": "DISTILLED 1997",
+    "description": "THE SCOTCH MALT WHISKY SOCIETY NO 3.187",
+    "labeledAt": "25-12-06",
+    "abv": "57.2",
+    "meta": "YRS",
+    "metaValue": "14"
+  },
+  {
+    "brand": "LAPHROAIG",
+    "name": "QUARTER CASK",
+    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
+    "labeledAt": "25-11-15",
+    "abv": "48",
+    "meta": "YRS",
+    "metaValue": "NAS"
+  },
+  {
+    "brand": "ARDBEG",
+    "name": "UIGEADAIL",
+    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
+    "labeledAt": "25-10-20",
+    "abv": "54.2",
+    "meta": "YRS",
+    "metaValue": "NAS"
+  },
+  {
+    "brand": "GLENFIDDICH",
+    "name": "DISTILLED 2006",
+    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
+    "labeledAt": "25-09-01",
+    "abv": "40",
+    "meta": "YRS",
+    "metaValue": "18"
+  },
+  {
+    "brand": "MACALLAN",
+    "name": "SHERRY OAK",
+    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
+    "labeledAt": "25-08-12",
+    "abv": "43",
+    "meta": "YRS",
+    "metaValue": "12"
+  },
+  {
+    "brand": "TALISKER",
+    "name": "DISTILLED 2010",
+    "description": "ISLE OF SKYE SINGLE MALT SCOTCH WHISKY",
+    "labeledAt": "25-07-30",
+    "abv": "45.8",
+    "meta": "YRS",
+    "metaValue": "10"
+  }
+]

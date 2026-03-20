@@ -1,6 +1,6 @@
-import { Fragment } from 'react/jsx-runtime';
 import styled from '@emotion/styled';
 import { Link } from '@tanstack/react-router';
+import { Fragment } from 'react/jsx-runtime';
 
 import BottleCarousel from '@/components/BottleCarousel';
 import LayoutPanel from '@/components/LayoutPanel';
@@ -76,11 +76,6 @@ const MENU_LIST: MenuItem[] = [
             redirect: true,
           },
         ],
-      },
-      {
-        id: '/box',
-        name: 'BOX',
-        redirect: true,
       },
     ],
   },

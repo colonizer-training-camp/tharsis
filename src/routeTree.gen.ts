@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrintIndexRouteImport } from './routes/print/index'
 import { Route as BottleOfTheDayIndexRouteImport } from './routes/bottle-of-the-day/index'
-import { Route as PrintBoxIndexRouteImport } from './routes/print/box/index'
 import { Route as PrintBottleNewIndexRouteImport } from './routes/print/bottle/new/index'
 import { Route as PrintBottleExistingIndexRouteImport } from './routes/print/bottle/existing/index'
 
@@ -31,11 +30,6 @@ const BottleOfTheDayIndexRoute = BottleOfTheDayIndexRouteImport.update({
   path: '/bottle-of-the-day/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrintBoxIndexRoute = PrintBoxIndexRouteImport.update({
-  id: '/print/box/',
-  path: '/print/box/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrintBottleNewIndexRoute = PrintBottleNewIndexRouteImport.update({
   id: '/print/bottle/new/',
   path: '/print/bottle/new/',
@@ -52,7 +46,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bottle-of-the-day': typeof BottleOfTheDayIndexRoute
   '/print': typeof PrintIndexRoute
-  '/print/box': typeof PrintBoxIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
@@ -60,7 +53,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bottle-of-the-day': typeof BottleOfTheDayIndexRoute
   '/print': typeof PrintIndexRoute
-  '/print/box': typeof PrintBoxIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
@@ -69,7 +61,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/bottle-of-the-day/': typeof BottleOfTheDayIndexRoute
   '/print/': typeof PrintIndexRoute
-  '/print/box/': typeof PrintBoxIndexRoute
   '/print/bottle/existing/': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new/': typeof PrintBottleNewIndexRoute
 }
@@ -79,7 +70,6 @@ export interface FileRouteTypes {
     | '/'
     | '/bottle-of-the-day'
     | '/print'
-    | '/print/box'
     | '/print/bottle/existing'
     | '/print/bottle/new'
   fileRoutesByTo: FileRoutesByTo
@@ -87,7 +77,6 @@ export interface FileRouteTypes {
     | '/'
     | '/bottle-of-the-day'
     | '/print'
-    | '/print/box'
     | '/print/bottle/existing'
     | '/print/bottle/new'
   id:
@@ -95,7 +84,6 @@ export interface FileRouteTypes {
     | '/'
     | '/bottle-of-the-day/'
     | '/print/'
-    | '/print/box/'
     | '/print/bottle/existing/'
     | '/print/bottle/new/'
   fileRoutesById: FileRoutesById
@@ -104,7 +92,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BottleOfTheDayIndexRoute: typeof BottleOfTheDayIndexRoute
   PrintIndexRoute: typeof PrintIndexRoute
-  PrintBoxIndexRoute: typeof PrintBoxIndexRoute
   PrintBottleExistingIndexRoute: typeof PrintBottleExistingIndexRoute
   PrintBottleNewIndexRoute: typeof PrintBottleNewIndexRoute
 }
@@ -132,13 +119,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BottleOfTheDayIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/print/box/': {
-      id: '/print/box/'
-      path: '/print/box'
-      fullPath: '/print/box'
-      preLoaderRoute: typeof PrintBoxIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/print/bottle/new/': {
       id: '/print/bottle/new/'
       path: '/print/bottle/new'
@@ -160,7 +140,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BottleOfTheDayIndexRoute: BottleOfTheDayIndexRoute,
   PrintIndexRoute: PrintIndexRoute,
-  PrintBoxIndexRoute: PrintBoxIndexRoute,
   PrintBottleExistingIndexRoute: PrintBottleExistingIndexRoute,
   PrintBottleNewIndexRoute: PrintBottleNewIndexRoute,
 }

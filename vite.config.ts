@@ -3,8 +3,8 @@ import react from "@vitejs/plugin-react";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: "/tharsis/",
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/tharsis/" : "/",
   plugins: [
     tanstackRouter({ target: "react", autoCodeSplitting: true }),
     react(),
@@ -14,4 +14,4 @@ export default defineConfig({
       "@tabler/icons-react": "@tabler/icons-react/dist/esm/icons/index.mjs",
     },
   },
-});
+}));

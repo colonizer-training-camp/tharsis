@@ -153,34 +153,36 @@ const NewBottle = () => {
           </Field>
         </FieldConatiner>
         <PreviewContainer>
-          <PreviewColumn>
-            <BottleLabelCard bottle={bottle} />
-            <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
-              {({ url }) => (
-                <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
-              )}
-            </BlobProvider>
-          </PreviewColumn>
+          <BottleLabelCard bottle={bottle} />
         </PreviewContainer>
       </FieldWithPreviewConatiner>
+      <PrintRow>
+        <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
+          {({ url }) => (
+            <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
+          )}
+        </BlobProvider>
+      </PrintRow>
     </LayoutPanel>
   );
 };
 
 export default NewBottle;
 
-const PreviewColumn = styled.div`
+const PrintRow = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
+  justify-content: flex-end;
+  margin-top: 16px;
 `;
 
 const WhiskybaseRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 16px;
+  flex-wrap: wrap;
 `;
 
 const AutoGenerateButton = styled.button`

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrintIndexRouteImport } from './routes/print/index'
+import { Route as PrintBoxIndexRouteImport } from './routes/print/box/index'
 import { Route as PrintBottleNewIndexRouteImport } from './routes/print/bottle/new/index'
 import { Route as PrintBottleExistingIndexRouteImport } from './routes/print/bottle/existing/index'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const PrintIndexRoute = PrintIndexRouteImport.update({
   id: '/print/',
   path: '/print/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrintBoxIndexRoute = PrintBoxIndexRouteImport.update({
+  id: '/print/box/',
+  path: '/print/box/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrintBottleNewIndexRoute = PrintBottleNewIndexRouteImport.update({
@@ -39,12 +45,14 @@ const PrintBottleExistingIndexRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/print': typeof PrintIndexRoute
+  '/print/box': typeof PrintBoxIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/print': typeof PrintIndexRoute
+  '/print/box': typeof PrintBoxIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
@@ -52,18 +60,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/print/': typeof PrintIndexRoute
+  '/print/box/': typeof PrintBoxIndexRoute
   '/print/bottle/existing/': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new/': typeof PrintBottleNewIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/print' | '/print/bottle/existing' | '/print/bottle/new'
+  fullPaths:
+    | '/'
+    | '/print'
+    | '/print/box'
+    | '/print/bottle/existing'
+    | '/print/bottle/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/print' | '/print/bottle/existing' | '/print/bottle/new'
+  to:
+    | '/'
+    | '/print'
+    | '/print/box'
+    | '/print/bottle/existing'
+    | '/print/bottle/new'
   id:
     | '__root__'
     | '/'
     | '/print/'
+    | '/print/box/'
     | '/print/bottle/existing/'
     | '/print/bottle/new/'
   fileRoutesById: FileRoutesById
@@ -71,6 +91,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrintIndexRoute: typeof PrintIndexRoute
+  PrintBoxIndexRoute: typeof PrintBoxIndexRoute
   PrintBottleExistingIndexRoute: typeof PrintBottleExistingIndexRoute
   PrintBottleNewIndexRoute: typeof PrintBottleNewIndexRoute
 }
@@ -89,6 +110,13 @@ declare module '@tanstack/react-router' {
       path: '/print'
       fullPath: '/print'
       preLoaderRoute: typeof PrintIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/print/box/': {
+      id: '/print/box/'
+      path: '/print/box'
+      fullPath: '/print/box'
+      preLoaderRoute: typeof PrintBoxIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/print/bottle/new/': {
@@ -111,6 +139,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrintIndexRoute: PrintIndexRoute,
+  PrintBoxIndexRoute: PrintBoxIndexRoute,
   PrintBottleExistingIndexRoute: PrintBottleExistingIndexRoute,
   PrintBottleNewIndexRoute: PrintBottleNewIndexRoute,
 }

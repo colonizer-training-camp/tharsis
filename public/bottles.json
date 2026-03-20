@@ -1,210 +1,167 @@
 [
   {
-    "brand": "BOWMORE",
-    "name": "DISTILLED 1997",
-    "description": "THE SCOTCH MALT WHISKY SOCIETY NO 3.187",
-    "abv": "57.2",
+    "brand": "Glenrothes",
+    "name": "1992 The Taster",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "48.3",
     "meta": "YRS",
-    "metaValue": "14"
+    "metaValue": "30",
+    "description": "Single Cask, Cask Strength, Limited Edition (The Taster series)",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/256580/glendronach-ode-to-the-valley"
   },
   {
-    "brand": "LAPHROAIG",
-    "name": "QUARTER CASK",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "48",
+    "brand": "Johnnie Walker",
+    "name": "Blue Label",
+    "region": "Scotland",
+    "type": "Blended Scotch",
+    "abv": "40.0",
     "meta": "YRS",
-    "metaValue": "NAS"
+    "metaValue": "NAS",
+    "description": "Premium blended Scotch whisky with no age statement; consists of rare old malts and grain whiskies",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/51152/johnnie-walker-blue-label"
   },
   {
-    "brand": "ARDBEG",
-    "name": "UIGEADAIL",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "54.2",
+    "brand": "Johnnie Walker",
+    "name": "Blue Label (Xordinaire)",
+    "region": "Scotland",
+    "type": "Blended Scotch",
+    "abv": "40.0",
     "meta": "YRS",
-    "metaValue": "NAS"
+    "metaValue": "NAS",
+    "description": "Blend released 2023 (Xordinaire series), French XO Cognac cask influence suggested; no official age statement",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/238848/johnnie-walker-blue-label"
   },
   {
-    "brand": "GLENFIDDICH",
-    "name": "DISTILLED 2006",
-    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "abv": "40",
+    "brand": "Bowmore",
+    "name": "18‑Year‑Old",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "43.0",
     "meta": "YRS",
-    "metaValue": "18"
+    "metaValue": "18",
+    "description": "Standard Bowmore 18‑Year‑Old matured in bourbon & sherry casks, balanced peat smoke and sherried sweetness",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/102207/bowmore-18-year-old"
   },
   {
-    "brand": "MACALLAN",
-    "name": "SHERRY OAK",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
+    "brand": "Bowmore",
+    "name": "18‑Year‑Old Deep & Complex",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "43.0",
     "meta": "YRS",
-    "metaValue": "12"
+    "metaValue": "18",
+    "description": "Oloroso & Pedro Ximénez sherry cask matured Islay single malt Scotch whisky; balanced sherry and peat character",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/94218/bowmore-18-year-old"
   },
   {
-    "brand": "TALISKER",
-    "name": "DISTILLED 2010",
-    "description": "ISLE OF SKYE SINGLE MALT SCOTCH WHISKY",
+    "brand": "BenRiach",
+    "name": "2010 Trail & Tale",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "53.5",
+    "meta": "YRS",
+    "metaValue": "14",
+    "description": "Bottled by WhiskyNavi (WhNa) in the Trail & Tale series; finished in ex‑Laphroaig barrique; single cask, natural colour, non‑chill filtered",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/277314/benriach-2010-whna"
+  },
+  {
+    "brand": "BenRiach",
+    "name": "25‑Year‑Old",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "47.0",
+    "meta": "YRS",
+    "metaValue": "25",
+    "description": "Triple Distilled – Three Cask Matured; aged in bourbon, oloroso sherry & virgin oak casks; travel retail exclusive, uncoloured & non‑chill filtered",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/252158/benriach-25-year-old"
+  },
+  {
+    "brand": "BenRiach",
+    "name": "Malting Season (Second Edition)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "48.9",
+    "meta": "YRS",
+    "metaValue": "8",
+    "description": "Annual series bottling celebrating BenRiach’s floor‑malted barley; malted on‑site, matured in first‑fill bourbon barrels; label shows barley variety Concerto (Second Edition)",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/217155/benriach-malting-season"
+  },
+  {
+    "brand": "Talisker",
+    "name": "Surge",
+    "region": "Islands",
+    "type": "Single Malt",
     "abv": "45.8",
     "meta": "YRS",
-    "metaValue": "10"
+    "metaValue": "NAS",
+    "description": "Travel retail exclusive single malt from Skye; matured in ex‑bourbon casks with signature maritime smoke and spice character",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/215093/talisker-surge"
   },
   {
-    "brand": "LAGAVULIN",
-    "name": "DISTILLED 2008",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
+    "brand": "Talisker",
+    "name": "25‑Year‑Old",
+    "region": "Islands",
+    "type": "Single Malt",
+    "abv": "45.8",
     "meta": "YRS",
-    "metaValue": "16"
+    "metaValue": "25",
+    "description": "Classic Talisker 25‑year‑old single malt from the Isle of Skye, matured at least 25 years; rich maritime smoke, peat and sea salt character",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/68996/talisker-25-year-old"
   },
   {
-    "brand": "HIGHLAND PARK",
-    "name": "VIKING HONOUR",
-    "description": "ISLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "40",
+    "brand": "Ardbeg",
+    "name": "21‑Year‑Old (Seann Chreag)",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "46.8",
     "meta": "YRS",
-    "metaValue": "12"
+    "metaValue": "21",
+    "description": "Limited edition bottling from Ardbeg’s Seann Chreag series; matured 21 years in Oloroso sherry & bourbon casks, non‑chill filtered",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261258/ardbeg-21-year-old"
   },
   {
-    "brand": "CAOL ILA",
-    "name": "DISTILLED 2012",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
+    "brand": "Ardbeg",
+    "name": "15‑Year‑Old (Anthology)",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "46.0",
     "meta": "YRS",
-    "metaValue": "12"
+    "metaValue": "15",
+    "description": "Ardbeg Anthology – The Beithir’s Tale series; matured for 15 years in special designer charred bourbon casks; non‑chill filtered",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261111/ardbeg-15-year-old"
   },
   {
-    "brand": "SPRINGBANK",
-    "name": "DISTILLED 2009",
-    "description": "CAMPBELTOWN SINGLE MALT SCOTCH WHISKY",
-    "abv": "46",
+    "brand": "Glendronach",
+    "name": "Ode to the Valley",
+    "region": "Highlands",
+    "type": "Single Malt",
+    "abv": "46.2",
     "meta": "YRS",
-    "metaValue": "15"
+    "metaValue": "NAS",
+    "description": "Part of The Master's Anthology series, matured in a combination of ruby port casks from the Douro Valley and Spanish sherry casks, offering sweet floral and ripe berry description",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265629/glendronach-ode-to-the-valley"
   },
   {
-    "brand": "BRUICHLADDICH",
-    "name": "THE CLASSIC LADDIE",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY UNPEATED",
-    "abv": "50",
+    "brand": "Glendronach",
+    "name": "Ode to the Embers",
+    "region": "Highlands",
+    "type": "Single Malt",
+    "abv": "48.4",
     "meta": "YRS",
-    "metaValue": "NAS"
+    "metaValue": "NAS",
+    "description": "Part of The Master's Anthology series; lightly peated Highland single malt matured in Oloroso & Pedro Ximénez sherry casks with interwoven smoky and rich sherried character",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265628/glendronach-ode-to-the-embers"
   },
   {
-    "brand": "OBAN",
-    "name": "DISTILLED 2010",
-    "description": "WEST HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
+    "brand": "Glendronach",
+    "name": "Ode to the Dark",
+    "region": "Highlands",
+    "type": "Single Malt",
+    "abv": "50.8",
     "meta": "YRS",
-    "metaValue": "14"
-  },
-  {
-    "brand": "BUNNAHABHAIN",
-    "name": "STIUIREADAIR",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "46.3",
-    "meta": "YRS",
-    "metaValue": "NAS"
-  },
-  {
-    "brand": "GLENMORANGIE",
-    "name": "THE ORIGINAL",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "40",
-    "meta": "YRS",
-    "metaValue": "10"
-  },
-  {
-    "brand": "DALMORE",
-    "name": "DISTILLED 2009",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "40",
-    "meta": "YRS",
-    "metaValue": "15"
-  },
-  {
-    "brand": "ABERLOUR",
-    "name": "A'BUNADH BATCH 72",
-    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "abv": "60.8",
-    "meta": "YRS",
-    "metaValue": "NAS"
-  },
-  {
-    "brand": "KILCHOMAN",
-    "name": "MACHIR BAY",
-    "description": "ISLAY SINGLE MALT SCOTCH WHISKY",
-    "abv": "46",
-    "meta": "YRS",
-    "metaValue": "NAS"
-  },
-  {
-    "brand": "GLEN SCOTIA",
-    "name": "VICTORIANA",
-    "description": "CAMPBELTOWN SINGLE MALT SCOTCH WHISKY",
-    "abv": "54.2",
-    "meta": "YRS",
-    "metaValue": "NAS"
-  },
-  {
-    "brand": "BENROMACH",
-    "name": "DISTILLED 2014",
-    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
-    "meta": "YRS",
-    "metaValue": "10"
-  },
-  {
-    "brand": "CLYNELISH",
-    "name": "DISTILLED 2010",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "46",
-    "meta": "YRS",
-    "metaValue": "14"
-  },
-  {
-    "brand": "TOBERMORY",
-    "name": "DISTILLED 2013",
-    "description": "ISLE OF MULL SINGLE MALT SCOTCH WHISKY",
-    "abv": "46.3",
-    "meta": "YRS",
-    "metaValue": "12"
-  },
-  {
-    "brand": "EDRADOUR",
-    "name": "DISTILLED 2012",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "46",
-    "meta": "YRS",
-    "metaValue": "10"
-  },
-  {
-    "brand": "BALVENIE",
-    "name": "DOUBLEWOOD",
-    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "abv": "43",
-    "meta": "YRS",
-    "metaValue": "12"
-  },
-  {
-    "brand": "CRAIGELLACHIE",
-    "name": "DISTILLED 2011",
-    "description": "SPEYSIDE SINGLE MALT SCOTCH WHISKY",
-    "abv": "46",
-    "meta": "YRS",
-    "metaValue": "13"
-  },
-  {
-    "brand": "DEANSTON",
-    "name": "VIRGIN OAK",
-    "description": "HIGHLAND SINGLE MALT SCOTCH WHISKY",
-    "abv": "46.3",
-    "meta": "YRS",
-    "metaValue": "NAS"
-  },
-  {
-    "brand": "LEDAIG",
-    "name": "DISTILLED 2014",
-    "description": "ISLE OF MULL SINGLE MALT SCOTCH WHISKY PEATED",
-    "abv": "46.3",
-    "meta": "YRS",
-    "metaValue": "10"
+    "metaValue": "NAS",
+    "description": "Part of The Master's Anthology series, matured exclusively in Pedro Ximénez sherry casks with rich dark fruit, chocolate, mocha and caramel character",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265630/glendronach-ode-to-the-dark"
   }
 ]

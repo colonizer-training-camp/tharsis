@@ -264,6 +264,18 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/268864/ardbeg-smoketrails"
   },
   {
+    "brand": "Ardbeg",
+    "name": "Smoketrails (Côte Rôtie Edition)",
+    "region": "Islay",
+    "type": "Single Malt",
+    "abv": "46.0",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Travel retail exclusive, batch FR/CR 2023, matured in ex-bourbon casks and Côte Rôtie red wine casks, non-chill filtered, natural colour",
+    "description": "Bourbon & Côte Rôtie Wine Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/243552/ardbeg-smoketrails"
+  },
+  {
     "brand": "Deanston",
     "name": "2009 MBl (The Maltman)",
     "region": "Highland",
@@ -336,28 +348,16 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/126239/glendronach-16-year-old"
   },
   {
-    "brand": "Bladnoch",
-    "name": "Alinta Reserve",
-    "region": "Lowlands",
+    "brand": "Glendronach",
+    "name": "21-Year-Old (Parliament)",
+    "region": "Highland",
     "type": "Single Malt",
-    "abv": "46.7",
-    "meta": "Vintage",
-    "metaValue": "2009 (Bottled 2023)",
-    "notes": "Peated Lowland single malt matured in first‑fill Amontillado sherry hogsheads; limited release of 2000 bottles with smoky, sherried character",
-    "description": "1st-Fill Amontillado Sherry Hoshead Cask",
-    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/241842/bladnoch-alinta-reserve"
-  },
-  {
-    "brand": "Aultmore",
-    "name": "12‑Year‑Old (Cask Finish Collection)",
-    "region": "Speyside",
-    "type": "Single Malt",
-    "abv": "46.0",
+    "abv": "48.0",
     "meta": "YRS",
-    "metaValue": "12",
-    "notes": "Finished in second‑fill Oloroso sherry casks; part of the Aultmore Cask Finish Collection, non‑chill filtered and natural colour",
-    "description": "2nd-Fill Oloroso Sherry Cask Finish",
-    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261823/aultmore-12-year-old"
+    "metaValue": "21",
+    "notes": "Distillery bottling, matured in Oloroso & Pedro Ximénez sherry casks, non-chill filtered, natural colour",
+    "description": "Oloroso & Pedro Ximénez Sherry Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/53238/glendronach-21-year-old"
   },
   {
     "brand": "Aberfeldy",
@@ -420,6 +420,18 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/239789/hakushu-japanese-forest"
   },
   {
+    "brand": "Yamazaki",
+    "name": "Smoky Batch (The Third)",
+    "region": "Japan",
+    "type": "Single Malt",
+    "abv": "43.0",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Japanese travel retail exclusive, peated malt components blended, limited edition, distillery bottling",
+    "description": "Oak Casks (Peated Malt Blend)",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/276074/yamazaki-smoky-batch"
+  },
+  {
     "brand": "Amahagan",
     "name": "World Malt (Edition No. 3)",
     "region": "Japan",
@@ -450,5 +462,161 @@
     "meta": "YRS",
     "metaValue": "NAS",
     "description": "ZERO PROOF"
+  },
+  {
+    "brand": "Bladnoch",
+    "name": "2009 (Korean Exclusive Single Cask)",
+    "region": "Lowlands",
+    "type": "Single Malt",
+    "abv": "56.4",
+    "meta": "YRS",
+    "metaValue": "13",
+    "notes": "Single cask (#12), peated bourbon cask, cask strength, non-chill filtered, natural colour, 217 bottles, Korean exclusive",
+    "description": "Peated Bourbon Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/295865/bladnoch-2009"
+  },
+  {
+    "brand": "Bladnoch",
+    "name": "2001",
+    "region": "Lowlands",
+    "type": "Single Malt",
+    "abv": "50.1",
+    "meta": "YRS",
+    "metaValue": "22",
+    "notes": "Single cask (#3207), Amontillado sherry hogshead, cask strength, non-chill filtered, natural colour, 281 bottles",
+    "description": "Amontillado Sherry Hogshead Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/231170/bladnoch-2001"
+  },
+  {
+    "brand": "Bladnoch",
+    "name": "Alinta Reserve",
+    "region": "Lowlands",
+    "type": "Single Malt",
+    "abv": "46.7",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Peated Lowland single malt matured in first‑fill Amontillado sherry hogsheads; limited release of 2000 bottles with smoky, sherried character",
+    "description": "1st-Fill Amontillado Sherry Hoshead Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/241842/bladnoch-alinta-reserve"
+  },
+  {
+    "brand": "Bladnoch",
+    "name": "Dragon Series Iteration IV",
+    "region": "Lowlands",
+    "type": "Single Malt",
+    "abv": "51.5",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Dragon Series, matured in red wine hogsheads & 1st-fill bourbon casks, non-chill filtered, natural colour, 2000 bottles",
+    "description": "Red Wine Hogshead & 1st-Fill Bourbon Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/232203/bladnoch-iteration-iv-the-ageing"
+  },
+  {
+    "brand": "Glen Garioch",
+    "name": "2003 (HI - Maggie's Collection)",
+    "region": "Highland",
+    "type": "Single Malt",
+    "abv": "57.8",
+    "meta": "YRS",
+    "metaValue": "22",
+    "notes": "Single cask (#165), bottled by Highlander Inn (HI) for The Whisky List Australia, cask strength, non-chill filtered, natural colour, 219 bottles",
+    "description": "Single Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/274722/glen-garioch-2003-hi"
+  },
+  {
+    "brand": "Tamdhu",
+    "name": "Gran Reserva (Batch 4)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "46.0",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Travel retail exclusive, matured in first-fill European oak Oloroso sherry casks, non-chill filtered, natural colour",
+    "description": "1st-Fill European Oak Oloroso Sherry Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/260791/tamdhu-gran-reserva"
+  },
+  {
+    "brand": "Longmorn",
+    "name": "18-Year-Old (2023 Release)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "57.6",
+    "meta": "YRS",
+    "metaValue": "18",
+    "notes": "Single batch, cask strength, matured in barrels & hogsheads, non-chill filtered, natural colour",
+    "description": "Barrels & Hogsheads",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/246443/longmorn-18-year-old"
+  },
+  {
+    "brand": "Aultmore",
+    "name": "12‑Year‑Old (Cask Finish Collection)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "46.0",
+    "meta": "YRS",
+    "metaValue": "12",
+    "notes": "Finished in second‑fill Oloroso sherry casks; part of the Aultmore Cask Finish Collection, non‑chill filtered and natural colour",
+    "description": "2nd-Fill Oloroso Sherry Cask Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261823/aultmore-12-year-old"
+  },
+  {
+    "brand": "Aultmore",
+    "name": "2003 (Exceptional Cask Series)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "53.0",
+    "meta": "YRS",
+    "metaValue": "19",
+    "notes": "Korea exclusive, Exceptional Cask Series, matured in Tawny Port casks, batch of casks (#500000–500004), non-chill filtered, natural colour, 1512 bottles",
+    "description": "Tawny Port Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/270131/aultmore-2003"
+  },
+  {
+    "brand": "Balvenie",
+    "name": "21-Year-Old",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "40.0",
+    "meta": "YRS",
+    "metaValue": "21",
+    "notes": "Distillery bottling, matured in traditional oak then finished in Port casks, chill filtered, coloured",
+    "description": "Port Wood Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/66120/balvenie-21-year-old"
+  },
+  {
+    "brand": "Chivas Regal",
+    "name": "18-Year-Old",
+    "region": "Scotland",
+    "type": "Blended Scotch",
+    "abv": "40.0",
+    "meta": "YRS",
+    "metaValue": "18",
+    "notes": "Blended from over 20 malt and grain whiskies, including Strathisla and Longmorn, chill filtered, coloured",
+    "description": "Blended Scotch, Mizunara Cask Finish",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/154954/chivas-regal-18-year-old"
+  },
+  {
+    "brand": "Douglas Laing",
+    "name": "Big Peat (Small Batch)",
+    "region": "Islay",
+    "type": "Blended Malt",
+    "abv": "46.0",
+    "meta": "YRS",
+    "metaValue": "NAS",
+    "notes": "Small batch blended malt, composed of Ardbeg, Caol Ila, Bowmore and Port Ellen malts, non-chill filtered, natural colour",
+    "description": "Islay Blended Malt",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/228618/big-peat-small-batch-dl"
+  },
+  {
+    "brand": "Glenfiddich",
+    "name": "18-Year-Old (Small Batch Reserve)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "40.0",
+    "meta": "YRS",
+    "metaValue": "18",
+    "notes": "Distillery bottling, matured in ex-bourbon and Oloroso sherry casks, married in small batches, chill filtered, coloured",
+    "description": "Bourbon & Oloroso Sherry Casks",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/216333/glenfiddich-18-year-old"
   }
 ]

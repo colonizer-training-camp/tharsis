@@ -1,6 +1,6 @@
+import { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 import { IconPlus, IconTrash } from '@tabler/icons-react';
-import { useCallback, useState } from 'react';
 
 import LayoutPanel from '@/components/LayoutPanel';
 import Space from '@/components/Space';
@@ -57,7 +57,9 @@ const DrinkResponsibly = () => {
       <Table>
         <thead>
           <Tr>
-            <Th $flex={3} $hideOnMobile={true}>BOTTLE</Th>
+            <Th $flex={3} $hideOnMobile={true}>
+              BOTTLE
+            </Th>
             <Th $flex={1}>ABV %</Th>
             <Th $flex={1}>ML</Th>
             <Th $flex={1}>ALCOHOL (ML)</Th>
@@ -114,7 +116,9 @@ const DrinkResponsibly = () => {
             </td>
           </DividerTr>
           <Tr>
-            <Th $flex={3} $hideOnMobile>TOTAL</Th>
+            <Th $flex={3} $hideOnMobile>
+              TOTAL
+            </Th>
             <Th $flex={1}></Th>
             <Th $flex={1}>{totalDrinkMl.toFixed(0)} ml</Th>
             <Th $flex={1}>{totalAlcoholMl.toFixed(1)} ml</Th>
@@ -179,7 +183,8 @@ const Th = styled.th<{ $flex: number; $hideOnMobile?: boolean }>`
   padding: 8px 4px;
   @media (max-width: 1200px) {
     ${({ $hideOnMobile }) => $hideOnMobile && 'display: none;'}
-    ${({ $hideOnMobile, $flex }) => !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
+    ${({ $hideOnMobile, $flex }) =>
+      !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
   }
 `;
 
@@ -188,7 +193,8 @@ const Td = styled.td<{ $flex: number; $hideOnMobile?: boolean }>`
   padding: 4px;
   @media (max-width: 1200px) {
     ${({ $hideOnMobile }) => $hideOnMobile && 'display: none;'}
-    ${({ $hideOnMobile, $flex }) => !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
+    ${({ $hideOnMobile, $flex }) =>
+      !$hideOnMobile && mobileColWidth[$flex] && `width: ${mobileColWidth[$flex]};`}
   }
 `;
 

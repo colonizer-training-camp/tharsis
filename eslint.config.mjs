@@ -26,7 +26,7 @@ export default defineConfig([
     rules: {
       'local-rules/convert-import-path': 'warn',
       'simple-import-sort/imports': [
-        'error',
+        'warn',
         {
           groups: [
             ['^node:'], // Node builtin

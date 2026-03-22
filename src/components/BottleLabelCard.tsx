@@ -130,7 +130,6 @@ const Name = styled.div`
   height: ${32 * SCALE}px;
   font-size: ${10 * SCALE}px;
   margin-top: ${4 * SCALE}px;
-  ${Ellipsis}
 `;
 
 const Description = styled.div`
@@ -142,7 +141,6 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  ${Ellipsis}
 `;
 
 const LabeledSection = styled.div`

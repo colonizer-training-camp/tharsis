@@ -13,7 +13,7 @@ const pdfStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    padding: '16 0',
+    padding: 16,
   },
   container: {
     height: LABEL_BASE_H,
@@ -36,16 +36,20 @@ const pdfStyles = StyleSheet.create({
     overflow: 'hidden',
   },
   brand: {
+    heigth: 16,
     fontSize: 8,
     marginTop: 6,
     maxLines: 1,
     textOverflow: 'ellipsis',
   } as const,
   name: {
+    heigth: 32,
     fontSize: 10,
     marginTop: 4,
-  },
+    textOverflow: 'ellipsis',
+  } as const,
   description: {
+    heigth: 16,
     fontSize: 6,
     marginTop: 4,
     maxLines: 2,

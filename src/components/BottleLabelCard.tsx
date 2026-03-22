@@ -120,17 +120,21 @@ const Ellipsis = `
 `;
 
 const Brand = styled.div`
+  height: ${16 * SCALE}px;
   font-size: ${8 * SCALE}px;
   margin-top: ${6 * SCALE}px;
   ${Ellipsis}
 `;
 
 const Name = styled.div`
+  height: ${32 * SCALE}px;
   font-size: ${10 * SCALE}px;
   margin-top: ${4 * SCALE}px;
+  ${Ellipsis}
 `;
 
 const Description = styled.div`
+  height: ${16 * SCALE}px;
   font-size: ${6 * SCALE}px;
   margin-top: ${4 * SCALE}px;
   display: -webkit-box;
@@ -138,6 +142,7 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  ${Ellipsis}
 `;
 
 const LabeledSection = styled.div`

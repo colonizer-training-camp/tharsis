@@ -1,6 +1,6 @@
 import { Document, Font, StyleSheet, Text, View } from '@react-pdf/renderer';
 
-import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from '@/constants/label';
+import { LABEL_BASE_H, LABEL_HEADER } from '@/constants/label';
 import DefaultLabelPdfPage from '@/routes/print/-DefaultLabelPdfPage';
 
 import type { Bottle } from './-types';
@@ -13,10 +13,11 @@ const pdfStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
+    padding: '16 0',
   },
   container: {
-    width: LABEL_BASE_W,
     height: LABEL_BASE_H,
+    aspectRatio: 2 / 3,
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'Helvetica-Bold',
@@ -75,6 +76,7 @@ const pdfStyles = StyleSheet.create({
   bottomSection: {
     display: 'flex',
     flexDirection: 'row',
+    height: 24,
   },
   bottomColumn: {
     flex: 1,
@@ -85,6 +87,11 @@ const pdfStyles = StyleSheet.create({
   bottomValue: {
     fontSize: 10,
   },
+  bottomValueSmall: {
+    fontSize: 7,
+    maxLines: 2,
+    textOverflow: 'ellipsis',
+  } as const,
 });
 
 const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
@@ -108,11 +115,19 @@ const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
               <View style={pdfStyles.bottomSection}>
                 <View style={pdfStyles.bottomColumn}>
                   <Text style={pdfStyles.bottomLabel}>%VOL</Text>
-                  <Text style={pdfStyles.bottomValue}>{abv}</Text>
+                  <Text style={abv.length > 4 ? pdfStyles.bottomValueSmall : pdfStyles.bottomValue}>
+                    {abv}
+                  </Text>
                 </View>
                 <View style={pdfStyles.bottomColumn}>
                   <Text style={pdfStyles.bottomLabel}>{meta}</Text>
-                  <Text style={pdfStyles.bottomValue}>{metaValue}</Text>
+                  <Text
+                    style={
+                      metaValue.length > 4 ? pdfStyles.bottomValueSmall : pdfStyles.bottomValue
+                    }
+                  >
+                    {metaValue}
+                  </Text>
                 </View>
               </View>
             </View>

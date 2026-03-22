@@ -2,14 +2,14 @@ import { useCallback, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 
-import { LABEL_BASE_H, LABEL_BASE_W } from '@/constants/label';
+import { LABEL_BASE_H } from '@/constants/label';
 import type { BottleData } from '@/routes/print/bottle/-types';
 import { BLACK } from '@/styles/colors';
 
 import BottleLabelCard from './BottleLabelCard';
 
 const SCALE = 1.5;
-const CARD_W = LABEL_BASE_W * SCALE;
+const CARD_W = ((LABEL_BASE_H * SCALE) / 3) * 2;
 const CARD_H = LABEL_BASE_H * SCALE;
 const GAP = 16;
 const SLOT = CARD_W + GAP;

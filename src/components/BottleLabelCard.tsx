@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-import { LABEL_BASE_H, LABEL_BASE_W, LABEL_HEADER } from '@/constants/label';
+import { LABEL_BASE_H, LABEL_HEADER } from '@/constants/label';
 import type { Bottle } from '@/routes/print/bottle/-types';
 import { BLACK, WHITE } from '@/styles/colors';
 
 const SCALE = 1.5;
-const CARD_WIDTH = LABEL_BASE_W * SCALE;
+const CARD_WIDTH = ((LABEL_BASE_H * SCALE) / 3) * 2;
 const CARD_HEIGHT = LABEL_BASE_H * SCALE;
 
 const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
@@ -27,11 +27,19 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
           <BottomSection>
             <BottomColumn>
               <BottomLabel>%VOL</BottomLabel>
-              <BottomValue>{abv}</BottomValue>
+              {abv.length > 4 ? (
+                <BottomValueSmall>{abv}</BottomValueSmall>
+              ) : (
+                <BottomValue>{abv}</BottomValue>
+              )}
             </BottomColumn>
             <BottomColumn>
               <BottomLabel>{meta}</BottomLabel>
-              <BottomValue>{metaValue}</BottomValue>
+              {metaValue.length > 4 ? (
+                <BottomValueSmall>{metaValue}</BottomValueSmall>
+              ) : (
+                <BottomValue>{metaValue}</BottomValue>
+              )}
             </BottomColumn>
           </BottomSection>
         </Body>
@@ -160,6 +168,7 @@ const Separator = styled.div`
 const BottomSection = styled.div`
   display: flex;
   flex-direction: row;
+  height: ${24 * SCALE}px;
 `;
 
 const BottomColumn = styled.div`
@@ -173,6 +182,12 @@ const BottomLabel = styled.div`
 const BottomValue = styled.div`
   font-size: ${10 * SCALE}px;
   line-height: 1;
+`;
+
+const BottomValueSmall = styled.div`
+  font-size: ${7 * SCALE}px;
+  line-height: 2;
+  ${Ellipsis}
 `;
 
 const WhiskybaseLink = styled.a`

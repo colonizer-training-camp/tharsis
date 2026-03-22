@@ -172,7 +172,10 @@ const BottomSection = styled.div`
 `;
 
 const BottomColumn = styled.div`
-  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const BottomLabel = styled.div`
@@ -186,7 +189,7 @@ const BottomValue = styled.div`
 
 const BottomValueSmall = styled.div`
   font-size: ${7 * SCALE}px;
-  line-height: 2;
+  line-height: 1;
   ${Ellipsis}
 `;
 

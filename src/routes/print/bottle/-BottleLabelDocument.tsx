@@ -79,7 +79,10 @@ const pdfStyles = StyleSheet.create({
     height: 24,
   },
   bottomColumn: {
-    flex: 1,
+    width: '50%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   bottomLabel: {
     fontSize: 5,
@@ -89,7 +92,7 @@ const pdfStyles = StyleSheet.create({
   },
   bottomValueSmall: {
     fontSize: 7,
-    maxLines: 2,
+    maxLines: 1,
     textOverflow: 'ellipsis',
   } as const,
 });

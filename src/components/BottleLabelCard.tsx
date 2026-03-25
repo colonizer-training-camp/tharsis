@@ -3,10 +3,38 @@ import styled from '@emotion/styled';
 import { LABEL_BASE_H, LABEL_HEADER } from '@/constants/label';
 import type { Bottle } from '@/routes/print/bottle/-types';
 import { BLACK, WHITE } from '@/styles/colors';
+import { parseAbvParts, splitNameWithParenthetical } from '@/utils/labelFormat';
 
 const SCALE = 1.5;
 const CARD_WIDTH = ((LABEL_BASE_H * SCALE) / 3) * 2;
 const CARD_HEIGHT = LABEL_BASE_H * SCALE;
+
+const BottleNameLines = ({ name }: { name: string }) => {
+  const { main, parenLine } = splitNameWithParenthetical(name);
+  return (
+    <NameBlock>
+      <NameMain>{main}</NameMain>
+      {parenLine && <NameParen>{parenLine}</NameParen>}
+    </NameBlock>
+  );
+};
+
+/** ABV and meta footer numbers share the same split / small-value rules. */
+const FooterDecimalValue = ({ value }: { value: string }) => {
+  const parsed = parseAbvParts(value);
+  if (parsed.mode === 'split') {
+    return (
+      <BottomValueInlineRow>
+        <BottomValueInline>{parsed.integer}</BottomValueInline>
+        <BottomValueSmallInline>{parsed.fractionWithDot}</BottomValueSmallInline>
+      </BottomValueInlineRow>
+    );
+  }
+  if (parsed.value.length > 4) {
+    return <BottomValueSmall>{parsed.value}</BottomValueSmall>;
+  }
+  return <BottomValue>{parsed.value}</BottomValue>;
+};
 
 const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
   const { brand, name, description, labeledAt, abv, meta, metaValue, whiskybase } = bottle;
@@ -17,7 +45,7 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
         <Header>{LABEL_HEADER}</Header>
         <Body>
           <Brand>{brand}</Brand>
-          <Name>{name}</Name>
+          <BottleNameLines name={name} />
           <Description>{description}</Description>
           <LabeledSection>
             <LabeledLabel>LABELED</LabeledLabel>
@@ -27,19 +55,11 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
           <BottomSection>
             <BottomColumn>
               <BottomLabel>%VOL</BottomLabel>
-              {abv.length > 4 ? (
-                <BottomValueSmall>{abv}</BottomValueSmall>
-              ) : (
-                <BottomValue>{abv}</BottomValue>
-              )}
+              <FooterDecimalValue value={abv} />
             </BottomColumn>
             <BottomColumn>
               <BottomLabel>{meta}</BottomLabel>
-              {metaValue.length > 4 ? (
-                <BottomValueSmall>{metaValue}</BottomValueSmall>
-              ) : (
-                <BottomValue>{metaValue}</BottomValue>
-              )}
+              <FooterDecimalValue value={metaValue} />
             </BottomColumn>
           </BottomSection>
         </Body>
@@ -48,7 +68,7 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
         <Header>{LABEL_HEADER}</Header>
         <Body>
           <Brand>{brand}</Brand>
-          <Name>{name}</Name>
+          <BottleNameLines name={name} />
           {whiskybase && (
             <WhiskybaseLink href={whiskybase} target="_blank" rel="noopener noreferrer">
               {'> WHISKYBASE'}
@@ -126,10 +146,25 @@ const Brand = styled.div`
   ${Ellipsis}
 `;
 
-const Name = styled.div`
-  height: ${32 * SCALE}px;
-  font-size: ${10 * SCALE}px;
+const NameBlock = styled.div`
+  height: ${24 * SCALE}px;
   margin-top: ${4 * SCALE}px;
+`;
+
+const NameMain = styled.div`
+  font-size: ${10 * SCALE}px;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+`;
+
+const NameParen = styled.div`
+  font-size: ${7 * SCALE}px;
+  line-height: 1.15;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
 
 const Description = styled.div`
@@ -185,8 +220,17 @@ const BottomLabel = styled.div`
   font-size: ${5 * SCALE}px;
 `;
 
+const BottomValueInlineRow = styled.span`
+  white-space: nowrap;
+`;
+
 const BottomValue = styled.div`
-  font-size: ${10 * SCALE}px;
+  font-size: ${11 * SCALE}px;
+  line-height: 1;
+`;
+
+const BottomValueInline = styled.span`
+  font-size: ${11 * SCALE}px;
   line-height: 1;
 `;
 
@@ -194,6 +238,11 @@ const BottomValueSmall = styled.div`
   font-size: ${7 * SCALE}px;
   line-height: 1;
   ${Ellipsis}
+`;
+
+const BottomValueSmallInline = styled.span`
+  font-size: ${7 * SCALE}px;
+  line-height: 1;
 `;
 
 const WhiskybaseLink = styled.a`

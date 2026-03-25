@@ -2,6 +2,7 @@ import { Document, Font, StyleSheet, Text, View } from '@react-pdf/renderer';
 
 import { LABEL_BASE_H, LABEL_HEADER } from '@/constants/label';
 import DefaultLabelPdfPage from '@/routes/print/-DefaultLabelPdfPage';
+import { parseAbvParts, splitNameWithParenthetical } from '@/utils/labelFormat';
 
 import type { Bottle } from './-types';
 
@@ -42,10 +43,18 @@ const pdfStyles = StyleSheet.create({
     maxLines: 1,
     textOverflow: 'ellipsis',
   } as const,
-  name: {
-    heigth: 32,
-    fontSize: 10,
+  nameBlock: {
+    height: 24,
     marginTop: 4,
+  },
+  nameMain: {
+    fontSize: 10,
+    lineHeight: 1.15,
+    textOverflow: 'ellipsis',
+  } as const,
+  nameParen: {
+    fontSize: 7,
+    lineHeight: 1.15,
     textOverflow: 'ellipsis',
   } as const,
   description: {
@@ -92,7 +101,13 @@ const pdfStyles = StyleSheet.create({
     fontSize: 5,
   },
   bottomValue: {
-    fontSize: 10,
+    fontSize: 11,
+  },
+  bottomValueInlineRow: {
+    whiteSpace: 'nowrap',
+  } as const,
+  bottomValueInline: {
+    fontSize: 11,
   },
   bottomValueSmall: {
     fontSize: 7,
@@ -100,6 +115,32 @@ const pdfStyles = StyleSheet.create({
     textOverflow: 'ellipsis',
   } as const,
 });
+
+const BottleNameLines = ({ name }: { name: string }) => {
+  const { main, parenLine } = splitNameWithParenthetical(name);
+  return (
+    <View style={pdfStyles.nameBlock}>
+      <Text style={pdfStyles.nameMain}>{main}</Text>
+      {parenLine && <Text style={pdfStyles.nameParen}>{parenLine}</Text>}
+    </View>
+  );
+};
+
+const FooterDecimalValue = ({ value }: { value: string }) => {
+  const parsed = parseAbvParts(value);
+  if (parsed.mode === 'split') {
+    return (
+      <Text style={pdfStyles.bottomValueInlineRow}>
+        <Text style={pdfStyles.bottomValueInline}>{parsed.integer}</Text>
+        <Text style={pdfStyles.bottomValueSmall}>{parsed.fractionWithDot}</Text>
+      </Text>
+    );
+  }
+  if (parsed.value.length > 4) {
+    return <Text style={pdfStyles.bottomValueSmall}>{parsed.value}</Text>;
+  }
+  return <Text style={pdfStyles.bottomValue}>{parsed.value}</Text>;
+};
 
 const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
   const { brand, name, description, labeledAt, abv, meta, metaValue } = bottle;
@@ -112,7 +153,7 @@ const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
             <Text style={pdfStyles.header}>{LABEL_HEADER}</Text>
             <View style={pdfStyles.body}>
               <Text style={pdfStyles.brand}>{brand}</Text>
-              <Text style={pdfStyles.name}>{name}</Text>
+              <BottleNameLines name={name} />
               <Text style={pdfStyles.description}>{description}</Text>
               <View style={pdfStyles.labeledSection}>
                 <Text style={pdfStyles.labeledLabel}>LABELED</Text>
@@ -122,19 +163,11 @@ const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
               <View style={pdfStyles.bottomSection}>
                 <View style={pdfStyles.bottomColumn}>
                   <Text style={pdfStyles.bottomLabel}>%VOL</Text>
-                  <Text style={abv.length > 4 ? pdfStyles.bottomValueSmall : pdfStyles.bottomValue}>
-                    {abv}
-                  </Text>
+                  <FooterDecimalValue value={abv} />
                 </View>
                 <View style={pdfStyles.bottomColumn}>
                   <Text style={pdfStyles.bottomLabel}>{meta}</Text>
-                  <Text
-                    style={
-                      metaValue.length > 4 ? pdfStyles.bottomValueSmall : pdfStyles.bottomValue
-                    }
-                  >
-                    {metaValue}
-                  </Text>
+                  <FooterDecimalValue value={metaValue} />
                 </View>
               </View>
             </View>

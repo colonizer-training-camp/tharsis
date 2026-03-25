@@ -81,7 +81,7 @@ const MENU_LIST: MenuItem[] = [
   },
   {
     id: '/drink-responsibly',
-    name: 'DRINK RESPONSIVLY!',
+    name: 'DRINK RESPONSIBLY!',
     redirect: true,
   },
 ];

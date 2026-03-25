@@ -55,16 +55,16 @@ const pdfStyles = StyleSheet.create({
     maxLines: 2,
     textOverflow: 'ellipsis',
   } as const,
-  labeledSection: {
+  labelledSection: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
     marginTop: 'auto',
   },
-  labeledLabel: {
+  labelledLabel: {
     fontSize: 5,
   },
-  labeledDate: {
+  labelledDate: {
     fontSize: 6,
     backgroundColor: '#000000',
     color: '#ffffff',
@@ -102,10 +102,10 @@ const pdfStyles = StyleSheet.create({
 });
 
 const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
-  const { brand, name, description, labeledAt, abv, meta, metaValue } = bottle;
+  const { brand, name, description, labelledAt, abv, meta, metaValue } = bottle;
 
   return (
-    <Document title={`${brand}_${name}_${labeledAt}`}>
+    <Document title={`${brand}_${name}_${labelledAt}`}>
       <DefaultLabelPdfPage>
         <View style={pdfStyles.page}>
           <View style={pdfStyles.container}>
@@ -114,9 +114,9 @@ const BottleLabelDocument = ({ bottle }: { bottle: Bottle }) => {
               <Text style={pdfStyles.brand}>{brand}</Text>
               <Text style={pdfStyles.name}>{name}</Text>
               <Text style={pdfStyles.description}>{description}</Text>
-              <View style={pdfStyles.labeledSection}>
-                <Text style={pdfStyles.labeledLabel}>LABELED</Text>
-                <Text style={pdfStyles.labeledDate}>{labeledAt}</Text>
+              <View style={pdfStyles.labelledSection}>
+                <Text style={pdfStyles.labelledLabel}>LABELLED</Text>
+                <Text style={pdfStyles.labelledDate}>{labelledAt}</Text>
               </View>
               <View style={pdfStyles.separator} />
               <View style={pdfStyles.bottomSection}>

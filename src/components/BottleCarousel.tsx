@@ -19,14 +19,14 @@ export type CarouselMode = 'arrows' | 'reroll';
 
 type BottleCarouselProps = {
   bottles: BottleData[];
-  labeledAt: string;
+  labelledAt: string;
   mode?: CarouselMode;
   initialRandom?: boolean;
 };
 
 const BottleCarouselContent = ({
   bottles,
-  labeledAt,
+  labelledAt,
   mode = 'arrows',
   initialRandom = false,
 }: BottleCarouselProps) => {
@@ -100,7 +100,7 @@ const BottleCarouselContent = ({
                 key={i}
                 $dimmed={mode === 'reroll' ? !isAnimating && i !== posIdx : i !== posIdx}
               >
-                <BottleLabelCard bottle={{ ...bottle, labeledAt }} />
+                <BottleLabelCard bottle={{ ...bottle, labelledAt }} />
               </CardWrapper>
             ))}
           </Track>
@@ -129,7 +129,7 @@ const BottleCarouselContent = ({
 
 const BottleCarousel = ({
   bottles,
-  labeledAt,
+  labelledAt,
   mode = 'arrows',
   initialRandom = false,
 }: BottleCarouselProps) => {
@@ -137,7 +137,7 @@ const BottleCarousel = ({
     <BottleCarouselContent
       key="bottleCarouselContent"
       bottles={bottles}
-      labeledAt={labeledAt}
+      labelledAt={labelledAt}
       mode={mode}
       initialRandom={initialRandom}
     />
@@ -145,7 +145,7 @@ const BottleCarousel = ({
     <BottleCarouselContent
       key="bottleCarouselPlaceholder"
       bottles={bottles}
-      labeledAt={labeledAt}
+      labelledAt={labelledAt}
       mode={mode}
       initialRandom={initialRandom}
     />

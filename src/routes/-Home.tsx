@@ -119,7 +119,7 @@ const Home = () => {
       <Space h={32} />
       <MenuContainer>{renderMenu(MENU_LIST, '', 1)}</MenuContainer>
       <Space h={32} />
-      <BottleCarousel bottles={bottles} labeledAt={now} />
+      <BottleCarousel bottles={bottles} labelledAt={now} />
       <Space h={16} />
     </LayoutPanel>
   );

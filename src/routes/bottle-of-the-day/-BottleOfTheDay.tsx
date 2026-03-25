@@ -12,7 +12,7 @@ const BottleOfTheDay = () => {
     <LayoutPanel>
       <Space h={32} />
       {bottles.length > 0 && (
-        <BottleCarousel bottles={bottles} labeledAt={now} mode="reroll" initialRandom />
+        <BottleCarousel bottles={bottles} labelledAt={now} mode="reroll" initialRandom />
       )}
       <Space h={32} />
     </LayoutPanel>

@@ -627,8 +627,16 @@
     "brand": "Samda",
     "name": "Eco - No Label",
     "abv": "00.0",
-    "meta": "YRS",
-    "metaValue": "NAS",
+    "meta": "JEJU WATER",
+    "metaValue": "100%",
     "description": "ZERO PROOF"
+  },
+  {
+    "brand": "Chungnam Mill",
+    "name": "SESAME OIL",
+    "abv": "00.0",
+    "meta": "KOREAN SESAME",
+    "metaValue": "100%",
+    "description": "100% Korean Sesame Oil"
   }
 ]

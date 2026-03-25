@@ -9,7 +9,7 @@ const CARD_WIDTH = ((LABEL_BASE_H * SCALE) / 3) * 2;
 const CARD_HEIGHT = LABEL_BASE_H * SCALE;
 
 const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
-  const { brand, name, description, labeledAt, abv, meta, metaValue, whiskybase } = bottle;
+  const { brand, name, description, labelledAt, abv, meta, metaValue, whiskybase } = bottle;
 
   return (
     <Flipper>
@@ -19,10 +19,10 @@ const BottleLabelCard = ({ bottle }: { bottle: Bottle }) => {
           <Brand>{brand}</Brand>
           <Name>{name}</Name>
           <Description>{description}</Description>
-          <LabeledSection>
-            <LabeledLabel>LABELED</LabeledLabel>
-            <LabeledDate>{labeledAt}</LabeledDate>
-          </LabeledSection>
+          <LabelledSection>
+            <LabelledLabel>LABELLED</LabelledLabel>
+            <LabelledDate>{labelledAt}</LabelledDate>
+          </LabelledSection>
           <Separator />
           <BottomSection>
             <BottomColumn>
@@ -143,18 +143,18 @@ const Description = styled.div`
   text-overflow: ellipsis;
 `;
 
-const LabeledSection = styled.div`
+const LabelledSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-top: auto;
 `;
 
-const LabeledLabel = styled.div`
+const LabelledLabel = styled.div`
   font-size: ${5 * SCALE}px;
 `;
 
-const LabeledDate = styled.div`
+const LabelledDate = styled.div`
   font-size: ${6 * SCALE}px;
   background-color: ${BLACK};
   color: ${WHITE};

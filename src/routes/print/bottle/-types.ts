@@ -9,5 +9,5 @@ export type BottleData = {
 };
 
 export type Bottle = BottleData & {
-  labeledAt: string;
+  labelledAt: string;
 };

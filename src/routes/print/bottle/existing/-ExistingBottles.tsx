@@ -84,10 +84,10 @@ const ExistingBottles = () => {
   const bottles = useBottles();
   const [search, setSearch] = useState('');
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [labeledAt, setLabeledAt] = useState(getToday);
+  const [labelledAt, setLabelledAt] = useState(getToday);
 
   const selected = bottles.length > 0 ? bottles[selectedIdx] : null;
-  const bottle = selected ? { ...selected, labeledAt } : null;
+  const bottle = selected ? { ...selected, labelledAt } : null;
 
   const filtered = useMemo(() => {
     if (!search) return bottles;
@@ -137,12 +137,12 @@ const ExistingBottles = () => {
           </BottleList>
           <Divider />
           <Field>
-            <label htmlFor="labeledAt">{`> LABELED AT`}</label>
+            <label htmlFor="labelledAt">{`> LABELLED AT`}</label>
             <TextInput
               type="text"
-              name="labeledAt"
-              value={labeledAt}
-              onChange={(e) => setLabeledAt(e.target.value)}
+              name="labelledAt"
+              value={labelledAt}
+              onChange={(e) => setLabelledAt(e.target.value)}
             />
           </Field>
         </ListContainer>

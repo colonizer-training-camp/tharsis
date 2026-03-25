@@ -26,7 +26,7 @@ const NewBottle = () => {
   const [brand, setBrand] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [labeledAt, setLabeledAt] = useState(now);
+  const [labelledAt, setLabelledAt] = useState(now);
   const [abv, setAbv] = useState('');
   const [meta, setMeta] = useState('YRS');
   const [metaValue, setMetaValue] = useState('');
@@ -35,7 +35,7 @@ const NewBottle = () => {
     brand,
     name,
     description,
-    labeledAt,
+    labelledAt,
     abv,
     meta,
     metaValue,
@@ -116,12 +116,12 @@ const NewBottle = () => {
             />
           </Field>
           <Field>
-            <label htmlFor="labeledAt">{`> LABELED AT`}</label>
+            <label htmlFor="labelledAt">{`> LABELLED AT`}</label>
             <TextInput
               type="text"
-              name="labeledAt"
-              value={labeledAt}
-              onChange={(e) => setLabeledAt(e.target.value)}
+              name="labelledAt"
+              value={labelledAt}
+              onChange={(e) => setLabelledAt(e.target.value)}
             />
           </Field>
           <Field>

@@ -624,6 +624,30 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/276074/yamazaki-smoky-batch"
   },
   {
+    "brand": "Chabot",
+    "name": "30-Year-Old",
+    "abv": "40",
+    "meta": "YRS",
+    "metaValue": "30",
+    "description": "Armagnac"
+  },
+  {
+    "brand": "Henessy",
+    "name": "X.X.O",
+    "abv": "40",
+    "meta": "Âge",
+    "metaValue": "XXO",
+    "description": ""
+  },
+  {
+    "brand": "Jean Fillioux",
+    "name": "Réserve Familiale",
+    "abv": "40",
+    "meta": "Âge",
+    "metaValue": "XO",
+    "description": "Cognac Grand Champagne"
+  },
+  {
     "brand": "Samda",
     "name": "Eco - No Label",
     "abv": "00.0",

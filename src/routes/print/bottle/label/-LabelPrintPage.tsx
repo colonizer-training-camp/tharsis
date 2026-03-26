@@ -5,15 +5,15 @@ import BottleLabelSvg, { SVG_H, SVG_W } from '@/components/BottleLabelSvg';
 import type { Bottle } from '@/routes/print/bottle/-types';
 import { BLACK, BLACK_SUB, GREY } from '@/styles/colors';
 
-const PAGE_W_MM = 80;
-const PAGE_H_MM = 56;
+const PAGE_W_MM = 80 - 4;
+const PAGE_H_MM = 56 - 4;
 
 const PREVIEW_SCALE = 4;
 
 const printStyles = css`
   @media print {
     @page {
-      size: ${PAGE_W_MM}mm ${PAGE_H_MM}mm;
+      size: ${PAGE_W_MM}mm ${PAGE_H_MM}mm landscape;
       margin: 0;
     }
 
@@ -22,6 +22,8 @@ const printStyles = css`
     #root {
       margin: 0 !important;
       padding: 0 !important;
+      width: ${PAGE_W_MM}mm !important;
+      height: ${PAGE_H_MM}mm !important;
     }
 
     /* Hide all root children (Header, Layout, Footer) */
@@ -147,6 +149,11 @@ const PagePreview = styled.div`
   @media (max-width: 1200px) {
     width: ${PAGE_W_MM * PREVIEW_SCALE * 0.6}px;
     height: ${PAGE_H_MM * PREVIEW_SCALE * 0.6}px;
+
+    svg {
+      width: ${SVG_W * PREVIEW_SCALE * 0.6}px;
+      height: ${SVG_H * PREVIEW_SCALE * 0.6}px;
+    }
   }
 `;
 
@@ -162,6 +169,11 @@ const SvgContainer = styled.div`
   @media (max-width: 1200px) {
     width: ${SVG_W * PREVIEW_SCALE * 0.6}px;
     height: ${SVG_H * PREVIEW_SCALE * 0.6}px;
+
+    svg {
+      width: ${SVG_W * PREVIEW_SCALE * 0.6}px;
+      height: ${SVG_H * PREVIEW_SCALE * 0.6}px;
+    }
   }
 `;
 

@@ -22,7 +22,7 @@ const gloablStyle = css`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Geist', 'Pretendard Variable', Pretendard, sans-serif;
     font-weight: 700;
   }
   button {

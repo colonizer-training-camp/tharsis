@@ -105,7 +105,7 @@ const Face = styled.div`
   transition: transform 0.5s ease;
   display: flex;
   flex-direction: column;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: bold;
   line-height: 1.15;
 `;

@@ -26,7 +26,7 @@ const HomeText = styled(Link)`
   background-color: ${BLACK};
   color: ${WHITE};
   text-decoration: none;
-  font-family: 'Helvetica Neue';
+  font-family: 'Geist', sans-serif;
   font-weight: 700;
   font-size: 14px;
   padding: 8px 32px 8px 12px;

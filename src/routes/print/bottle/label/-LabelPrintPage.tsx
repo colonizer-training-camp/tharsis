@@ -5,8 +5,8 @@ import BottleLabelSvg, { SVG_H, SVG_W } from '@/components/BottleLabelSvg';
 import type { Bottle } from '@/routes/print/bottle/-types';
 import { BLACK, BLACK_SUB, GREY } from '@/styles/colors';
 
-const PAGE_W_MM = 76;
-const PAGE_H_MM = 50;
+const PAGE_W_MM = 80;
+const PAGE_H_MM = 56;
 
 const PREVIEW_SCALE = 4;
 

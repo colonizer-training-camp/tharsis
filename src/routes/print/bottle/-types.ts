@@ -1,3 +1,5 @@
+export type Capitalization = 'uppercase' | 'lowercase' | 'preserve';
+
 export type BottleData = {
   brand: string;
   name: string;
@@ -6,6 +8,11 @@ export type BottleData = {
   meta: string;
   metaValue: string;
   whiskybase?: string;
+  brandCapitalization?: Capitalization;
+  nameCapitalization?: Capitalization;
+  descriptionCapitalization?: Capitalization;
+  metaCapitalization?: Capitalization;
+  metaValueCapitalization?: Capitalization;
 };
 
 export type Bottle = BottleData & {

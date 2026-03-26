@@ -1,5 +1,6 @@
 import { LABEL_HEADER } from '@/constants/label';
-import type { Bottle } from '@/routes/print/bottle/-types';
+import { measureText } from '@/data/geistBoldWidths';
+import type { Bottle, Capitalization } from '@/routes/print/bottle/-types';
 import { BLACK, WHITE } from '@/styles/colors';
 import { parseAbvParts, splitNameWithParenthetical } from '@/utils/labelFormat';
 
@@ -22,17 +23,15 @@ const LABEL_PAD_Y = 0;
 const BODY_PAD = pt(2);
 
 const BRAND_FONT_SIZE = pt(8);
-const BRAND_MARGIN_TOP = 4.8;
+const BRAND_MARGIN_TOP = 4.0;
 
-const NAME_MARGIN_TOP = 3.8;
+const NAME_MARGIN_TOP = 3.2;
 const NAME_MAIN_FONT_SIZE = pt(10);
-const NAME_PAREN_FONT_SIZE = pt(5);
 const NAME_LINE_HEIGHT = 1.15;
-const NAME_BLOCK_HEIGHT = pt(24);
 
-const DESC_FONT_SIZE = pt(5);
-const DESC_MARGIN_TOP = pt(4);
-const DESC_LINE_HEIGHT = 1.15;
+const SUB_FONT_SIZE = pt(5);
+const SUB_LINE_HEIGHT = 1.15;
+const SUB_MARGIN_TOP = 2;
 
 const LABELLED_LABEL_FONT_SIZE = pt(5);
 const LABELLED_DATE_FONT_SIZE = pt(6);
@@ -53,6 +52,19 @@ const BOTTOM_VALUE_SMALL_FONT_SIZE = pt(8);
 /** Approximate top-aligned baseline: topY + fontSize * 0.8 (typical ascender ratio) */
 function bl(topY: number, fontSize: number): number {
   return topY + fontSize * 0.8;
+}
+
+/** Apply capitalization: defaults to uppercase unless explicitly overridden */
+function cap(text: string, mode?: Capitalization): string {
+  if (!text) return text;
+  switch (mode) {
+    case 'lowercase':
+      return text.toLowerCase();
+    case 'preserve':
+      return text;
+    default:
+      return text.toUpperCase();
+  }
 }
 
 // --- component ---
@@ -81,26 +93,135 @@ const T = ({ text, x, y, size, fill, anchor }: TProps) =>
     </text>
   ) : null;
 
+function wrapText(text: string, fontSize: number, maxWidth: number, maxLines: number): string[] {
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let cur = '';
+
+  for (const word of words) {
+    const test = cur ? `${cur} ${word}` : word;
+    if (measureText(test, fontSize) <= maxWidth) {
+      cur = test;
+    } else {
+      if (cur) {
+        lines.push(cur);
+        if (lines.length >= maxLines) return lines;
+      }
+      cur = word;
+    }
+  }
+  if (cur && lines.length < maxLines) lines.push(cur);
+  return lines;
+}
+
+/** Multi-line wrapping text using tspan elements */
+type WrapProps = {
+  text: string;
+  x: number;
+  y: number;
+  width: number;
+  size: number;
+  fill: string;
+  lineHeight?: number;
+  maxLines?: number;
+};
+const Wrap = ({ text, x, y, width, size, fill, lineHeight = 1.15, maxLines = 2 }: WrapProps) => {
+  if (!text) return null;
+  const lines = wrapText(text, size, width, maxLines);
+  const baseline = y + size * 0.8;
+  return (
+    <text
+      x={x}
+      fontSize={size}
+      fontFamily={FONT_FAMILY}
+      fontWeight="bold"
+      fill={fill}
+      dominantBaseline="auto"
+    >
+      {lines.map((line, i) => (
+        <tspan key={i} x={x} y={baseline + i * size * lineHeight}>
+          {line}
+        </tspan>
+      ))}
+    </text>
+  );
+};
+
 type Props = {
   bottle: Bottle;
   face?: 'front' | 'back';
   debug?: boolean;
 };
 
-const BottleLabelSvg = ({ bottle, face = 'front', debug = true }: Props) => {
-  const { brand, name, description, labelledAt, abv, meta, metaValue, whiskybase } = bottle;
-  const { main: nameMain, parenLine } = splitNameWithParenthetical(name);
+const BottleLabelSvg = ({ bottle, face = 'front', debug = false }: Props) => {
+  const {
+    brand: rawBrand,
+    name: rawName,
+    description: rawDesc,
+    labelledAt,
+    abv,
+    meta: rawMeta,
+    metaValue: rawMetaValue,
+    whiskybase,
+  } = bottle;
+  const {
+    brandCapitalization,
+    nameCapitalization,
+    descriptionCapitalization,
+    metaCapitalization,
+    metaValueCapitalization,
+  } = bottle;
+
+  const brand = cap(rawBrand, brandCapitalization);
+  const { main: nameMain, parenLine } = splitNameWithParenthetical(
+    cap(rawName, nameCapitalization),
+  );
+  const description = rawDesc ? cap(rawDesc, descriptionCapitalization) : null;
+  const meta = cap(rawMeta, metaCapitalization);
+  const metaValue = cap(rawMetaValue, metaValueCapitalization);
 
   const bodyL = BODY_PAD;
   const bodyR = SVG_W - BODY_PAD;
   const bodyW = bodyR - bodyL;
 
-  // Brand
+  // Brand — shrink font if text overflows
   const brandTop = LABEL_PAD_Y + HEADER_HEIGHT + BODY_PAD + BRAND_MARGIN_TOP;
+  const brandTextW = measureText(brand, BRAND_FONT_SIZE);
+  const brandFontSize =
+    brandTextW > bodyW ? BRAND_FONT_SIZE * (bodyW / brandTextW) : BRAND_FONT_SIZE;
 
-  // Name
-  const nameTop = brandTop + BRAND_FONT_SIZE + NAME_MARGIN_TOP;
-  const nameParenTop = nameTop + NAME_MAIN_FONT_SIZE * NAME_LINE_HEIGHT;
+  // Name — shrink font via binary search to fit within 2 lines (down to 85%)
+  const nameTop = brandTop + brandFontSize + NAME_MARGIN_TOP;
+  const nameFontSize = (() => {
+    const maxLines = 2;
+    if (wrapText(nameMain, NAME_MAIN_FONT_SIZE, bodyW, maxLines + 1).length <= maxLines) {
+      return NAME_MAIN_FONT_SIZE;
+    }
+    let lo = NAME_MAIN_FONT_SIZE * 0.85;
+    let hi = NAME_MAIN_FONT_SIZE;
+    for (let i = 0; i < 10; i++) {
+      const mid = (lo + hi) / 2;
+      if (wrapText(nameMain, mid, bodyW, maxLines + 1).length <= maxLines) {
+        lo = mid;
+      } else {
+        hi = mid;
+      }
+    }
+    return lo;
+  })();
+  const nameLines = wrapText(nameMain, nameFontSize, bodyW, 2);
+  const nameBottom = nameTop + nameLines.length * nameFontSize * NAME_LINE_HEIGHT;
+
+  // Paren (same size as desc, 2mm below name)
+  const parenTop = parenLine ? nameBottom + SUB_MARGIN_TOP : nameBottom;
+  const parenLines = parenLine ? wrapText(parenLine, SUB_FONT_SIZE, bodyW, 2) : [];
+  const parenBottom = parenLine
+    ? parenTop + parenLines.length * SUB_FONT_SIZE * SUB_LINE_HEIGHT
+    : nameBottom;
+
+  // Description (1mm below paren, or 2mm below name if no paren)
+  const descMargin = description ? (parenLine ? 1 : SUB_MARGIN_TOP) : 0;
+  const descTop = parenBottom + descMargin;
 
   // --- shared header + brand + name ---
   const shared = (
@@ -113,27 +234,35 @@ const BottleLabelSvg = ({ bottle, face = 'front', debug = true }: Props) => {
         size={HEADER_FONT_SIZE}
         fill={WHITE}
       />
-      <T
+      <Wrap
         text={brand}
         x={bodyL}
-        y={bl(brandTop, BRAND_FONT_SIZE)}
-        size={BRAND_FONT_SIZE}
+        y={brandTop}
+        width={bodyW}
+        size={brandFontSize}
         fill={BLACK}
+        maxLines={1}
       />
-      <T
+      <Wrap
         text={nameMain}
         x={bodyL}
-        y={bl(nameTop, NAME_MAIN_FONT_SIZE)}
-        size={NAME_MAIN_FONT_SIZE}
+        y={nameTop}
+        width={bodyW}
+        size={nameFontSize}
         fill={BLACK}
+        lineHeight={NAME_LINE_HEIGHT}
+        maxLines={2}
       />
       {parenLine && (
-        <T
+        <Wrap
           text={parenLine}
           x={bodyL}
-          y={bl(nameParenTop, NAME_PAREN_FONT_SIZE)}
-          size={NAME_PAREN_FONT_SIZE}
+          y={parenTop}
+          width={bodyW}
+          size={SUB_FONT_SIZE}
           fill={BLACK}
+          lineHeight={SUB_LINE_HEIGHT}
+          maxLines={2}
         />
       )}
     </>
@@ -192,10 +321,6 @@ const BottleLabelSvg = ({ bottle, face = 'front', debug = true }: Props) => {
   const labelledDateTop = labelledBottom - labelledDateH;
   const labelledLabelTop = labelledDateTop - pt(1) - LABELLED_LABEL_FONT_SIZE;
 
-  // Description
-  const descTop = nameTop + NAME_BLOCK_HEIGHT + DESC_MARGIN_TOP;
-  const descLines = description ? description.split('\n').slice(0, 2) : [];
-
   // Footer values
   const abvParsed = parseAbvParts(abv);
   const metaParsed = parseAbvParts(metaValue);
@@ -232,19 +357,18 @@ const BottleLabelSvg = ({ bottle, face = 'front', debug = true }: Props) => {
       )}
 
       {/* Description */}
-      {descLines.map((line, i) => {
-        const lineTop = descTop + i * DESC_FONT_SIZE * DESC_LINE_HEIGHT;
-        return (
-          <T
-            key={i}
-            text={line}
-            x={bodyL}
-            y={bl(lineTop, DESC_FONT_SIZE)}
-            size={DESC_FONT_SIZE}
-            fill={BLACK}
-          />
-        );
-      })}
+      {description && (
+        <Wrap
+          text={description}
+          x={bodyL}
+          y={descTop}
+          width={bodyW}
+          size={SUB_FONT_SIZE}
+          fill={BLACK}
+          lineHeight={SUB_LINE_HEIGHT}
+          maxLines={3}
+        />
+      )}
 
       {/* Labelled (right-aligned) */}
       <T

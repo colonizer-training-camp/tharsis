@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
-import { BlobProvider } from '@react-pdf/renderer';
+import { Link } from '@tanstack/react-router';
 
 import BottleLabelCard from '@/components/BottleLabelCard';
 import LayoutPanel from '@/components/LayoutPanel';
@@ -14,7 +14,6 @@ import {
   TextFieldInput,
   TextInput,
 } from '@/routes/print/-styledComponents';
-import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
 import { getToday } from '@/utils/date';
 import { scrapeWhiskybase } from '@/utils/scrapeWhiskybase';
 
@@ -59,14 +58,6 @@ const NewBottle = () => {
       setIsGenerating(false);
     }
   }, [whiskybase]);
-
-  const handlePrint = useCallback((url: string | null) => {
-    if (!url) return;
-    const w = window.open(url, '_blank');
-    if (w) {
-      w.addEventListener('load', () => w.print());
-    }
-  }, []);
 
   return (
     <LayoutPanel>
@@ -157,11 +148,13 @@ const NewBottle = () => {
         </PreviewContainer>
       </FieldWithPreviewConatiner>
       <PrintRow>
-        <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
-          {({ url }) => (
-            <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
-          )}
-        </BlobProvider>
+        <Link
+          to="/print/bottle/label"
+          search={bottle}
+          style={{ fontSize: 14, fontWeight: 'bold', color: 'inherit', textDecoration: 'none', padding: '8px 0' }}
+        >
+          {'> PRINT LABEL'}
+        </Link>
       </PrintRow>
     </LayoutPanel>
   );
@@ -200,11 +193,3 @@ const AutoGenerateButton = styled.button`
   }
 `;
 
-const PrintButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 8px 0;
-`;

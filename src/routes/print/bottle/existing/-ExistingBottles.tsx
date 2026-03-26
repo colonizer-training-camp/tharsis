@@ -1,6 +1,6 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { BlobProvider } from '@react-pdf/renderer';
+import { Link } from '@tanstack/react-router';
 
 import BottleLabelCard from '@/components/BottleLabelCard';
 import LayoutPanel from '@/components/LayoutPanel';
@@ -12,7 +12,6 @@ import {
   SearchbarContainer,
   TextInput,
 } from '@/routes/print/-styledComponents';
-import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
 import { BLACK } from '@/styles/colors';
 import { getToday } from '@/utils/date';
 
@@ -71,14 +70,6 @@ const PrintRow = styled.div`
   margin-top: 16px;
 `;
 
-const PrintButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 8px 0;
-`;
 
 const ExistingBottles = () => {
   const bottles = useBottles();
@@ -99,14 +90,6 @@ const ExistingBottles = () => {
         b.description?.toLowerCase().includes(q),
     );
   }, [bottles, search]);
-
-  const handlePrint = useCallback((url: string | null) => {
-    if (!url) return;
-    const w = window.open(url, '_blank');
-    if (w) {
-      w.addEventListener('load', () => w.print());
-    }
-  }, []);
 
   return (
     <LayoutPanel>
@@ -152,11 +135,13 @@ const ExistingBottles = () => {
       </FieldWithPreviewConatiner>
       {bottle && (
         <PrintRow>
-          <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
-            {({ url }) => (
-              <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
-            )}
-          </BlobProvider>
+          <Link
+            to="/print/bottle/label"
+            search={bottle}
+            style={{ fontSize: 14, fontWeight: 'bold', color: 'inherit', textDecoration: 'none', padding: '8px 0' }}
+          >
+            {'> PRINT LABEL'}
+          </Link>
         </PrintRow>
       )}
     </LayoutPanel>

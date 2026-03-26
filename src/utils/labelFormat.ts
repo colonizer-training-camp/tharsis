@@ -28,5 +28,5 @@ export function splitNameWithParenthetical(name: string): NameWithParen {
   if (!m) {
     return { main: name, parenLine: null };
   }
-  return { main: m[1], parenLine: `(${m[2]})` };
+  return { main: m[1], parenLine: m[2] };
 }

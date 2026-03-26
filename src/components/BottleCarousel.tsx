@@ -8,9 +8,10 @@ import { BLACK } from '@/styles/colors';
 
 import BottleLabelCard from './BottleLabelCard';
 
+const PX_PER_MM = 2.83465;
 const SCALE = 1.5;
-const CARD_W = ((LABEL_BASE_H * SCALE) / 3) * 2;
-const CARD_H = LABEL_BASE_H * SCALE;
+const CARD_W = ((LABEL_BASE_H * PX_PER_MM * SCALE) / 3) * 2;
+const CARD_H = LABEL_BASE_H * PX_PER_MM * SCALE;
 const GAP = 16;
 const SLOT = CARD_W + GAP;
 const REPS = 20;

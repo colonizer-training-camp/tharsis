@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+# Tharsis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for creating, managing, and printing whisky bottle labels.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** with **TypeScript**
+- **Vite** for development and builds
+- **TanStack Router** for file-based routing
+- **Emotion** for CSS-in-JS styling
+- **@react-pdf/renderer** for PDF label generation
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+yarn install
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+| Script          | Description                           |
+| --------------- | ------------------------------------- |
+| `yarn dev`      | Start development server              |
+| `yarn build`    | TypeScript check and production build |
+| `yarn lint`     | Run ESLint                            |
+| `yarn lint:fix` | Auto-fix ESLint issues                |
+| `yarn preview`  | Preview production build              |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## Features
+
+### Print Labels
+
+- **New Bottle** (`/print/bottle/new`) -- Create a custom label by entering bottle details manually or by importing from a Whiskybase URL.
+- **Existing Bottle** (`/print/bottle/existing`) -- Select a bottle from the catalog, search/filter, and print its label.
+
+### Scan Bottles
+
+`/scan/bottle` -- Scan a bottle ID to look it up in the catalog, view its label preview, and print. Maintains a scan history within the session.
+
+### Bottle of the Day
+
+`/bottle-of-the-day` -- Randomly selects a bottle from the catalog with an animated carousel.
+
+### Drink Responsibly
+
+`/drink-responsibly` -- Track alcohol consumption by adding drinks with ABV and volume. Calculates total alcohol content.
+
+## Label Format
+
+Labels are sized at **80mm x 56mm** for thermal label printers. Each label includes:
+
+- Header banner
+- Brand and bottle name
+- Description
+- Labelled date
+- ABV (% vol)
+- Meta information (age, PPM, etc.)
+
+The PDF is generated in portrait orientation with `orientation="landscape"` to match printer defaults.
+
+## Data
+
+Bottle data is stored in `public/bottles.json`. Each bottle has a unique `id` derived from brand and name (lowercase, underscored). The `BottleData` type is defined in `src/routes/print/bottle/-types.ts`.

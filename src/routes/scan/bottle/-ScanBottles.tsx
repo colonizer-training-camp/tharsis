@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { BlobProvider } from '@react-pdf/renderer';
 
@@ -10,9 +10,9 @@ import {
   FieldWithPreviewConatiner,
   PreviewContainer,
   SearchbarContainer,
-  TextInput,
 } from '@/routes/print/-styledComponents';
 import BottleLabelDocument from '@/routes/print/bottle/-BottleLabelDocument';
+import type { BottleData } from '@/routes/print/bottle/-types';
 import { BLACK } from '@/styles/colors';
 import { getToday } from '@/utils/date';
 
@@ -26,7 +26,7 @@ const BottleList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 300px;
+  height: 300px;
   min-width: 280px;
   overflow-y: auto;
   scrollbar-width: none;
@@ -56,8 +56,22 @@ const BottleName = styled.div`
 `;
 
 const EmptyText = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   padding: 8px 12px;
+`;
+
+const ReadyText = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 `;
 
 const Divider = styled.div`
@@ -72,6 +86,16 @@ const PrintRow = styled.div`
   margin-top: 16px;
 `;
 
+const ClearButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-end;
+`;
+
 const PrintButton = styled.button`
   background: none;
   border: none;
@@ -81,25 +105,31 @@ const PrintButton = styled.button`
   padding: 8px 0;
 `;
 
-const ExistingBottles = () => {
+const ScanBottles = () => {
   const bottles = useBottles();
-  const [search, setSearch] = useState('');
-  const [selectedIdx, setSelectedIdx] = useState(0);
-  const [labelledAt, setLabelledAt] = useState(getToday());
+  const [scannedBottles, setScannedBottles] = useState<BottleData[]>([]);
+  const [selectedBottle, setSelectedBottle] = useState<BottleData | null>(null);
+  const [scanInput, setScanInput] = useState('');
+  const [inputFocused, setInputFocused] = useState(false);
+  const scanInputRef = useRef<HTMLInputElement>(null);
 
-  const selected = bottles.length > 0 ? bottles[selectedIdx] : null;
-  const bottle = selected ? { ...selected, labelledAt } : null;
+  const today = getToday();
 
-  const filtered = useMemo(() => {
-    if (!search) return bottles;
-    const q = search.toLowerCase();
-    return bottles.filter(
-      (b) =>
-        b.brand.toLowerCase().includes(q) ||
-        b.name.toLowerCase().includes(q) ||
-        b.description?.toLowerCase().includes(q),
-    );
-  }, [bottles, search]);
+  const handleScanSubmit = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key !== 'Enter') return;
+      const match = bottles.find((b) => b.id === scanInput);
+      if (match) {
+        setScannedBottles((prev) => [match, ...prev]);
+        setSelectedBottle(match);
+      } else {
+        alert(`"${scanInput}" not found`);
+      }
+      setScanInput('');
+      scanInputRef.current?.focus();
+    },
+    [bottles, scanInput],
+  );
 
   const handlePrint = useCallback((url: string | null) => {
     if (!url) return;
@@ -114,44 +144,54 @@ const ExistingBottles = () => {
       <FieldWithPreviewConatiner>
         <ListContainer>
           <Field>
-            <label>{`> SEARCH`}</label>
+            <label>{`> SCAN BOTTLE`}</label>
             <SearchbarContainer
-              type="text"
-              placeholder="SEARCH BOTTLES"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              ref={scanInputRef}
+              value={scanInput}
+              onChange={(e) => setScanInput(e.target.value)}
+              onKeyDown={handleScanSubmit}
+              onFocus={() => setInputFocused(true)}
+              onBlur={() => setInputFocused(false)}
+              placeholder="CLICK TO SCAN"
             />
           </Field>
           <Divider />
           <BottleList>
-            {filtered.map((b) => (
+            {scannedBottles.map((b) => (
               <BottleItem
                 key={`${b.brand}_${b.name}`}
-                $active={selected === b}
-                onClick={() => setSelectedIdx(bottles.indexOf(b))}
+                $active={selectedBottle === b}
+                onClick={() => setSelectedBottle(b)}
               >
                 <BottleBrand>{b.brand}</BottleBrand>
                 <BottleName>{b.name}</BottleName>
               </BottleItem>
             ))}
-            {filtered.length === 0 && <EmptyText>NO RESULTS</EmptyText>}
+            {scannedBottles.length === 0 && <EmptyText>HISTORY NOT FOUND</EmptyText>}
           </BottleList>
           <Divider />
-          <Field>
-            <label htmlFor="labelledAt">{`> LABELLED AT`}</label>
-            <TextInput
-              type="text"
-              name="labelledAt"
-              value={labelledAt}
-              onChange={(e) => setLabelledAt(e.target.value)}
-            />
-          </Field>
+          <ClearButton
+            onClick={() => {
+              setScannedBottles([]);
+              setSelectedBottle(null);
+            }}
+          >
+            {'> CLEAR HISTORY'}
+          </ClearButton>
         </ListContainer>
-        <PreviewContainer>{bottle && <BottleLabelCard bottle={bottle} />}</PreviewContainer>
+        <PreviewContainer>
+          {inputFocused ? (
+            <ReadyText>READY</ReadyText>
+          ) : (
+            selectedBottle && <BottleLabelCard bottle={{ ...selectedBottle, labelledAt: today }} />
+          )}
+        </PreviewContainer>
       </FieldWithPreviewConatiner>
-      {bottle && (
+      {selectedBottle && (
         <PrintRow>
-          <BlobProvider document={<BottleLabelDocument bottle={bottle} />}>
+          <BlobProvider
+            document={<BottleLabelDocument bottle={{ ...selectedBottle, labelledAt: today }} />}
+          >
             {({ url }) => (
               <PrintButton onClick={() => handlePrint(url)}>{'> PRINT LABEL'}</PrintButton>
             )}
@@ -162,4 +202,4 @@ const ExistingBottles = () => {
   );
 };
 
-export default ExistingBottles;
+export default ScanBottles;

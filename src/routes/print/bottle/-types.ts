@@ -1,4 +1,5 @@
 export type BottleData = {
+  id: string;
   brand: string;
   name: string;
   description: string | null;

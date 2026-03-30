@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrintIndexRouteImport } from './routes/print/index'
 import { Route as DrinkResponsiblyIndexRouteImport } from './routes/drink-responsibly/index'
 import { Route as BottleOfTheDayIndexRouteImport } from './routes/bottle-of-the-day/index'
+import { Route as ScanBottleIndexRouteImport } from './routes/scan/bottle/index'
 import { Route as PrintBottleNewIndexRouteImport } from './routes/print/bottle/new/index'
 import { Route as PrintBottleExistingIndexRouteImport } from './routes/print/bottle/existing/index'
 
@@ -36,6 +37,11 @@ const BottleOfTheDayIndexRoute = BottleOfTheDayIndexRouteImport.update({
   path: '/bottle-of-the-day/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScanBottleIndexRoute = ScanBottleIndexRouteImport.update({
+  id: '/scan/bottle/',
+  path: '/scan/bottle/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrintBottleNewIndexRoute = PrintBottleNewIndexRouteImport.update({
   id: '/print/bottle/new/',
   path: '/print/bottle/new/',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/bottle-of-the-day': typeof BottleOfTheDayIndexRoute
   '/drink-responsibly': typeof DrinkResponsiblyIndexRoute
   '/print': typeof PrintIndexRoute
+  '/scan/bottle': typeof ScanBottleIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/bottle-of-the-day': typeof BottleOfTheDayIndexRoute
   '/drink-responsibly': typeof DrinkResponsiblyIndexRoute
   '/print': typeof PrintIndexRoute
+  '/scan/bottle': typeof ScanBottleIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/bottle-of-the-day/': typeof BottleOfTheDayIndexRoute
   '/drink-responsibly/': typeof DrinkResponsiblyIndexRoute
   '/print/': typeof PrintIndexRoute
+  '/scan/bottle/': typeof ScanBottleIndexRoute
   '/print/bottle/existing/': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new/': typeof PrintBottleNewIndexRoute
 }
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/bottle-of-the-day'
     | '/drink-responsibly'
     | '/print'
+    | '/scan/bottle'
     | '/print/bottle/existing'
     | '/print/bottle/new'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/bottle-of-the-day'
     | '/drink-responsibly'
     | '/print'
+    | '/scan/bottle'
     | '/print/bottle/existing'
     | '/print/bottle/new'
   id:
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/bottle-of-the-day/'
     | '/drink-responsibly/'
     | '/print/'
+    | '/scan/bottle/'
     | '/print/bottle/existing/'
     | '/print/bottle/new/'
   fileRoutesById: FileRoutesById
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   BottleOfTheDayIndexRoute: typeof BottleOfTheDayIndexRoute
   DrinkResponsiblyIndexRoute: typeof DrinkResponsiblyIndexRoute
   PrintIndexRoute: typeof PrintIndexRoute
+  ScanBottleIndexRoute: typeof ScanBottleIndexRoute
   PrintBottleExistingIndexRoute: typeof PrintBottleExistingIndexRoute
   PrintBottleNewIndexRoute: typeof PrintBottleNewIndexRoute
 }
@@ -139,6 +152,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BottleOfTheDayIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scan/bottle/': {
+      id: '/scan/bottle/'
+      path: '/scan/bottle'
+      fullPath: '/scan/bottle'
+      preLoaderRoute: typeof ScanBottleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/print/bottle/new/': {
       id: '/print/bottle/new/'
       path: '/print/bottle/new'
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   BottleOfTheDayIndexRoute: BottleOfTheDayIndexRoute,
   DrinkResponsiblyIndexRoute: DrinkResponsiblyIndexRoute,
   PrintIndexRoute: PrintIndexRoute,
+  ScanBottleIndexRoute: ScanBottleIndexRoute,
   PrintBottleExistingIndexRoute: PrintBottleExistingIndexRoute,
   PrintBottleNewIndexRoute: PrintBottleNewIndexRoute,
 }

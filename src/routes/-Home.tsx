@@ -80,6 +80,17 @@ const MENU_LIST: MenuItem[] = [
     ],
   },
   {
+    id: '/scan',
+    name: 'SCAN LABELS',
+    subMenu: [
+      {
+        id: '/bottle',
+        name: 'BOTTLES',
+        redirect: true,
+      },
+    ],
+  },
+  {
     id: '/drink-responsibly',
     name: 'DRINK RESPONSIBLY!',
     redirect: true,

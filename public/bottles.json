@@ -1,5 +1,6 @@
 [
   {
+    "id": "aberfeldy_12_year_old",
     "brand": "Aberfeldy",
     "name": "12-Year-Old",
     "region": "Highland",
@@ -12,6 +13,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/76497/aberfeldy-12-year-old"
   },
   {
+    "id": "amahagan_world_malt_edition_no_3",
     "brand": "Amahagan",
     "name": "World Malt (Edition No.3)",
     "region": "Japan",
@@ -24,6 +26,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/137815/amahagan-world-malt"
   },
   {
+    "id": "ardbeg_smoketrails_cote_rotie_edition",
     "brand": "Ardbeg",
     "name": "Smoketrails (Côte Rôtie Edition)",
     "region": "Islay",
@@ -36,6 +39,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/243552/ardbeg-smoketrails"
   },
   {
+    "id": "ardbeg_smoketrails_napa_valley_edition",
     "brand": "Ardbeg",
     "name": "Smoketrails (Napa Valley Edition)",
     "region": "Islay",
@@ -48,6 +52,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/268864/ardbeg-smoketrails"
   },
   {
+    "id": "ardbeg_15_year_old_anthology",
     "brand": "Ardbeg",
     "name": "15-Year-Old (Anthology)",
     "region": "Islay",
@@ -60,6 +65,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261111/ardbeg-15-year-old"
   },
   {
+    "id": "ardbeg_21_year_old_seann_chreag",
     "brand": "Ardbeg",
     "name": "21-Year-Old (Seann Chreag)",
     "region": "Islay",
@@ -72,6 +78,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261258/ardbeg-21-year-old"
   },
   {
+    "id": "arran_machrie_moor_cask_strength",
     "brand": "Arran",
     "name": "Machrie Moor Cask Strength",
     "region": "Islands",
@@ -84,6 +91,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/192649/machrie-moor-cask-strength"
   },
   {
+    "id": "aultmore_12_year_old_cask_finish_collection",
     "brand": "Aultmore",
     "name": "12-Year-Old (Cask Finish Collection)",
     "region": "Speyside",
@@ -96,6 +104,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261823/aultmore-12-year-old"
   },
   {
+    "id": "aultmore_2003_exceptional_cask_series",
     "brand": "Aultmore",
     "name": "2003 (Exceptional Cask Series)",
     "region": "Speyside",
@@ -108,6 +117,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/270131/aultmore-2003"
   },
   {
+    "id": "balvenie_the_creation_of_a_classic",
     "brand": "Balvenie",
     "name": "The Creation of a Classic",
     "region": "Speyside",
@@ -120,6 +130,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/196735/balvenie-the-creation-of-a-classic"
   },
   {
+    "id": "balvenie_21_year_old",
     "brand": "Balvenie",
     "name": "21-Year-Old",
     "region": "Speyside",
@@ -132,6 +143,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/66120/balvenie-21-year-old"
   },
   {
+    "id": "benriach_2010_trail_tale",
     "brand": "BenRiach",
     "name": "2010 Trail & Tale",
     "region": "Speyside",
@@ -144,6 +156,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/277314/benriach-2010-whna"
   },
   {
+    "id": "benriach_malting_season_second_edition",
     "brand": "BenRiach",
     "name": "Malting Season (Second Edition)",
     "region": "Speyside",
@@ -156,6 +169,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/217155/benriach-malting-season"
   },
   {
+    "id": "benriach_25_year_old",
     "brand": "BenRiach",
     "name": "25-Year-Old",
     "region": "Speyside",
@@ -168,6 +182,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/252158/benriach-25-year-old"
   },
   {
+    "id": "bladnoch_alinta_reserve",
     "brand": "Bladnoch",
     "name": "Alinta Reserve",
     "region": "Lowlands",
@@ -180,6 +195,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/241842/bladnoch-alinta-reserve"
   },
   {
+    "id": "bladnoch_dragon_series_iteration_iv",
     "brand": "Bladnoch",
     "name": "Dragon Series Iteration IV",
     "region": "Lowlands",
@@ -192,6 +208,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/232203/bladnoch-iteration-iv-the-ageing"
   },
   {
+    "id": "bladnoch_2001",
     "brand": "Bladnoch",
     "name": "2001",
     "region": "Lowlands",
@@ -204,6 +221,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/231170/bladnoch-2001"
   },
   {
+    "id": "bladnoch_2009_korean_exclusive_single_cask",
     "brand": "Bladnoch",
     "name": "2009 (Korean Exclusive Single Cask)",
     "region": "Lowlands",
@@ -216,6 +234,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/295865/bladnoch-2009"
   },
   {
+    "id": "bowmore_16_year_old",
     "brand": "Bowmore",
     "name": "16-Year-Old",
     "region": "Islay",
@@ -228,6 +247,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/266342/bowmore-16-year-old"
   },
   {
+    "id": "bowmore_18_year_old",
     "brand": "Bowmore",
     "name": "18-Year-Old",
     "region": "Islay",
@@ -240,6 +260,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/102207/bowmore-18-year-old"
   },
   {
+    "id": "bowmore_18_year_old_deep_complex",
     "brand": "Bowmore",
     "name": "18-Year-Old Deep & Complex",
     "region": "Islay",
@@ -252,6 +273,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/94218/bowmore-18-year-old"
   },
   {
+    "id": "bowmore_19_year_old",
     "brand": "Bowmore",
     "name": "19-Year-Old",
     "region": "Islay",
@@ -264,6 +286,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/264965/bowmore-19-year-old"
   },
   {
+    "id": "bowmore_22_year_old",
     "brand": "Bowmore",
     "name": "22-Year-Old",
     "region": "Islay",
@@ -276,6 +299,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/268053/bowmore-22-year-old"
   },
   {
+    "id": "chivas_regal_18_year_old",
     "brand": "Chivas Regal",
     "name": "18-Year-Old",
     "region": "Scotland",
@@ -288,6 +312,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/154954/chivas-regal-18-year-old"
   },
   {
+    "id": "deanston_18_year_old",
     "brand": "Deanston",
     "name": "18-Year-Old",
     "region": "Highland",
@@ -300,6 +325,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/128399/deanston-18-year-old"
   },
   {
+    "id": "deanston_2009_mbl_the_maltman",
     "brand": "Deanston",
     "name": "2009 MBl (The Maltman)",
     "region": "Highland",
@@ -312,6 +338,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/279160/deanston-2009-mbl"
   },
   {
+    "id": "douglas_laing_big_peat_small_batch",
     "brand": "Douglas Laing",
     "name": "Big Peat (Small Batch)",
     "region": "Islay",
@@ -324,6 +351,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/228618/big-peat-small-batch-dl"
   },
   {
+    "id": "glen_elgin_whisky_navi_2022_03_ink_wash_drawing_series",
     "brand": "Glen Elgin (Whisky NAVI)",
     "name": "2022#03 (Ink-Wash drawing Series)",
     "region": "Speyside",
@@ -336,6 +364,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/223869/glen-elgin-2010-whna"
   },
   {
+    "id": "glen_garioch_2003_hi_maggie_s_collection",
     "brand": "Glen Garioch",
     "name": "2003 (HI - Maggie's Collection)",
     "region": "Highland",
@@ -348,6 +377,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/274722/glen-garioch-2003-hi"
   },
   {
+    "id": "glendronach_16_year_old",
     "brand": "Glendronach",
     "name": "16-Year-Old",
     "region": "Highland",
@@ -360,6 +390,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/126239/glendronach-16-year-old"
   },
   {
+    "id": "glendronach_21_year_old_parliament",
     "brand": "Glendronach",
     "name": "21-Year-Old (Parliament)",
     "region": "Highland",
@@ -372,6 +403,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/53238/glendronach-21-year-old"
   },
   {
+    "id": "glendronach_ode_to_the_dark",
     "brand": "Glendronach",
     "name": "Ode to the Dark",
     "region": "Highlands",
@@ -384,6 +416,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265630/glendronach-ode-to-the-dark"
   },
   {
+    "id": "glendronach_ode_to_the_embers",
     "brand": "Glendronach",
     "name": "Ode to the Embers",
     "region": "Highlands",
@@ -396,6 +429,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265628/glendronach-ode-to-the-embers"
   },
   {
+    "id": "glendronach_ode_to_the_valley",
     "brand": "Glendronach",
     "name": "Ode to the Valley",
     "region": "Highlands",
@@ -408,6 +442,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/265629/glendronach-ode-to-the-valley"
   },
   {
+    "id": "glenfiddich_18_year_old_small_batch_reserve",
     "brand": "Glenfiddich",
     "name": "18-Year-Old (Small Batch Reserve)",
     "region": "Speyside",
@@ -420,6 +455,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/216333/glenfiddich-18-year-old"
   },
   {
+    "id": "glenrothes_1992_the_taster",
     "brand": "Glenrothes",
     "name": "1992 The Taster",
     "region": "Speyside",
@@ -432,6 +468,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/256580/glenrothes-1992-scms"
   },
   {
+    "id": "hakushu_japanese_forest_bittersweet_edition",
     "brand": "Hakushu",
     "name": "Japanese Forest (Bittersweet Edition)",
     "region": "Japan",
@@ -444,6 +481,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/239789/hakushu-japanese-forest"
   },
   {
+    "id": "highland_park_18_year_old",
     "brand": "Highland Park",
     "name": "18-Year-Old",
     "region": "Islands",
@@ -456,6 +494,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/173860/highland-park-18-year-old"
   },
   {
+    "id": "johnnie_walker_blue_label",
     "brand": "Johnnie Walker",
     "name": "Blue Label",
     "region": "Scotland",
@@ -468,6 +507,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/51152/johnnie-walker-blue-label"
   },
   {
+    "id": "johnnie_walker_blue_label_xordinaire",
     "brand": "Johnnie Walker",
     "name": "Blue Label (Xordinaire)",
     "region": "Scotland",
@@ -480,6 +520,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/238848/johnnie-walker-blue-label"
   },
   {
+    "id": "longmorn_18_year_old_2023_release",
     "brand": "Longmorn",
     "name": "18-Year-Old (2023 Release)",
     "region": "Speyside",
@@ -492,6 +533,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/246443/longmorn-18-year-old"
   },
   {
+    "id": "octomore_15_1",
     "brand": "Octomore",
     "name": "15.1",
     "region": "Islay",
@@ -504,6 +546,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237367/octomore-151-1082-ppm"
   },
   {
+    "id": "octomore_15_2",
     "brand": "Octomore",
     "name": "15.2",
     "region": "Islay",
@@ -516,6 +559,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237368/octomore-152-1082-ppm"
   },
   {
+    "id": "octomore_15_3",
     "brand": "Octomore",
     "name": "15.3",
     "region": "Islay",
@@ -528,6 +572,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/237364/octomore-153-3072-ppm"
   },
   {
+    "id": "octomore_16_1",
     "brand": "Octomore",
     "name": "16.1",
     "region": "Islay",
@@ -540,6 +585,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261417/octomore-edition-161-1014-ppm"
   },
   {
+    "id": "octomore_16_2",
     "brand": "Octomore",
     "name": "16.2",
     "region": "Islay",
@@ -552,6 +598,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261416/octomore-edition-162-1014-ppm"
   },
   {
+    "id": "octomore_16_3",
     "brand": "Octomore",
     "name": "16.3",
     "region": "Islay",
@@ -564,6 +611,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/261415/octomore-edition-163-1895-ppm"
   },
   {
+    "id": "royal_brackla_21_year_old",
     "brand": "Royal Brackla",
     "name": "21-Year-Old",
     "region": "Highland",
@@ -576,6 +624,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/185644/royal-brackla-21-year-old"
   },
   {
+    "id": "talisker_25_year_old",
     "brand": "Talisker",
     "name": "25-Year-Old",
     "region": "Islands",
@@ -588,6 +637,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/68996/talisker-25-year-old"
   },
   {
+    "id": "talisker_surge",
     "brand": "Talisker",
     "name": "Surge",
     "region": "Islands",
@@ -600,6 +650,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/215093/talisker-surge"
   },
   {
+    "id": "tamdhu_gran_reserva_batch_4",
     "brand": "Tamdhu",
     "name": "Gran Reserva (Batch 4)",
     "region": "Speyside",
@@ -612,6 +663,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/260791/tamdhu-gran-reserva"
   },
   {
+    "id": "yamazaki_smoky_batch_the_third",
     "brand": "Yamazaki",
     "name": "Smoky Batch (The Third)",
     "region": "Japan",
@@ -624,6 +676,7 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/276074/yamazaki-smoky-batch"
   },
   {
+    "id": "chabot_30_year_old",
     "brand": "Chabot",
     "name": "30-Year-Old",
     "abv": "40",
@@ -632,6 +685,7 @@
     "description": "Armagnac"
   },
   {
+    "id": "henessy_x_x_o",
     "brand": "Henessy",
     "name": "X.X.O",
     "abv": "40",
@@ -640,6 +694,7 @@
     "description": ""
   },
   {
+    "id": "jean_fillioux_reserve_familiale",
     "brand": "Jean Fillioux",
     "name": "Réserve Familiale",
     "abv": "40",
@@ -648,6 +703,7 @@
     "description": "Cognac Grand Champagne"
   },
   {
+    "id": "samda_eco_no_label",
     "brand": "Samda",
     "name": "Eco - No Label",
     "abv": "00.0",
@@ -656,6 +712,7 @@
     "description": "ZERO PROOF"
   },
   {
+    "id": "chungnam_mill_sesame_oil",
     "brand": "Chungnam Mill",
     "name": "SESAME OIL",
     "abv": "00.0",

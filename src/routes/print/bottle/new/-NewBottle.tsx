@@ -31,7 +31,15 @@ const NewBottle = () => {
   const [meta, setMeta] = useState('YRS');
   const [metaValue, setMetaValue] = useState('');
 
+  const id = `${brand}_${name}`
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_|_$/g, '');
+
   const bottle = {
+    id,
     brand,
     name,
     description,

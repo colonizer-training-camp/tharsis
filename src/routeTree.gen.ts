@@ -50,11 +50,11 @@ const PrintBottleExistingIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/bottle-of-the-day/': typeof BottleOfTheDayIndexRoute
-  '/drink-responsibly/': typeof DrinkResponsiblyIndexRoute
-  '/print/': typeof PrintIndexRoute
-  '/print/bottle/existing/': typeof PrintBottleExistingIndexRoute
-  '/print/bottle/new/': typeof PrintBottleNewIndexRoute
+  '/bottle-of-the-day': typeof BottleOfTheDayIndexRoute
+  '/drink-responsibly': typeof DrinkResponsiblyIndexRoute
+  '/print': typeof PrintIndexRoute
+  '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
+  '/print/bottle/new': typeof PrintBottleNewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -77,11 +77,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/bottle-of-the-day/'
-    | '/drink-responsibly/'
-    | '/print/'
-    | '/print/bottle/existing/'
-    | '/print/bottle/new/'
+    | '/bottle-of-the-day'
+    | '/drink-responsibly'
+    | '/print'
+    | '/print/bottle/existing'
+    | '/print/bottle/new'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -121,35 +121,35 @@ declare module '@tanstack/react-router' {
     '/print/': {
       id: '/print/'
       path: '/print'
-      fullPath: '/print/'
+      fullPath: '/print'
       preLoaderRoute: typeof PrintIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/drink-responsibly/': {
       id: '/drink-responsibly/'
       path: '/drink-responsibly'
-      fullPath: '/drink-responsibly/'
+      fullPath: '/drink-responsibly'
       preLoaderRoute: typeof DrinkResponsiblyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/bottle-of-the-day/': {
       id: '/bottle-of-the-day/'
       path: '/bottle-of-the-day'
-      fullPath: '/bottle-of-the-day/'
+      fullPath: '/bottle-of-the-day'
       preLoaderRoute: typeof BottleOfTheDayIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/print/bottle/new/': {
       id: '/print/bottle/new/'
       path: '/print/bottle/new'
-      fullPath: '/print/bottle/new/'
+      fullPath: '/print/bottle/new'
       preLoaderRoute: typeof PrintBottleNewIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/print/bottle/existing/': {
       id: '/print/bottle/existing/'
       path: '/print/bottle/existing'
-      fullPath: '/print/bottle/existing/'
+      fullPath: '/print/bottle/existing'
       preLoaderRoute: typeof PrintBottleExistingIndexRouteImport
       parentRoute: typeof rootRouteImport
     }

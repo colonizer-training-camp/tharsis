@@ -182,6 +182,18 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/252158/benriach-25-year-old"
   },
   {
+    "id": "benriach_1998_cask_edition",
+    "brand": "BenRiach",
+    "name": "Cask Edition",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "56.1",
+    "meta": "YRS",
+    "metaValue": "25",
+    "notes": "Selected by Master Blender Rachel Barrie, each Cask Edition is drawn from a single cask, chosen for exceptional taste and character.",
+    "description": "1998 Vintage Cask No. 5682"
+  },
+  {
     "id": "bladnoch_alinta_reserve",
     "brand": "Bladnoch",
     "name": "Alinta Reserve",

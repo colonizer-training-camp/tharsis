@@ -545,6 +545,19 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/246443/longmorn-18-year-old"
   },
   {
+    "id": "macallan_terra",
+    "brand": "Macallan",
+    "name": "Terra",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "43.8",
+    "meta": "YRS",
+    "metaValue": "-",
+    "notes": "1st Fill European & American Sherry Oak Casks",
+    "description": null,
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/102233/macallan-terra"
+  },
+  {
     "id": "octomore_15_1",
     "brand": "Octomore",
     "name": "15.1",

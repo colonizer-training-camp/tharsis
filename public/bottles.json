@@ -688,6 +688,15 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/276074/yamazaki-smoky-batch"
   },
   {
+    "id": "camus_carafe_baccarat",
+    "brand": "Camus",
+    "name": "CARAFE BACCARAT",
+    "abv": "40",
+    "meta": "YRS",
+    "metaValue": "-",
+    "description": "Cognac"
+  },
+  {
     "id": "chabot_30_year_old",
     "brand": "Chabot",
     "name": "30-Year-Old",

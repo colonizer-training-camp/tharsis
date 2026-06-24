@@ -705,18 +705,18 @@
     "brand": "Camus",
     "name": "CARAFE BACCARAT",
     "abv": "40",
-    "meta": "YRS",
+    "meta": "Âge",
     "metaValue": "-",
-    "description": "Cognac"
+    "description": ""
   },
   {
     "id": "chabot_30_year_old",
     "brand": "Chabot",
     "name": "30-Year-Old",
     "abv": "40",
-    "meta": "YRS",
+    "meta": "Âge",
     "metaValue": "30",
-    "description": "Armagnac"
+    "description": ""
   },
   {
     "id": "henessy_x_x_o",

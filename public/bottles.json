@@ -545,6 +545,19 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/246443/longmorn-18-year-old"
   },
   {
+    "id": "knockdhu_2013_mbl_the_maltman",
+    "brand": "Knockdhu",
+    "name": "2013 MBl (The Maltman)",
+    "region": "Speyside",
+    "type": "Single Malt",
+    "abv": "55.3",
+    "meta": "YRS",
+    "metaValue": "12",
+    "notes": "Store pick; bottled 2025 by Meadowside Blending (The Maltman)",
+    "description": null,
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/279160/deanston-2009-mbl"
+  },
+  {
     "id": "macallan_terra",
     "brand": "Macallan",
     "name": "Terra",

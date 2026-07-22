@@ -389,6 +389,19 @@
     "whiskybase": "https://www.whiskybase.com/whiskies/whisky/274722/glen-garioch-2003-hi"
   },
   {
+    "id": "glen_garioch_15_yo",
+    "brand": "Glen Garioch",
+    "name": "15-Years-Old",
+    "region": "Highland",
+    "type": "Single Malt",
+    "abv": "53.7",
+    "meta": "YRS",
+    "metaValue": "15",
+    "notes": "Full Oloroso Sherry Casks",
+    "description": "Single Cask",
+    "whiskybase": "https://www.whiskybase.com/whiskies/whisky/72508/glen-garioch-15-year-old"
+  },
+  {
     "id": "glendronach_16_year_old",
     "brand": "Glendronach",
     "name": "16-Year-Old",
@@ -548,7 +561,7 @@
     "id": "knockdhu_2013_mbl_the_maltman",
     "brand": "Knockdhu",
     "name": "2013 MBl (The Maltman)",
-    "region": "Speyside",
+    "region": "Highland",
     "type": "Single Malt",
     "abv": "55.3",
     "meta": "YRS",

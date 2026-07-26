@@ -754,12 +754,30 @@
     "description": ""
   },
   {
+    "id": "jean_fillioux_no_1",
+    "brand": "Jean Fillioux",
+    "name": "N°1",
+    "abv": "46",
+    "meta": "Âge",
+    "metaValue": "Hors d'âge",
+    "description": "Cognac Grand Champagne"
+  },
+  {
     "id": "jean_fillioux_reserve_familiale",
     "brand": "Jean Fillioux",
     "name": "Réserve Familiale",
     "abv": "40",
     "meta": "Âge",
     "metaValue": "XO",
+    "description": "Cognac Grand Champagne"
+  },
+  {
+    "id": "jean_fillioux_la_bell_epoque",
+    "brand": "Jean Fillioux",
+    "name": "La Belle Époque",
+    "abv": "42",
+    "meta": "Âge",
+    "metaValue": "Hors d'âge",
     "description": "Cognac Grand Champagne"
   },
   {

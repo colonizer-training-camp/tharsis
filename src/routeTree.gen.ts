@@ -14,6 +14,7 @@ import { Route as PrintIndexRouteImport } from './routes/print/index'
 import { Route as DrinkResponsiblyIndexRouteImport } from './routes/drink-responsibly/index'
 import { Route as BottleOfTheDayIndexRouteImport } from './routes/bottle-of-the-day/index'
 import { Route as ScanBottleIndexRouteImport } from './routes/scan/bottle/index'
+import { Route as PrintVialNewIndexRouteImport } from './routes/print/vial/new/index'
 import { Route as PrintBottleNewIndexRouteImport } from './routes/print/bottle/new/index'
 import { Route as PrintBottleExistingIndexRouteImport } from './routes/print/bottle/existing/index'
 
@@ -42,6 +43,11 @@ const ScanBottleIndexRoute = ScanBottleIndexRouteImport.update({
   path: '/scan/bottle/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrintVialNewIndexRoute = PrintVialNewIndexRouteImport.update({
+  id: '/print/vial/new/',
+  path: '/print/vial/new/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrintBottleNewIndexRoute = PrintBottleNewIndexRouteImport.update({
   id: '/print/bottle/new/',
   path: '/print/bottle/new/',
@@ -62,6 +68,7 @@ export interface FileRoutesByFullPath {
   '/scan/bottle': typeof ScanBottleIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
+  '/print/vial/new': typeof PrintVialNewIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByTo {
   '/scan/bottle': typeof ScanBottleIndexRoute
   '/print/bottle/existing': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new': typeof PrintBottleNewIndexRoute
+  '/print/vial/new': typeof PrintVialNewIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -81,6 +89,7 @@ export interface FileRoutesById {
   '/scan/bottle/': typeof ScanBottleIndexRoute
   '/print/bottle/existing/': typeof PrintBottleExistingIndexRoute
   '/print/bottle/new/': typeof PrintBottleNewIndexRoute
+  '/print/vial/new/': typeof PrintVialNewIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -92,6 +101,7 @@ export interface FileRouteTypes {
     | '/scan/bottle'
     | '/print/bottle/existing'
     | '/print/bottle/new'
+    | '/print/vial/new'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -101,6 +111,7 @@ export interface FileRouteTypes {
     | '/scan/bottle'
     | '/print/bottle/existing'
     | '/print/bottle/new'
+    | '/print/vial/new'
   id:
     | '__root__'
     | '/'
@@ -110,6 +121,7 @@ export interface FileRouteTypes {
     | '/scan/bottle/'
     | '/print/bottle/existing/'
     | '/print/bottle/new/'
+    | '/print/vial/new/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -120,6 +132,7 @@ export interface RootRouteChildren {
   ScanBottleIndexRoute: typeof ScanBottleIndexRoute
   PrintBottleExistingIndexRoute: typeof PrintBottleExistingIndexRoute
   PrintBottleNewIndexRoute: typeof PrintBottleNewIndexRoute
+  PrintVialNewIndexRoute: typeof PrintVialNewIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -159,6 +172,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ScanBottleIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/print/vial/new/': {
+      id: '/print/vial/new/'
+      path: '/print/vial/new'
+      fullPath: '/print/vial/new'
+      preLoaderRoute: typeof PrintVialNewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/print/bottle/new/': {
       id: '/print/bottle/new/'
       path: '/print/bottle/new'
@@ -184,6 +204,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScanBottleIndexRoute: ScanBottleIndexRoute,
   PrintBottleExistingIndexRoute: PrintBottleExistingIndexRoute,
   PrintBottleNewIndexRoute: PrintBottleNewIndexRoute,
+  PrintVialNewIndexRoute: PrintVialNewIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -77,6 +77,17 @@ const MENU_LIST: MenuItem[] = [
           },
         ],
       },
+      {
+        id: '/vial',
+        name: 'VIAL BOX',
+        subMenu: [
+          {
+            id: '/new',
+            name: 'NEW VIAL BOX',
+            redirect: true,
+          },
+        ],
+      },
     ],
   },
   {

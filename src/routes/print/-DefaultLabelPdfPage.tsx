@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
 const DefaultLabelPdfPage = ({ children, ...rest }: PropsWithChildren<PageProps>) => {
   return (
-    <Page {...rest} size={[LABEL_BASE_H, LABEL_BASE_W]} orientation="landscape" style={styles.page}>
+    <Page size={[LABEL_BASE_H, LABEL_BASE_W]} orientation="landscape" {...rest} style={styles.page}>
       {children}
     </Page>
   );

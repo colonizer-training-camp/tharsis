@@ -2,7 +2,8 @@ export type VialData = {
   brand: string;
   name: string;
   abv: string;
-  ppm: string;
+  meta: string;
+  metaValue: string;
 };
 
 export type VialBox = {

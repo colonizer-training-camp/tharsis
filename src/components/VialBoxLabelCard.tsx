@@ -19,7 +19,7 @@ const SCALE = 1.5;
 const CARD_WIDTH = VIAL_LABEL_BASE_W * SCALE;
 const CARD_HEIGHT = VIAL_LABEL_BASE_H * SCALE;
 
-const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.ppm;
+const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.metaValue;
 
 const VialBoxLabelCard = ({ vialBox }: { vialBox: VialBox }) => {
   const { vials, labeledAt } = vialBox;
@@ -50,8 +50,8 @@ const VialBoxLabelCard = ({ vialBox }: { vialBox: VialBox }) => {
                     <Value>{vial.abv}</Value>
                   </ValueColumn>
                   <ValueColumn>
-                    <ValueLabel>PPM</ValueLabel>
-                    <Value>{vial.ppm}</Value>
+                    <ValueLabel>{vial.meta}</ValueLabel>
+                    <Value>{vial.metaValue}</Value>
                   </ValueColumn>
                 </ValuesRow>
               </>

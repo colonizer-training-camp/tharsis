@@ -20,7 +20,7 @@ import type { VialData } from '@/routes/print/vial/-types';
 import VialBoxLabelDocument from '@/routes/print/vial/-VialBoxLabelDocument';
 import { getToday } from '@/utils/date';
 
-const EMPTY_VIAL: VialData = { brand: '', name: '', abv: '', ppm: '' };
+const EMPTY_VIAL: VialData = { brand: '', name: '', abv: '', meta: 'PPM', metaValue: '' };
 
 const NewVialBox = () => {
   const now = getToday();
@@ -45,7 +45,8 @@ const NewVialBox = () => {
         brand: bottle.brand,
         name: bottle.name,
         abv: bottle.abv,
-        ppm: bottle.meta.toUpperCase() === 'PPM' ? bottle.metaValue : '',
+        meta: bottle.meta,
+        metaValue: bottle.metaValue,
       });
     },
     [bottles, updateVial],
@@ -125,12 +126,22 @@ const NewVialBox = () => {
               </Field>
               <Space h={32} />
               <Field>
-                <label htmlFor={`ppm-${index}`}>{`> PPM`}</label>
+                <label htmlFor={`meta-${index}`}>{`> META`}</label>
                 <TextInput
                   type="text"
-                  name={`ppm-${index}`}
-                  value={vial.ppm}
-                  onChange={(e) => updateVial(index, { ppm: e.target.value })}
+                  name={`meta-${index}`}
+                  value={vial.meta}
+                  onChange={(e) => updateVial(index, { meta: e.target.value })}
+                />
+              </Field>
+              <Space h={32} />
+              <Field>
+                <label htmlFor={`metaValue-${index}`}>{`> META VALUE`}</label>
+                <TextInput
+                  type="text"
+                  name={`metaValue-${index}`}
+                  value={vial.metaValue}
+                  onChange={(e) => updateVial(index, { metaValue: e.target.value })}
                 />
               </Field>
             </VialSlot>

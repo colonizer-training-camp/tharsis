@@ -132,7 +132,7 @@ const pdfStyles = StyleSheet.create({
   } as const,
 });
 
-const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.ppm;
+const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.metaValue;
 
 const VialColumn = ({ vial, index, count }: { vial: VialData; index: number; count: number }) => {
   const style = [
@@ -153,8 +153,8 @@ const VialColumn = ({ vial, index, count }: { vial: VialData; index: number; cou
               <Text style={pdfStyles.value}>{vial.abv}</Text>
             </View>
             <View style={pdfStyles.valueColumn}>
-              <Text style={pdfStyles.valueLabel}>PPM</Text>
-              <Text style={pdfStyles.value}>{vial.ppm}</Text>
+              <Text style={pdfStyles.valueLabel}>{vial.meta}</Text>
+              <Text style={pdfStyles.value}>{vial.metaValue}</Text>
             </View>
           </View>
         </>

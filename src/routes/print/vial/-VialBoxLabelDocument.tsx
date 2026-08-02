@@ -18,7 +18,7 @@ import { fitCellFontSize } from '@/utils/labelFormat';
 import type { VialBox, VialData } from './-types';
 
 // Characters that fit in a half-column value cell at the base font sizes below.
-const META_LABEL_MAX_LEN = 7;
+const META_LABEL_MAX_LEN = 6;
 const META_VALUE_MAX_LEN = 5;
 
 Font.registerHyphenationCallback((word) => [word]);
@@ -26,7 +26,7 @@ Font.registerHyphenationCallback((word) => [word]);
 const pdfStyles = StyleSheet.create({
   container: {
     height: '100%',
-    padding: 16,
+    padding: '16 32',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'Helvetica-Bold',
@@ -40,25 +40,25 @@ const pdfStyles = StyleSheet.create({
   banner: {
     backgroundColor: '#000000',
     color: '#ffffff',
-    fontSize: 6,
-    padding: '1.5 4',
+    fontSize: 5,
+    padding: '1.5 3',
   },
   bannerSerif: {
     fontFamily: 'Times-Italic',
-    fontSize: 5.5,
+    fontSize: 4.5,
   },
   labeledSection: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    gap: 6,
+    gap: 5,
     marginBottom: 1,
   },
   labeledLabel: {
-    fontSize: 5.5,
+    fontSize: 5,
   },
   labeledDate: {
-    fontSize: 8,
+    fontSize: 7,
     lineHeight: 0.85,
   },
   vialsRow: {
@@ -84,12 +84,12 @@ const pdfStyles = StyleSheet.create({
     borderRightColor: '#000000',
   },
   brand: {
-    fontSize: 5.5,
+    fontSize: 5,
     maxLines: 1,
     textOverflow: 'ellipsis',
   } as const,
   name: {
-    fontSize: 9,
+    fontSize: 7.5,
     lineHeight: 1.15,
     marginTop: 2,
   },
@@ -102,12 +102,13 @@ const pdfStyles = StyleSheet.create({
     width: '50%',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   valueLabel: {
-    fontSize: 5.5,
+    fontSize: 5,
   },
   value: {
-    fontSize: 9,
+    fontSize: 8,
     lineHeight: 1,
     marginTop: 2,
     maxLines: 1,
@@ -121,7 +122,7 @@ const pdfStyles = StyleSheet.create({
     marginTop: 2,
   },
   instructions: {
-    fontSize: 5.5,
+    fontSize: 4.5,
     lineHeight: 1.45,
   },
   thisSideUp: {
@@ -131,7 +132,7 @@ const pdfStyles = StyleSheet.create({
     gap: 2,
   },
   thisSideUpText: {
-    fontSize: 5.5,
+    fontSize: 4.5,
     lineHeight: 1.1,
     textAlign: 'right',
   } as const,
@@ -161,7 +162,7 @@ const VialColumn = ({ vial, index, count }: { vial: VialData; index: number; cou
               <Text
                 style={[
                   pdfStyles.valueLabel,
-                  { fontSize: fitCellFontSize(5.5, META_LABEL_MAX_LEN, vial.meta) },
+                  { fontSize: fitCellFontSize(5, META_LABEL_MAX_LEN, vial.meta) },
                 ]}
               >
                 {vial.meta}
@@ -169,7 +170,7 @@ const VialColumn = ({ vial, index, count }: { vial: VialData; index: number; cou
               <Text
                 style={[
                   pdfStyles.value,
-                  { fontSize: fitCellFontSize(9, META_VALUE_MAX_LEN, vial.metaValue) },
+                  { fontSize: fitCellFontSize(8, META_VALUE_MAX_LEN, vial.metaValue) },
                 ]}
               >
                 {vial.metaValue}

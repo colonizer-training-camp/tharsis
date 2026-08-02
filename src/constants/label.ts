@@ -22,5 +22,5 @@ export const VIAL_CARE_INSTRUCTIONS = [
 // "THIS SIDE UP" arrow: the left half of an upward arrow, cut along its vertical center line.
 export const VIAL_ARROW_VIEWBOX = '0 0 24 96';
 export const VIAL_ARROW_POLYGONS = ['24,0 24,96 14,96 14,64 0,64'];
-export const VIAL_ARROW_W = 9.6;
-export const VIAL_ARROW_H = 38.4;
+export const VIAL_ARROW_W = 8.5;
+export const VIAL_ARROW_H = 34;

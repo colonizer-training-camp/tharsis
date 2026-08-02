@@ -14,10 +14,15 @@ import {
 } from '@/constants/label';
 import type { VialBox, VialData } from '@/routes/print/vial/-types';
 import { BLACK, GREY, WHITE } from '@/styles/colors';
+import { fitCellFontSize } from '@/utils/labelFormat';
 
 const SCALE = 1.5;
 const CARD_WIDTH = VIAL_LABEL_BASE_W * SCALE;
 const CARD_HEIGHT = VIAL_LABEL_BASE_H * SCALE;
+
+// Characters that fit in a half-column value cell at the base font sizes below.
+const META_LABEL_MAX_LEN = 8;
+const META_VALUE_MAX_LEN = 5;
 
 const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.metaValue;
 
@@ -46,12 +51,16 @@ const VialBoxLabelCard = ({ vialBox }: { vialBox: VialBox }) => {
                 <Name>{vial.name}</Name>
                 <ValuesRow>
                   <ValueColumn>
-                    <ValueLabel>%VOL</ValueLabel>
-                    <Value>{vial.abv}</Value>
+                    <ValueLabel $size={5.5}>%VOL</ValueLabel>
+                    <Value $size={9}>{vial.abv}</Value>
                   </ValueColumn>
                   <ValueColumn>
-                    <ValueLabel>{vial.meta}</ValueLabel>
-                    <Value>{vial.metaValue}</Value>
+                    <ValueLabel $size={fitCellFontSize(5.5, META_LABEL_MAX_LEN, vial.meta)}>
+                      {vial.meta}
+                    </ValueLabel>
+                    <Value $size={fitCellFontSize(9, META_VALUE_MAX_LEN, vial.metaValue)}>
+                      {vial.metaValue}
+                    </Value>
                   </ValueColumn>
                 </ValuesRow>
               </>
@@ -87,7 +96,7 @@ export default VialBoxLabelCard;
 const Card = styled.div`
   width: ${CARD_WIDTH}px;
   height: ${CARD_HEIGHT}px;
-  padding: ${10 * SCALE}px ${7 * SCALE}px ${7 * SCALE}px;
+  padding: ${16 * SCALE}px;
   display: flex;
   flex-direction: column;
   background-color: ${WHITE};
@@ -108,7 +117,7 @@ const HeaderRow = styled.div`
 const Banner = styled.div`
   background-color: ${BLACK};
   color: ${WHITE};
-  font-size: ${6.5 * SCALE}px;
+  font-size: ${6 * SCALE}px;
   padding: ${1.5 * SCALE}px ${4 * SCALE}px;
   white-space: nowrap;
 `;
@@ -117,7 +126,7 @@ const BannerSerif = styled.span`
   font-family: 'Times New Roman', Georgia, serif;
   font-style: italic;
   font-weight: normal;
-  font-size: ${6 * SCALE}px;
+  font-size: ${5.5 * SCALE}px;
   white-space: pre;
 `;
 
@@ -132,11 +141,11 @@ const LabeledSection = styled.div`
 `;
 
 const LabeledLabel = styled.div`
-  font-size: ${6 * SCALE}px;
+  font-size: ${5.5 * SCALE}px;
 `;
 
 const LabeledDate = styled.div`
-  font-size: ${8.5 * SCALE}px;
+  font-size: ${8 * SCALE}px;
   line-height: 0.85;
 `;
 
@@ -144,7 +153,7 @@ const VialsRow = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
-  margin-top: ${10 * SCALE}px;
+  margin-top: ${9 * SCALE}px;
 `;
 
 const VialColumn = styled.div`
@@ -167,14 +176,14 @@ const VialColumn = styled.div`
 `;
 
 const Brand = styled.div`
-  font-size: ${6 * SCALE}px;
+  font-size: ${5.5 * SCALE}px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
 const Name = styled.div`
-  font-size: ${9.5 * SCALE}px;
+  font-size: ${8.5 * SCALE}px;
   line-height: 1.15;
   margin-top: ${2 * SCALE}px;
   white-space: normal;
@@ -194,16 +203,15 @@ const ValueColumn = styled.div`
   flex-direction: column;
 `;
 
-const ValueLabel = styled.div`
-  font-size: ${6 * SCALE}px;
+const ValueLabel = styled.div<{ $size: number }>`
+  font-size: ${(props) => props.$size * SCALE}px;
+  white-space: nowrap;
 `;
 
-const Value = styled.div`
-  font-size: ${10 * SCALE}px;
+const Value = styled.div<{ $size: number }>`
+  font-size: ${(props) => props.$size * SCALE}px;
   line-height: 1;
   margin-top: ${2 * SCALE}px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
@@ -216,7 +224,7 @@ const BottomSection = styled.div`
 `;
 
 const Instructions = styled.div`
-  font-size: ${6 * SCALE}px;
+  font-size: ${5.5 * SCALE}px;
   line-height: 1.45;
 `;
 
@@ -228,7 +236,7 @@ const ThisSideUp = styled.div`
 `;
 
 const ThisSideUpText = styled.div`
-  font-size: ${6 * SCALE}px;
+  font-size: ${5.5 * SCALE}px;
   line-height: 1.1;
   text-align: right;
 `;

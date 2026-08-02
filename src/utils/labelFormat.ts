@@ -18,6 +18,15 @@ export function parseAbvParts(s: string): AbvDisplay {
   };
 }
 
+/**
+ * Shrink a cell font so text longer than maxLen fits on one line instead of truncating.
+ * maxLen is the character count that fits at the base size; clamped to stay legible.
+ */
+export function fitCellFontSize(base: number, maxLen: number, text: string): number {
+  if (text.length <= maxLen) return base;
+  return Math.max((base * maxLen) / text.length, 3);
+}
+
 export type NameWithParen = { main: string; parenLine: string | null };
 
 /**

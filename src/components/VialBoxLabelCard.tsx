@@ -21,7 +21,7 @@ const CARD_WIDTH = VIAL_LABEL_BASE_W * SCALE;
 const CARD_HEIGHT = VIAL_LABEL_BASE_H * SCALE;
 
 // Characters that fit in a half-column value cell at the base font sizes below.
-const META_LABEL_MAX_LEN = 8;
+const META_LABEL_MAX_LEN = 7;
 const META_VALUE_MAX_LEN = 5;
 
 const isEmptyVial = (vial: VialData) => !vial.brand && !vial.name && !vial.abv && !vial.metaValue;

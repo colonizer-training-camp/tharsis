@@ -18,7 +18,7 @@ import { fitCellFontSize } from '@/utils/labelFormat';
 import type { VialBox, VialData } from './-types';
 
 // Characters that fit in a half-column value cell at the base font sizes below.
-const META_LABEL_MAX_LEN = 8;
+const META_LABEL_MAX_LEN = 7;
 const META_VALUE_MAX_LEN = 5;
 
 Font.registerHyphenationCallback((word) => [word]);
